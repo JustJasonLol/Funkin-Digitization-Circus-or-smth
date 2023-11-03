@@ -222,7 +222,7 @@ class MainMenuState extends MusicBeatState
 				FlxFlicker.flicker(spr, 1, 0.06, false, false, function(_){
 					switch(sideShit[who.ID]){
 						case "credits":
-							MusicBeatState.switchState(new CreditsState());
+							MusicBeatState.switchState(new Credits());
 						case "gallery":
 							MusicBeatState.switchState(new gallery.GalleryMenuState());
 					}
