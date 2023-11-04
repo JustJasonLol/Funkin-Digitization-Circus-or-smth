@@ -84,7 +84,7 @@ class PauseSubState extends MusicBeatSubstate
 		pauseMusic = new FlxSound();
 
 		var songName = songName;
-		if (songName == null) songName = 'Breakfast';
+		if (songName == null) songName = 'Pause';
 		
 		if(songName != 'None'){
 			songName = Paths.formatToSongPath(songName);
