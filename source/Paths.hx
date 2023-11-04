@@ -65,10 +65,10 @@ class Paths
 	public static var dumpExclusions:Array<String> = [
 		'assets/music/freakyIntro.$SOUND_EXT',
 		'assets/music/freakyMenu.$SOUND_EXT',
-		'assets/music/breakfast.$SOUND_EXT',
+		'assets/music/Pause.$SOUND_EXT',
 		'content/global/music/freakyIntro.$SOUND_EXT',
 		'content/global/music/freakyMenu.$SOUND_EXT',
-		'content/global/music/breakfast.$SOUND_EXT',
+		'content/global/music/Pause.$SOUND_EXT',
 		"assets/images/Garlic-Bread-PNG-Images.png"
 	];
 
