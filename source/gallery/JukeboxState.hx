@@ -159,7 +159,7 @@ class JukeboxState extends MusicBeatState {
 		addSong("Main Menu (TGT Mix)", "menuTheme", null, ''); // menuTheme songDir is hard-coded to goto the playMenuMusic func
 		// should i move these to the jukeboxSonglist
 		addSong("Game Over (Chapter 1)", 'gameOver', null, '');
-		addSong("Breakfast (Chapter 1)", 'breakfast', null, '');
+		addSong("Breakfast (Chapter 1)", 'Pause', null, '');
 		addSonglists();
 
 		#if MODS_ALLOWED
