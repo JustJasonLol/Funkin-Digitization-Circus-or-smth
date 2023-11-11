@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-133,
+				-216
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "pom-fum-left0"
+		},
+		{
+			"offsets": [
+				-63,
+				-260
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "pom-fum-down0"
+		},
+		{
+			"offsets": [
+				-67,
+				-188
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "pom-fum-up0"
+		},
+		{
+			"offsets": [
+				-217,
+				-264
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "pom-fum-right0"
+		},
+		{
+			"offsets": [
+				-122,
+				-261
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "hey",
+			"indices": [],
+			"name": "crisis-pom-fumeta"
+		},
+		{
+			"offsets": [
+				0,
+				-160
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "pom-fum-idle0"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/pomni fumeta",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "dad",
+	"flip_x": false,
+	"healthbar_colors": [
+		175,
+		102,
+		206
+	],
+	"camera_position": [
+		-70,
+		190
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
