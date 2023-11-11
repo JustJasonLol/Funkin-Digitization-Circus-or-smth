@@ -2,6 +2,6 @@ function onLoad()
 {
 	var whi = new FlxSprite(300, -500);
 	whi.makeSprite('white');
-    whi.scaleObject(2.2, 2.2);
+        whi.scaleObject(2.2, 2.2);
 	stage.add(whi);
 }
