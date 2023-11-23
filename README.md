@@ -11,5 +11,5 @@ open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`
 after it finishes, simply type `haxelib run hmm install` in order to install all the needed libraries
 
 
-### description:
+# description:
 ummm, we need a description for this or this is completly private?
