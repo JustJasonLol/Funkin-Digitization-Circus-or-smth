@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pomni fumeta-ALT.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="pom-fum-ALT-down0000" x="0" y="0" width="408" height="380" frameX="0" frameY="-21" frameWidth="408" frameHeight="402"/>
+	<SubTexture name="pom-fum-ALT-down0001" x="0" y="0" width="408" height="380" frameX="0" frameY="-21" frameWidth="408" frameHeight="402"/>
+	<SubTexture name="pom-fum-ALT-down0002" x="408" y="0" width="408" height="398" frameX="0" frameY="-3" frameWidth="408" frameHeight="402"/>
+	<SubTexture name="pom-fum-ALT-down0003" x="408" y="0" width="408" height="398" frameX="0" frameY="-3" frameWidth="408" frameHeight="402"/>
+	<SubTexture name="pom-fum-ALT-down0004" x="816" y="0" width="408" height="402"/>
+	<SubTexture name="pom-fum-ALT-down0005" x="816" y="0" width="408" height="402"/>
+	<SubTexture name="pom-fum-ALT-idle0000" x="1224" y="0" width="507" height="500" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-idle0001" x="1224" y="0" width="507" height="500" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-idle0002" x="0" y="500" width="506" height="501" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-idle0003" x="0" y="500" width="506" height="501" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-idle0004" x="506" y="500" width="516" height="501"/>
+	<SubTexture name="pom-fum-ALT-idle0005" x="506" y="500" width="516" height="501"/>
+	<SubTexture name="pom-fum-ALT-idle0006" x="1022" y="500" width="510" height="500" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-idle0007" x="1022" y="500" width="510" height="500" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-idle0008" x="1532" y="500" width="507" height="501" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-idle0009" x="1532" y="500" width="507" height="501" frameX="0" frameY="0" frameWidth="516" frameHeight="501"/>
+	<SubTexture name="pom-fum-ALT-left0000" x="0" y="1001" width="334" height="447" frameX="0" frameY="0" frameWidth="343" frameHeight="447"/>
+	<SubTexture name="pom-fum-ALT-left0001" x="0" y="1001" width="334" height="447" frameX="0" frameY="0" frameWidth="343" frameHeight="447"/>
+	<SubTexture name="pom-fum-ALT-left0002" x="334" y="1001" width="335" height="447" frameX="-8" frameY="0" frameWidth="343" frameHeight="447"/>
+	<SubTexture name="pom-fum-ALT-left0003" x="334" y="1001" width="335" height="447" frameX="-8" frameY="0" frameWidth="343" frameHeight="447"/>
+	<SubTexture name="pom-fum-ALT-right0000" x="669" y="1001" width="377" height="448" frameX="-8" frameY="-9" frameWidth="385" frameHeight="457"/>
+	<SubTexture name="pom-fum-ALT-right0001" x="669" y="1001" width="377" height="448" frameX="-8" frameY="-9" frameWidth="385" frameHeight="457"/>
+	<SubTexture name="pom-fum-ALT-right0002" x="1046" y="1001" width="380" height="457" frameX="0" frameY="0" frameWidth="385" frameHeight="457"/>
+	<SubTexture name="pom-fum-ALT-right0003" x="1046" y="1001" width="380" height="457" frameX="0" frameY="0" frameWidth="385" frameHeight="457"/>
+	<SubTexture name="pom-fum-ALT-up0000" x="1426" y="1001" width="505" height="473"/>
+	<SubTexture name="pom-fum-ALT-up0001" x="1426" y="1001" width="505" height="473"/>
+	<SubTexture name="pom-fum-ALT-up0002" x="0" y="1474" width="505" height="462" frameX="0" frameY="-11" frameWidth="505" frameHeight="473"/>
+	<SubTexture name="pom-fum-ALT-up0003" x="0" y="1474" width="505" height="462" frameX="0" frameY="-11" frameWidth="505" frameHeight="473"/>
+	<SubTexture name="pom-fum-ALT-up0004" x="505" y="1474" width="502" height="454" frameX="0" frameY="-19" frameWidth="505" frameHeight="473"/>
+	<SubTexture name="pom-fum-ALT-up0005" x="505" y="1474" width="502" height="454" frameX="0" frameY="-19" frameWidth="505" frameHeight="473"/>
+	<SubTexture name="pom-fum-ALT-up0006" x="1007" y="1474" width="502" height="454" frameX="0" frameY="-19" frameWidth="505" frameHeight="473"/>
+	<SubTexture name="pom-fum-ALT-up0007" x="1007" y="1474" width="502" height="454" frameX="0" frameY="-19" frameWidth="505" frameHeight="473"/>
+	<SubTexture name="pom-fum-ALT-up0008" x="1509" y="1474" width="500" height="454" frameX="0" frameY="-19" frameWidth="505" frameHeight="473"/>
+	<SubTexture name="pom-fum-ALT-up0009" x="1509" y="1474" width="500" height="454" frameX="0" frameY="-19" frameWidth="505" frameHeight="473"/>
+</TextureAtlas>
