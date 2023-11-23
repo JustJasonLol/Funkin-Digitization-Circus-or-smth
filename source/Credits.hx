@@ -32,6 +32,7 @@ class Credits extends MusicBeatState
     private var camGame:FlxCamera;
     var debugKeys:Array<FlxKey>;
 
+    // facun por q *sobs
     var t1:FlxText;
     var t2:FlxText;
     var t3:FlxText;
@@ -99,7 +100,7 @@ class Credits extends MusicBeatState
         FlxG.cameras.reset(camGame);
 
         escape = new FlxText(FlxG.width - 800, 
-            "press esc to back to the menu",
+            'Press back to return to the main menu',
             20);
             escape.y = 655;
             escape.x = 800;
