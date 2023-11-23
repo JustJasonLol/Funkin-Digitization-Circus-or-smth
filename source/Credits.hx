@@ -33,6 +33,7 @@ class Credits extends MusicBeatState
     var debugKeys:Array<FlxKey>;
 
     // facun por q *sobs
+	//jason ayuda pls, como mejoro esto :(
     var t1:FlxText;
     var t2:FlxText;
     var t3:FlxText;
