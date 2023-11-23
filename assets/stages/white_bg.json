@@ -12,7 +12,7 @@
 	"camera_girlfriend": [0,0],
 	"camera_boyfriend": [0,0],
 
-	"bg_color": "0xFFFFFFFF",
+	"bg_color": "0xFFFFFF",
 
 	"directory": "",
 	"preload": [],

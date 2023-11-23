@@ -16,6 +16,7 @@ import openfl.Lib;
 #if openfl
 import openfl.system.System;
 #end
+import cpp.vm.Gc;
 
 /**
 	The FPS class provides an easy-to-use monitor to display
@@ -52,7 +53,7 @@ class FPS extends TextField
 		text = "FPS: ";
 
 		var textFormat = new TextFormat(null, 12, color);
-		var fontPath = Paths.font("calibri.ttf");
+		var fontPath = '_sans';
 		if (Assets.exists(fontPath, openfl.utils.AssetType.FONT)){
 			embedFonts = true;
 			textFormat.size = 14;
@@ -89,13 +90,16 @@ class FPS extends TextField
 		}
 
 		var currentCount = times.length;
+		var memPeak = .0;
+		var mem = FlxMath.roundDecimal(System.totalMemory / 1000000, 1) + 100;
 		currentFPS = Math.ffloor((currentCount + cacheCount)* 0.5);
 		if (currentFPS > ClientPrefs.framerate)
 			currentFPS = ClientPrefs.framerate;
+		if (mem >= memPeak) memPeak = mem;
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS;
+			text = 'FPS: $currentFPS\nMemory: ${FlxMath.roundDecimal(System.totalMemory / 1000000, 1) + 100} mb / $memPeak mb';
 			
 			var memoryMegas:Float = 0;
 			/*
