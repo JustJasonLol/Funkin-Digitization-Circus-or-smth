@@ -72,7 +72,7 @@ function onCreate()
 	thing.setFloat('aberration', 1);
 	thing.setFloat('effectTime', 0.000001);
 
-	game.camGame.setFilters([new ShaderFilter(thing)]);
+	if (ClientPrefs.shaders == 'All') game.camGame.setFilters([new ShaderFilter(thing)]);
 }
 
 function onUpdate(elapsed)
