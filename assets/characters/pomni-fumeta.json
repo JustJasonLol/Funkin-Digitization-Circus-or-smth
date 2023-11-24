@@ -1,59 +1,104 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				-133,
 				-216
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "pom-fum-left0"
+			"fps": 24,
+			"name": "pom-fum-left0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-63,
 				-260
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "pom-fum-down0"
+			"fps": 24,
+			"name": "pom-fum-down0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-67,
 				-188
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "pom-fum-up0"
-		},
-		{
-			"offsets": [
-				-217,
-				-264
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "pom-fum-right0"
+			"name": "pom-fum-up0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				-122,
+				-208,
+				-207
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "pom-fum-right0",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				-160
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "pom-fum-idle0",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"cameraOffset": [
+				0,
+				0
+			],
+			"offsets": [
+				-132,
 				-261
 			],
-			"loop": true,
+			"anim": "porr",
 			"fps": 24,
+			"name": "crisis-pom-fumeta",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"cameraOffset": [
+				0,
+				0
+			],
+			"offsets": [
+				0,
+				-160
+			],
 			"anim": "hey",
+			"fps": 24,
+			"name": "pom-fum-porro",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				-48
+			],
 			"indices": [],
-			"name": "crisis-pom-fumeta"
+			"fps": 24,
+			"cameraOffset": [
+				0,
+				0
+			],
+			"anim": "gun",
+			"loop": false,
+			"name": "pom-fum-gun"
 		},
 		{
 			"offsets": [
@@ -62,9 +107,13 @@
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "idle",
+			"cameraOffset": [
+				0,
+				0
+			],
+			"anim": "ALT-idle",
 			"loop": true,
-			"name": "pom-fum-idle0"
+			"name": "pom-fum-ALT-idle0"
 		}
 	],
 	"no_antialiasing": false,

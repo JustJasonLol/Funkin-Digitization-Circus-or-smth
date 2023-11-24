@@ -1,6 +1,6 @@
-# Friday Night Funkin': Troll Engine
+# Friday Night Funkin': Funkin Digitalization Circus
 
-Troll Engine is the fork of [Psych Engine](https://github.com/ShadowMario/FNF-PsychEngine) that's used on the [Tails Gets Trolled mod](https://gamebanana.com/mods/320596).
+Made with Troll Engine: Troll Engine is the fork of [Psych Engine](https://github.com/ShadowMario/FNF-PsychEngine) that's used on the [Tails Gets Trolled mod](https://gamebanana.com/mods/320596).
 
 
 ## Installation:
@@ -9,3 +9,7 @@ You must have [the most up-to-date version of Haxe](https://haxe.org/download/).
 open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`
 
 after it finishes, simply type `haxelib run hmm install` in order to install all the needed libraries
+
+
+# description:
+ummm, we need a description for this or this is completly private?
