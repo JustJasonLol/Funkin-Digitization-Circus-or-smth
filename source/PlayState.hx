@@ -53,7 +53,7 @@ import Discord.DiscordClient;
 
 using StringTools;
 
-/*
+/* *
 okay SO im gonna explain how these work
 
 All speed changes are stored in an array, .sort()'d by the time
@@ -4543,6 +4543,7 @@ class PlayState extends MusicBeatState
 
 class FNFHealthBar extends FlxBar{
 	public var healthBarBG:FlxSprite;
+	public var healthBarBGG:FlxSprite;
 
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
@@ -4592,13 +4593,20 @@ class FNFHealthBar extends FlxBar{
 	public function new(bfHealthIcon = "face", dadHealthIcon = "face")
 	{
 		//
-		healthBarBG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.89));
-		//healthBarBG.loadGraphic(Paths.image('healthBar'));
-		healthBarBG.makeGraphic(600, 18);
-		healthBarBG.color = 0xFF000000;
+		healthBarBG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.69));
+		healthBarBG.loadGraphic(Paths.image('baseBar'));
+		// healthBarBG.makeGraphic(600, 18);
+		// healthBarBG.color = 0xFF000000;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		healthBarBG.antialiasing = false;
+
+		healthBarBGG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('baseBar'));
+		healthBarBGG.scrollFactor.set();
+		healthBarBGG.screenCenter(X);
+		healthBarBGG.scale.set(1.43, 1.43);
+		healthBarBGG.antialiasing = ClientPrefs.globalAntialiasing;
+		if(ClientPrefs.downScroll) healthBarBGG.y = 0.08 * FlxG.height;
 
 		//
 		iconP1 = new HealthIcon(bfHealthIcon, true);
@@ -4610,23 +4618,28 @@ class FNFHealthBar extends FlxBar{
 		isOpponentMode = PlayState.instance == null ? false : PlayState.instance.playOpponent;
 
 		super(
-			healthBarBG.x + 5, healthBarBG.y + 5,
+			healthBarBGG.x, healthBarBGG.y,
 			RIGHT_TO_LEFT,
-			Std.int(healthBarBG.width - 10), Std.int(healthBarBG.height - 10),
+			Std.int(healthBarBGG.width), Std.int(healthBarBGG.height),
 			null, null,
 			0, 2
 		);
+
+		createImageEmptyBar(Paths.image('baseBar'));
+		createImageFilledBar(Paths.image('baseBar'));
+
+		scale.set(1.43, 1.43);
 		
 		value = 1;
-
+		trace(width * .48);
 		//
-		iconP2.setPosition(
-			healthBarPos - 75 - iconOffset * 2,
-			y - 75
+		leftIcon.setPosition(
+			255,
+			y - 21
 		);
-		iconP1.setPosition(
-			healthBarPos - iconOffset,
-			y - 75
+		rightIcon.setPosition(
+			1300,
+			y - 21
 		);
 
 		//
@@ -4681,19 +4694,34 @@ class FNFHealthBar extends FlxBar{
 			return;
 		}
 
+		healthBarBG.visible = false;
+		healthBarBG.alpha = 0;
+
 		healthBarBG.setPosition(x - 5, y - 5);
 
 		if (iconScale != 1){
 			iconScale = FlxMath.lerp(1, iconScale, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
 
 			var scaleOff = 75 * iconScale;
-			leftIcon.x = healthBarPos - scaleOff - iconOffset * 2;
-			rightIcon.x = healthBarPos + scaleOff - 75 - iconOffset;
+			leftIcon.setPosition(
+				255.5,
+				y - 24
+			);
+			rightIcon.setPosition(
+				890,
+				y - 24
+			);
 		}
 		else
 		{
-			leftIcon.x = healthBarPos - 75 - iconOffset * 2;
-			rightIcon.x = healthBarPos - iconOffset;
+			leftIcon.setPosition(
+				256,
+				y - 24
+			);
+			rightIcon.setPosition(
+				890,
+				y - 24
+			);
 		}
 
 		super.update(elapsed);

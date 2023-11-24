@@ -19,6 +19,7 @@ class CommonHUD extends BaseHUD
 	public var healthBar:FNFHealthBar;
 	@:isVar
 	public var healthBarBG(get, null):FlxSprite;
+	public var healthBarBGG(get, null):FlxSprite;
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
 
@@ -27,6 +28,8 @@ class CommonHUD extends BaseHUD
 	
 	function get_healthBarBG()
 		return healthBar.healthBarBG;
+
+	function get_healthBarBGG() return healthBar.healthBarBGG;
 
 	override function set_displayedHealth(value:Float){
 		healthBar.value = value;
@@ -94,8 +97,8 @@ class CommonHUD extends BaseHUD
 	{
 		if (healthBar != null)
 		{
-			healthBar.createFilledBar(dadColor, bfColor);
-			healthBar.updateBar();
+			// healthBar.createFilledBar(dadColor, bfColor);
+			// healthBar.updateBar();
 		}
 	}
 

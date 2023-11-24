@@ -79,7 +79,7 @@ function onUpdate(elapsed)
 {
 	thing.setFloat('aberration', chrom);
 	thing.setFloat('effectTime', chrom * .4);
-	chrom = FlxMath.lerp(chrom, 0, FlxMath.bound(elapsed * 5, 0, 1));
+	chrom = FlxMath.lerp(chrom, 0.0001, FlxMath.bound(elapsed * 5, 0, 1));
 }
 
 function onStepHit()
@@ -94,6 +94,11 @@ function onStepHit()
 
 function onBeatHit()
 {
+	if (curBeat < 96)
+	{
+		chrom += 0.0000001;
+	}
+
 	if (curBeat >= 96 && curBeat % 2 == 0)
 	{
 		chrom += 0.3;
