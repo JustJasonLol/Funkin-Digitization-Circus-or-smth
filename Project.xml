@@ -65,9 +65,10 @@
 	<define name="CRASH_HANDLER" if="desktop" />
 	
 	<define name="MULTICORE_LOADING" if="windows" />
+
 	<section if="MULTICORE_LOADING">
-		<!-- <define name="loadBenchmark" -->
-		<!-- <define name="traceLoading"/> -->
+		<define name="loadBenchmark"/>
+		<define name="traceLoading"/>
 	</section>
 
 	<!-- _______________________________ Libraries ______________________________ -->

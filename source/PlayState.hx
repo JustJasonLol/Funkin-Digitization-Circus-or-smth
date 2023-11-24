@@ -3485,7 +3485,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 		if (!bot)stats.score += Math.floor(judgeData.score * playbackRate);
-		health += (judgeData.health * 0.02) * (judgeData.health < 0 ? healthLoss : healthGain);
+		health += .023 * (judgeData.health < 0 ? healthLoss : healthGain);
 		songHits++;
 
 
@@ -4594,14 +4594,14 @@ class FNFHealthBar extends FlxBar{
 	{
 		//
 		healthBarBG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.69));
-		healthBarBG.loadGraphic(Paths.image('baseBar'));
+		healthBarBG.loadGraphic(Paths.image('redBar'));
 		// healthBarBG.makeGraphic(600, 18);
 		// healthBarBG.color = 0xFF000000;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		healthBarBG.antialiasing = false;
 
-		healthBarBGG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('baseBar'));
+		healthBarBGG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('redBar'));
 		healthBarBGG.scrollFactor.set();
 		healthBarBGG.screenCenter(X);
 		healthBarBGG.scale.set(1.43, 1.43);
@@ -4625,8 +4625,8 @@ class FNFHealthBar extends FlxBar{
 			0, 2
 		);
 
-		createImageEmptyBar(Paths.image('baseBar'));
-		createImageFilledBar(Paths.image('baseBar'));
+		createImageEmptyBar(Paths.image('redBar'));
+		createImageFilledBar(Paths.image('greenBar'));
 
 		scale.set(1.43, 1.43);
 		
@@ -4643,7 +4643,7 @@ class FNFHealthBar extends FlxBar{
 		);
 
 		//
-		antialiasing = false;
+		antialiasing = ClientPrefs.globalAntialiasing;
 		scrollFactor.set();
 		visible = alpha > 0;
 	}
