@@ -1,86 +1,86 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				-50,
-				-170
-			],
+			"loop": false,
 			"cameraOffset": [
 				-30,
 				0
 			],
-			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-50,
+				-170
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
-		},
-		{
-			"offsets": [
-				-150,
-				-360
-			],
-			"cameraOffset": [
-				0,
-				30
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"name": "left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-110,
-				100
-			],
+			"loop": false,
 			"cameraOffset": [
 				0,
 				-30
 			],
-			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-110,
+				100
+			],
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-250,
-				-150
-			],
-			"indices": [],
-			"fps": 24,
+			"loop": false,
 			"cameraOffset": [
 				30,
 				0
 			],
+			"offsets": [
+				-340,
+				-200
+			],
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "CoCaine-right"
+			"fps": 24,
+			"name": "CoCaine-right",
+			"indices": []
 		},
 		{
+			"loop": true,
+			"cameraOffset": [
+				0,
+				0
+			],
 			"offsets": [
 				-251,
 				-130
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "CoCaine-idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-210,
+				-380
 			],
 			"indices": [],
 			"fps": 24,
 			"cameraOffset": [
 				0,
-				0
+				30
 			],
-			"anim": "idle",
-			"loop": true,
-			"name": "CoCaine-idle"
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "CoCaine-down"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/CoCaine",
 	"position": [
 		-530,
-		-560
+		-610
 	],
 	"healthicon": "face",
 	"flip_x": false,
@@ -90,8 +90,8 @@
 		192
 	],
 	"camera_position": [
-		-100,
-		160
+		90,
+		270
 	],
 	"sing_duration": 4,
 	"scale": 1
