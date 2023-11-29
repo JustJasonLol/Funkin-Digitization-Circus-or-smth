@@ -2,62 +2,132 @@
 <TextureAtlas imagePath="CoCaine.png">
 	<!-- Created with Adobe Animate version 22.0.2.168 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="CoCaine-down0000" x="0" y="0" width="536" height="574" frameX="0" frameY="-114" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0001" x="536" y="0" width="519" height="585" frameX="-7" frameY="-71" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0002" x="1055" y="0" width="519" height="573" frameX="-7" frameY="-14" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0003" x="1574" y="0" width="519" height="573" frameX="-7" frameY="-14" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0004" x="2093" y="0" width="519" height="572" frameX="-7" frameY="-8" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0005" x="2612" y="0" width="519" height="572" frameX="-7" frameY="-8" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0006" x="3131" y="0" width="519" height="571" frameX="-7" frameY="-4" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0007" x="3650" y="0" width="519" height="571" frameX="-7" frameY="-4" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0008" x="4169" y="0" width="519" height="572" frameX="-7" frameY="0" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-down0009" x="4688" y="0" width="519" height="572" frameX="-7" frameY="0" frameWidth="536" frameHeight="688"/>
-	<SubTexture name="CoCaine-idle0000" x="5207" y="0" width="475" height="738" frameX="-8" frameY="-7" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-idle0001" x="5682" y="0" width="462" height="742" frameX="-14" frameY="-3" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-idle0002" x="6144" y="0" width="472" height="749" frameX="-7" frameY="0" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-idle0003" x="6616" y="0" width="483" height="746" frameX="0" frameY="-3" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-idle0004" x="7099" y="0" width="459" height="743" frameX="-18" frameY="-5" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-idle0005" x="7558" y="0" width="447" height="739" frameX="-21" frameY="-9" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-idle0006" x="0" y="749" width="450" height="741" frameX="-22" frameY="-5" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-idle0007" x="450" y="749" width="465" height="745" frameX="-15" frameY="-1" frameWidth="483" frameHeight="749"/>
-	<SubTexture name="CoCaine-left0000" x="915" y="749" width="864" height="542" frameX="0" frameY="-22" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0001" x="1779" y="749" width="751" height="548" frameX="-124" frameY="-22" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0002" x="2530" y="749" width="682" height="576" frameX="-195" frameY="-5" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0003" x="3212" y="749" width="682" height="576" frameX="-195" frameY="-5" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0004" x="3894" y="749" width="670" height="578" frameX="-207" frameY="-5" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0005" x="4564" y="749" width="670" height="578" frameX="-207" frameY="-5" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0006" x="5234" y="749" width="663" height="579" frameX="-213" frameY="-5" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0007" x="5897" y="749" width="663" height="579" frameX="-213" frameY="-5" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0008" x="6560" y="749" width="650" height="586" frameX="-226" frameY="0" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-left0009" x="7210" y="749" width="650" height="586" frameX="-226" frameY="0" frameWidth="877" frameHeight="586"/>
-	<SubTexture name="CoCaine-right0000" x="0" y="1494" width="613" height="679" frameX="-54" frameY="-16" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0001" x="613" y="1494" width="530" height="695" frameX="-47" frameY="0" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0002" x="1143" y="1494" width="478" height="676" frameX="-33" frameY="-19" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0003" x="1621" y="1494" width="484" height="679" frameX="-27" frameY="-19" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0004" x="2105" y="1494" width="495" height="667" frameX="-9" frameY="-29" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0005" x="2600" y="1494" width="492" height="667" frameX="-12" frameY="-29" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0006" x="3092" y="1494" width="496" height="668" frameX="-3" frameY="-31" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0007" x="3588" y="1494" width="496" height="668" frameX="-3" frameY="-31" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0008" x="4084" y="1494" width="494" height="667" frameX="-4" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0009" x="4578" y="1494" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0010" x="5075" y="1494" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0011" x="4578" y="1494" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0012" x="5075" y="1494" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0013" x="4578" y="1494" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0014" x="5075" y="1494" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0015" x="4578" y="1494" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0016" x="5075" y="1494" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0017" x="4578" y="1494" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0018" x="5075" y="1494" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-right0019" x="4578" y="1494" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
-	<SubTexture name="CoCaine-up0000" x="5570" y="1494" width="816" height="1002" frameX="0" frameY="0" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0001" x="6386" y="1494" width="798" height="947" frameX="-7" frameY="-44" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0002" x="7184" y="1494" width="802" height="877" frameX="-5" frameY="-129" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0003" x="0" y="2496" width="793" height="877" frameX="-11" frameY="-129" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0004" x="793" y="2496" width="802" height="855" frameX="-5" frameY="-162" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0005" x="1595" y="2496" width="796" height="855" frameX="-7" frameY="-162" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0006" x="2391" y="2496" width="802" height="842" frameX="-5" frameY="-178" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0007" x="3193" y="2496" width="795" height="842" frameX="-8" frameY="-178" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0008" x="3988" y="2496" width="802" height="836" frameX="-5" frameY="-185" frameWidth="816" frameHeight="1021"/>
-	<SubTexture name="CoCaine-up0009" x="4790" y="2496" width="796" height="836" frameX="-8" frameY="-185" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine Scream0000" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0001" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0002" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0003" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0004" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0005" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0006" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0007" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0008" x="0" y="0" width="475" height="743" frameX="0" frameY="0" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0009" x="475" y="0" width="475" height="723" frameX="0" frameY="-10" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0010" x="475" y="0" width="475" height="723" frameX="0" frameY="-10" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0011" x="950" y="0" width="662" height="658" frameX="-18" frameY="-106" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0012" x="1612" y="0" width="669" height="645" frameX="-13" frameY="-116" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0013" x="2281" y="0" width="654" height="654" frameX="-26" frameY="-110" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0014" x="2935" y="0" width="654" height="660" frameX="-26" frameY="-111" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0015" x="3589" y="0" width="653" height="665" frameX="-23" frameY="-104" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0016" x="4242" y="0" width="653" height="672" frameX="-23" frameY="-97" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0017" x="4895" y="0" width="654" height="662" frameX="-23" frameY="-112" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0018" x="5549" y="0" width="657" height="668" frameX="-21" frameY="-115" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0019" x="6206" y="0" width="655" height="670" frameX="-22" frameY="-100" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0020" x="6861" y="0" width="649" height="691" frameX="-29" frameY="-101" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0021" x="7510" y="0" width="655" height="663" frameX="-22" frameY="-113" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0022" x="0" y="743" width="653" height="663" frameX="-18" frameY="-113" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0023" x="653" y="743" width="656" height="662" frameX="-21" frameY="-113" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0024" x="653" y="743" width="656" height="662" frameX="-21" frameY="-113" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0025" x="1309" y="743" width="656" height="660" frameX="-21" frameY="-114" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0026" x="1309" y="743" width="656" height="660" frameX="-21" frameY="-114" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0027" x="1965" y="743" width="647" height="657" frameX="-21" frameY="-118" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0028" x="1965" y="743" width="647" height="657" frameX="-21" frameY="-118" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0029" x="2612" y="743" width="648" height="657" frameX="-21" frameY="-117" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0030" x="2612" y="743" width="648" height="657" frameX="-21" frameY="-117" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0031" x="3260" y="743" width="648" height="658" frameX="-21" frameY="-121" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0032" x="3260" y="743" width="648" height="658" frameX="-21" frameY="-121" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0033" x="3908" y="743" width="648" height="657" frameX="-21" frameY="-116" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0034" x="3908" y="743" width="648" height="657" frameX="-21" frameY="-116" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0035" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0036" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0037" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0038" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0039" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0040" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0041" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0042" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0043" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0044" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0045" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0046" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0047" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0048" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0049" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0050" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0051" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0052" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0053" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0054" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0055" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0056" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0057" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0058" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0059" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0060" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0061" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0062" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0063" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0064" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0065" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0066" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0067" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0068" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine Scream0069" x="4556" y="743" width="0" height="0" frameX="-279" frameY="-423" frameWidth="682" frameHeight="792"/>
+	<SubTexture name="CoCaine-down0000" x="4556" y="743" width="536" height="574" frameX="0" frameY="-114" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0001" x="5092" y="743" width="519" height="585" frameX="-7" frameY="-71" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0002" x="5611" y="743" width="519" height="573" frameX="-7" frameY="-14" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0003" x="6130" y="743" width="519" height="573" frameX="-7" frameY="-14" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0004" x="6649" y="743" width="519" height="572" frameX="-7" frameY="-8" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0005" x="7168" y="743" width="519" height="572" frameX="-7" frameY="-8" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0006" x="0" y="1406" width="519" height="571" frameX="-7" frameY="-4" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0007" x="519" y="1406" width="519" height="571" frameX="-7" frameY="-4" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0008" x="1038" y="1406" width="519" height="572" frameX="-7" frameY="0" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-down0009" x="1557" y="1406" width="519" height="572" frameX="-7" frameY="0" frameWidth="536" frameHeight="688"/>
+	<SubTexture name="CoCaine-idle0000" x="2076" y="1406" width="475" height="738" frameX="-8" frameY="-7" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-idle0001" x="2551" y="1406" width="462" height="742" frameX="-14" frameY="-3" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-idle0002" x="3013" y="1406" width="472" height="749" frameX="-7" frameY="0" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-idle0003" x="3485" y="1406" width="483" height="746" frameX="0" frameY="-3" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-idle0004" x="3968" y="1406" width="459" height="743" frameX="-18" frameY="-5" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-idle0005" x="4427" y="1406" width="447" height="739" frameX="-21" frameY="-9" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-idle0006" x="4874" y="1406" width="450" height="741" frameX="-22" frameY="-5" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-idle0007" x="5324" y="1406" width="465" height="745" frameX="-15" frameY="-1" frameWidth="483" frameHeight="749"/>
+	<SubTexture name="CoCaine-left0000" x="5789" y="1406" width="864" height="542" frameX="0" frameY="-22" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0001" x="6653" y="1406" width="751" height="548" frameX="-124" frameY="-22" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0002" x="7404" y="1406" width="682" height="576" frameX="-195" frameY="-5" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0003" x="0" y="2155" width="682" height="576" frameX="-195" frameY="-5" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0004" x="682" y="2155" width="670" height="578" frameX="-207" frameY="-5" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0005" x="1352" y="2155" width="670" height="578" frameX="-207" frameY="-5" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0006" x="2022" y="2155" width="663" height="579" frameX="-213" frameY="-5" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0007" x="2685" y="2155" width="663" height="579" frameX="-213" frameY="-5" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0008" x="3348" y="2155" width="650" height="586" frameX="-226" frameY="0" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-left0009" x="3998" y="2155" width="650" height="586" frameX="-226" frameY="0" frameWidth="877" frameHeight="586"/>
+	<SubTexture name="CoCaine-right0000" x="4648" y="2155" width="613" height="679" frameX="-54" frameY="-16" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0001" x="5261" y="2155" width="530" height="695" frameX="-47" frameY="0" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0002" x="5791" y="2155" width="478" height="676" frameX="-33" frameY="-19" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0003" x="6269" y="2155" width="484" height="679" frameX="-27" frameY="-19" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0004" x="6753" y="2155" width="495" height="667" frameX="-9" frameY="-29" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0005" x="7248" y="2155" width="492" height="667" frameX="-12" frameY="-29" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0006" x="0" y="2850" width="496" height="668" frameX="-3" frameY="-31" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0007" x="496" y="2850" width="496" height="668" frameX="-3" frameY="-31" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0008" x="992" y="2850" width="494" height="667" frameX="-4" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0009" x="1486" y="2850" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0010" x="1983" y="2850" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0011" x="1486" y="2850" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0012" x="1983" y="2850" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0013" x="1486" y="2850" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0014" x="1983" y="2850" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0015" x="1486" y="2850" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0016" x="1983" y="2850" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0017" x="1486" y="2850" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0018" x="1983" y="2850" width="495" height="667" frameX="-3" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-right0019" x="1486" y="2850" width="497" height="667" frameX="0" frameY="-32" frameWidth="667" frameHeight="699"/>
+	<SubTexture name="CoCaine-up0000" x="2478" y="2850" width="816" height="1002" frameX="0" frameY="0" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0001" x="3294" y="2850" width="798" height="947" frameX="-7" frameY="-44" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0002" x="4092" y="2850" width="802" height="877" frameX="-5" frameY="-129" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0003" x="4894" y="2850" width="793" height="877" frameX="-11" frameY="-129" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0004" x="5687" y="2850" width="802" height="855" frameX="-5" frameY="-162" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0005" x="6489" y="2850" width="796" height="855" frameX="-7" frameY="-162" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0006" x="7285" y="2850" width="802" height="842" frameX="-5" frameY="-178" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0007" x="0" y="3852" width="795" height="842" frameX="-8" frameY="-178" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0008" x="795" y="3852" width="802" height="836" frameX="-5" frameY="-185" frameWidth="816" frameHeight="1021"/>
+	<SubTexture name="CoCaine-up0009" x="1597" y="3852" width="796" height="836" frameX="-8" frameY="-185" frameWidth="816" frameHeight="1021"/>
 </TextureAtlas>
