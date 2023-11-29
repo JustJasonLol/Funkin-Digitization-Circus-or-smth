@@ -1,0 +1,173 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				178,
+				82
+			],
+			"loop": true,
+			"cameraOffset": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "dodge",
+			"indices": [],
+			"name": "bf-p-dodge0"
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"offsets": [
+				172,
+				93
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "bf-p-left0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				0,
+				30
+			],
+			"offsets": [
+				180,
+				49
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "bf-p-down0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				0,
+				-30
+			],
+			"offsets": [
+				138,
+				126
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "bf-p-up0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"offsets": [
+				167,
+				92
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "bf-p-left-MISS",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				0,
+				30
+			],
+			"offsets": [
+				170,
+				63
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "bf-p-down-MISS",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				30,
+				0
+			],
+			"offsets": [
+				125,
+				95
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "bf-p-right-MISS",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"cameraOffset": [
+				0,
+				0
+			],
+			"offsets": [
+				175,
+				100
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "bf-p-idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				0,
+				-30
+			],
+			"offsets": [
+				136,
+				129
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "bf-p-up-miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				30,
+				0
+			],
+			"offsets": [
+				126,
+				95
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "bf-p-right0",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bf-but-really-fum",
+	"position": [
+		490,
+		480
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		300,
+		-150
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
