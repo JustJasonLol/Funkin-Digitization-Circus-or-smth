@@ -1,0 +1,53 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				14,
+				-104
+			],
+			"cameraOffset": [
+				30,
+				0
+			],
+			"loop": false,
+			"fps": 22.6,
+			"anim": "Mode",
+			"indices": [],
+			"name": "CoCaine Mode"
+		},
+		{
+			"offsets": [
+				-62,
+				-180
+			],
+			"cameraOffset": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "lol"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ModeCoCaine",
+	"position": [
+		-530,
+		-610
+	],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [
+		192,
+		192,
+		192
+	],
+	"camera_position": [
+		-120,
+		260
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
