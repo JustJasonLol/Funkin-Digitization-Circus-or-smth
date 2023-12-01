@@ -59,7 +59,7 @@
 			"loop": false,
 			"offsets": [
 				7,
-				19
+				3
 			],
 			"anim": "singLEFTmiss",
 			"fps": 24,
@@ -69,8 +69,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-15,
-				-19
+				-21,
+				-21
 			],
 			"anim": "singDOWNmiss",
 			"fps": 24,
@@ -80,7 +80,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				-46,
+				-44,
 				27
 			],
 			"anim": "singUPmiss",
@@ -91,8 +91,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-44,
-				22
+				-45,
+				-9
 			],
 			"anim": "singRIGHTmiss",
 			"fps": 24,
@@ -102,13 +102,24 @@
 		{
 			"offsets": [
 				19,
-				177
+				157
 			],
 			"loop": true,
 			"fps": 24,
 			"anim": "hey",
 			"indices": [],
-			"name": "BF HEY"
+			"name": "bf-omnimanButt0"
+		},
+		{
+			"offsets": [
+				120,
+				19
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "oh shit",
+			"indices": [],
+			"name": "bf-ouShit0"
 		}
 	],
 	"no_antialiasing": false,
@@ -125,8 +136,8 @@
 		209
 	],
 	"camera_position": [
-		-50,
-		-110
+		100,
+		20
 	],
 	"sing_duration": 4,
 	"scale": 1

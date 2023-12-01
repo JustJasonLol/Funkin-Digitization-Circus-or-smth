@@ -74,6 +74,21 @@
 			"anim": "singUP",
 			"loop": false,
 			"name": "CoCaine-up"
+		},
+		{
+			"offsets": [
+				-110,
+				170
+			],
+			"indices": [],
+			"fps": 24,
+			"cameraOffset": [
+				0,
+				-30
+			],
+			"anim": "scream",
+			"loop": false,
+			"name": "CoCaine-up"
 		}
 	],
 	"no_antialiasing": false,

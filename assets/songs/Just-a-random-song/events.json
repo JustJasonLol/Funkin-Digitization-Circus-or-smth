@@ -52,6 +52,26 @@
 				]
 			],
 			[
+				102742.718446602,
+				[
+					[
+						"Play Animation",
+						"oh shit",
+						"bf"
+					]
+				]
+			],
+			[
+				103689.32038835,
+				[
+					[
+						"Play Sound",
+						"MicroFallinWithSexyStyle",
+						"0.8"
+					]
+				]
+			],
+			[
 				107184.466019418,
 				[
 					[
@@ -63,6 +83,11 @@
 						"Game Flash",
 						"0xFFFFFFFF",
 						"0.3"
+					],
+					[
+						"Change Character",
+						"bf",
+						"bf-but-really-fum"
 					]
 				]
 			],
@@ -72,7 +97,27 @@
 					[
 						"Play Sound",
 						"CoCaine",
-						"1"
+						"0.8"
+					],
+					[
+						"Play Animation",
+						"Mode",
+						"gf"
+					],
+					[
+						"Tween Zoom",
+						"0.7",
+						"0.1"
+					]
+				]
+			],
+			[
+				145266.990291262,
+				[
+					[
+						"Play Sound",
+						"Fart",
+						"3.5"
 					]
 				]
 			],
@@ -86,7 +131,7 @@
 					],
 					[
 						"Tween Zoom",
-						"0.7",
+						"0.8",
 						"0.01"
 					]
 				]
@@ -96,8 +141,28 @@
 				[
 					[
 						"Tween Zoom",
-						"0.8",
+						"0.9",
 						"0.01"
+					]
+				]
+			],
+			[
+				154441.747572815,
+				[
+					[
+						"Screen Shake",
+						"0.1, 0.03",
+						"0.1, 0.02"
+					],
+					[
+						"Set Property",
+						"health",
+						"0.1"
+					],
+					[
+						"Play Sound",
+						"Gunshot",
+						"1"
 					]
 				]
 			],
@@ -118,6 +183,16 @@
 						"Tween Zoom",
 						"0.7",
 						"0.01"
+					],
+					[
+						"Change Character",
+						"gf",
+						"CoCaine"
+					],
+					[
+						"Game Flash",
+						"0xFFFFFFFF",
+						"0.4"
 					]
 				],
 				null,
@@ -129,7 +204,7 @@
 					[
 						"Change Character",
 						"bf",
-						"bf-pomfum"
+						"bf-but-really-fum"
 					],
 					[
 						"Set Property",
@@ -304,7 +379,7 @@
 					[
 						"Change Character",
 						"bf",
-						"bf-pomfum"
+						"bf-but-really-fum"
 					]
 				]
 			],
@@ -724,7 +799,7 @@
 					[
 						"Change Character",
 						"bf",
-						"bf-pomfum"
+						"bf-but-really-fum"
 					],
 					[
 						"Set Property",
