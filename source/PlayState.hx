@@ -908,6 +908,72 @@ class PlayState extends MusicBeatState
 			break;
 		}
 
+		// basically im lazy as shit so uhh yeah mwahhaha
+		switch (curStage)
+		{
+			case 'bg':
+				var script = '
+				h = 0
+
+				function onCreate()
+					makeLuaSprite("bg","bg/Caine/bg",150,100)
+					scaleObject("b", 1.2, 1.2, true)
+					addLuaSprite("bg")
+
+					setProperty("camGame.visible", false, false)
+					setProperty("camHUD.alpha", 0, false)
+				end
+
+				onUpdatePost = function()
+					setCharacterY("dad", 1080 + math.cos(getSongPosition()/1000)*100)
+					
+					if not mustHitSection then
+						if not gfSection then runHaxeCode("PlayState.instance.moveCamera(PlayState.instance.dad);") end
+					end
+				end
+
+				function onBeatHit()
+					h = curBeat
+
+					if curBeat == 1 then
+						doTweenAlpha("aaa", "camHUD", 1, 1, "sineInOut")
+					end
+
+					if curBeat == 4 then
+						setProperty("camGame.visible", true, false)
+						if getPropertyFromClass("ClientPrefs", "flashing", false) then cameraFlash("camGame", "FFFFFF", 1, nil) end
+					end
+
+					if curBeat == 164 then
+						setProperty("defaultCamZoom", 0.5, false)
+					end
+
+					if curBeat == 260 then
+						setProperty("defaultCamZoom", 0.9, false)
+						setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" - 200, false)
+					end
+
+					if curBeat == 276 then
+						cameraFade("game", "000000", .8)
+						doTweenZoom("rah", "camGame", .7, 1, "sineInOut")
+						doTweenAlpha("aaaaaa", "camHUD", 0, 2, "sineInOut")
+					end
+				end
+
+				function onMoveCamera(character)
+					if (h >= 35 and h < 164) or (h >= 196 and h < 260) then
+						if gfSection then
+							setProperty("defaultCamZoom", 0.78, false)
+						else 
+							setProperty("defaultCamZoom", 0.6, false)
+						end
+					end
+				end
+				';
+				luaArray.push(new FunkinLua(script));
+				funkyScripts.push(new FunkinLua(script));
+		}
+
 		// SONG SPECIFIC LUA SCRIPTS
 		var foldersToCheck:Array<String> = Paths.getFolders('songs/$songName');
 		#if PE_MOD_COMPATIBILITY
@@ -2846,7 +2912,7 @@ class PlayState extends MusicBeatState
 				var col:Null<FlxColor> = FlxColor.fromString(value1);
 				if (col == null) col = 0xFFFFFFFF;
 
-				FlxG.camera.flash(col, dur, null, true);
+				if (ClientPrefs.flashing) FlxG.camera.flash(col, dur, null, true);
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
@@ -3485,7 +3551,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 		if (!bot)stats.score += Math.floor(judgeData.score * playbackRate);
-		health += .023 * (judgeData.health < 0 ? healthLoss : healthGain);
+		health += (judgeData.health * 0.02) * (judgeData.health < 0 ? healthLoss : healthGain);
 		songHits++;
 
 

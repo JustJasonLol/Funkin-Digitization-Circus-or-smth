@@ -55,7 +55,7 @@ class CommonHUD extends BaseHUD
 
 		// prob gonna do my own time bar too lol but for now idc
 		timeTxt = new FlxText(FlxG.width * 0.5 - 200, 0, 400, "", 32);
-		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
+		timeTxt.setFormat(Paths.font("vcr-org.ttf"), 32, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
 		timeTxt.scrollFactor.set();
 		timeTxt.borderSize = 2;
 

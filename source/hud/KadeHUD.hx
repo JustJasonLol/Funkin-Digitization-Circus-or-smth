@@ -55,7 +55,7 @@ class KadeHUD extends BaseHUD
 			'$songName | $engineString',
 			16
 		);
-		watermark.setFormat(Paths.font("vcr.ttf"), 16, 0xFFFFFFFF, RIGHT, FlxTextBorderStyle.OUTLINE, 0xFF000000);
+		watermark.setFormat(Paths.font("vcr-org.ttf"), 16, 0xFFFFFFFF, RIGHT, FlxTextBorderStyle.OUTLINE, 0xFF000000);
 		watermark.scrollFactor.set();
 		add(watermark);
 		
@@ -63,7 +63,7 @@ class KadeHUD extends BaseHUD
 		scoreTxt.screenCenter(X);
 		originalX = scoreTxt.x;
 		scoreTxt.scrollFactor.set();
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, 0xFFFFFFFF, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
+		scoreTxt.setFormat(Paths.font("vcr-org.ttf"), 16, 0xFFFFFFFF, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
 		add(scoreTxt);
 
 		////
@@ -81,7 +81,7 @@ class KadeHUD extends BaseHUD
 
 		timeTxt = new FlxText(timeBarBG.x + (timeBarBG.width / 2) - (songName.length * 5), timeBarBG.y, 0, songName, 16);
 		timeTxt.y = (ClientPrefs.downScroll) ? (timeBarBG.y - 3) : timeBarBG.y;
-		timeTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		timeTxt.setFormat(Paths.font("vcr-org.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		add(timeTxt);
 	

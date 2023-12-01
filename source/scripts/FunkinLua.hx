@@ -54,7 +54,7 @@ class FunkinLua extends FunkinScript
 
 	public var accessedProps:Map<String, Dynamic> = null;
 
-	public function new(script:String, ?name:String, ?ignoreCreateCall:Bool=false) {
+	public function new(script:String, ?name:String, ?ignoreCreateCall:Bool=false, hardcoded:Bool=false) {
 		#if LUA_ALLOWED
 		lua = LuaL.newstate();
 		LuaL.openlibs(lua);
@@ -138,28 +138,44 @@ class FunkinLua extends FunkinScript
 		set('buildTarget', 'unknown');
 		#end
 
-		try
-		{
-			var result:Dynamic = LuaL.dofile(lua, script);
+		// stolen from pibby apocalypse mwahahaahhahaha
+        //if (hardcoded) {
+		try{
+			var result:Dynamic = LuaL.dostring(lua, script);
 			var resultStr:String = Lua.tostring(lua, result);
-			if (resultStr != null && result != 0)
-			{
-				trace('Error on lua script! ' + resultStr);
+			if(resultStr != null && result != 0) {
+				trace('Error on script! ' + resultStr);
 				#if windows
-				FlxG.fullscreen = false;
-				lime.app.Application.current.window.alert(resultStr, 'Error on lua script!');
+				lime.app.Application.current.window.alert(resultStr, 'Error on script!');
 				#else
-				luaTrace('Error loading lua script: "$script"\n' + resultStr, true, false);
+				luaTrace('Error loading script: "$script"\n' + resultStr, true, false, FlxColor.RED);
 				#end
 				lua = null;
 				return;
 			}
-		}
-		catch (e:Dynamic)
-		{
+		} catch(e:Dynamic) {
 			trace(e);
 			return;
 		}
+        /*}else{
+		try{
+			var result:Dynamic = LuaL.dofile(lua, script);
+			var resultStr:String = Lua.tostring(lua, result);
+			if(resultStr != null && result != 0) {
+				trace('Error on script! ' + resultStr);
+				#if windows
+				lime.app.Application.current.window.alert(resultStr, 'Error on script!');
+				#else
+				luaTrace('Error loading script: "$script"\n' + resultStr, true, false, FlxColor.RED);
+				#end
+				lua = null;
+				return;
+			}
+		} catch(e:Dynamic) {
+			trace(e);
+			return;
+		}
+        }*/
 
 		addCallback = Lua_helper.add_callback.bind(lua);
 		removeCallback = Lua_helper.remove_callback.bind(lua);
