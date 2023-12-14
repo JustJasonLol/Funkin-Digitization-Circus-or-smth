@@ -1,5 +1,8 @@
 package;
 
+import openfl.events.MouseEvent;
+import openfl.ui.Mouse;
+import openfl.ui.MouseCursor;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
@@ -14,7 +17,6 @@ import shaders.ColorSwap;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.input.keyboard.FlxKey;
-import openfl.events.MouseEvent;
 import openfl.ui.Mouse;
 import openfl.ui.MouseCursor;
 
@@ -104,6 +106,7 @@ class CircusState extends MusicBeatState
         // MusicBeatState.playMenuMusic(0, true);
         
         FlxG.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+        FlxG.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
 
         goToOptions = false;
     }
@@ -117,6 +120,7 @@ class CircusState extends MusicBeatState
         menuOptions.forEach(function(txt:FlxText){
             txt.screenCenter(X);
 
+            // dancetrap marry me
             if(!hasSelected)
             {
                 if (FlxG.mouse.overlaps(txt))
@@ -165,8 +169,12 @@ class CircusState extends MusicBeatState
             {
                 FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
                 if(ClientPrefs.flashing){
-                    FlxG.camera.flash(FlxColor.WHITE, 0.5);
-					FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+                     FlxG.camera.flash(FlxColor.WHITE, 0.5);
+                    
+                    FlxG.stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+                    FlxG.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+					
+                    FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 					{
 					    menuOptions.forEach(function(spr:FlxText)
 					    {
@@ -219,4 +227,16 @@ class CircusState extends MusicBeatState
 		}
     }
 
+    function onMouseMove(bread)
+    {
+        for (txt in menuOptions) {
+            if (FlxG.mouse.overlaps(txt) && !hasSelected)
+            {
+                Mouse.cursor = BUTTON;
+                return;
+            }
+        }
+
+        Mouse.cursor = MouseCursor.AUTO;
+    }
 }
