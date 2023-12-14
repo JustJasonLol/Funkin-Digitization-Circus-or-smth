@@ -220,6 +220,13 @@ class CircusState extends MusicBeatState
 
     function onMouseMove(bread)
     {
+        #if mobile
+		if (mouseHolding && !selectedSomethin)
+			mouseSwipe = (mouseHoldStartX - FlxG.mouse.x) / FlxG.width;
+		else
+			mouseSwipe = 0;
+		
+		#else
         for (txt in menuOptions) {
             if (FlxG.mouse.overlaps(txt) && !hasSelected)
             {
@@ -229,5 +236,6 @@ class CircusState extends MusicBeatState
         }
 
         Mouse.cursor = MouseCursor.AUTO;
+        #end
     }
 }
