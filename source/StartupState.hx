@@ -25,10 +25,10 @@ class StartupState extends FlxState
 	public static var fullscreenKeys:Array<FlxKey> = [FlxKey.F11];
 
 	#if final
-	public static final nextState:Class<FlxState> = TitleState;
+	public static final nextState:Class<FlxState> = /*TitleState*/ CircusState;
 	#else
 	@:allow(Main)
-	private static var nextState:Class<FlxState> = TitleState;
+	private static var nextState:Class<FlxState> = /*TitleState*/ CircusState;
 	#end
 
     // vv wait this isnt a musicbeatstate LOL!

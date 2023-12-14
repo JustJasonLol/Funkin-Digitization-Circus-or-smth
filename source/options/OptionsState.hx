@@ -16,7 +16,10 @@ class OptionsState extends MusicBeatState
         daSubstate = new OptionsSubstate(true);
 		daSubstate.goBack = (changedOptions:Array<String>)->{
 			FadeTransitionSubstate.nextCamera = daSubstate.transCamera;
-			MusicBeatState.switchState(new MainMenuState());
+			if(CircusState.goToOptions)
+				MusicBeatState.switchState(new CircusState());
+			else
+				MusicBeatState.switchState(new MainMenuState());
         };
 
  		bg = new FlxSprite(0, 0, Paths.image('newmenuu/optionsbg'));

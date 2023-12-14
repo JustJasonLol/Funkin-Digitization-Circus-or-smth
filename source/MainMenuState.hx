@@ -537,7 +537,8 @@ class MainMenuState extends MusicBeatState
 		if (!selectedSomethin){
 			if (controls.BACK){
 				selectedSomethin = true;
-				MusicBeatState.switchState(new TitleState());
+				// MusicBeatState.switchState(new TitleState());
+				MusicBeatState.switchState(new CircusState());
 			}else if (controls.ACCEPT)
 				onSelected();
 			#if desktop
