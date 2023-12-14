@@ -6,7 +6,10 @@ import flixel.input.gamepad.FlxGamepad;
 import flixel.math.*;
 import flixel.tweens.*;
 import flixel.util.FlxColor;
+import flixel.effects.FlxFlicker;
 import flixel.util.FlxTimer;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import shaders.ColorSwap;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
@@ -38,6 +41,9 @@ class CircusState extends MusicBeatState
     ];
 
     static var loaded = false;
+    var hasSelected = false;
+
+    public static var goToOptions:Bool = false;
 
     static public function load()
     {
@@ -67,7 +73,12 @@ class CircusState extends MusicBeatState
     override public function destroy()
     {
         loaded = false;
-    
+
+        logoBl = null;
+        menuOptions.clear();
+        menuOptions = null;
+        FlxG.stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+
         return super.destroy();
     }
 
@@ -83,16 +94,117 @@ class CircusState extends MusicBeatState
 
         add(logoBl);
         add(menuOptions);
-
+        FlxG.mouse.visible = true;
         initialized = true;
         // MusicBeatState.playMenuMusic(0, true);
         MusicBeatState.playMenuMusic(1, true);
 
+        FlxG.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+
+        goToOptions = false;
     }
+
+    var scale = 1.2;
 
     override function update(elapsed:Float)
     {
         super.update(elapsed);
+
+        menuOptions.forEach(function(txt:FlxText){
+            txt.screenCenter(X);
+
+            if (FlxG.mouse.overlaps(txt))
+            {
+                txt.scale.x = FlxMath.lerp(txt.scale.x, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                txt.scale.y = FlxMath.lerp(txt.scale.y, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+            }
+            else
+            {
+                // txt.scale
+                // CoolUtil.boundTo(elapsed * 1.2, 0, 1)
+                txt.scale.x = FlxMath.lerp(txt.scale.x, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                txt.scale.y = FlxMath.lerp(txt.scale.y, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+            }
+                
+        });
+    }
+
+    function goTo(id:Int)
+    {
+        hasSelected = true;
+        var daChoice = options[id];
+
+        if (daChoice == "Quit")
+            Sys.exit(0);
+            
+        menuOptions.forEach(function(spr:FlxText)
+		{
+            if (id != spr.ID)
+			{
+				FlxTween.tween(spr, {alpha: 0}, 0.4, {
+					ease: FlxEase.quadOut,
+					onComplete: function(twn:FlxTween)
+					{
+						spr.kill();
+					}
+				});
+			}
+            else
+            {
+                FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+                if(ClientPrefs.flashing){
+                        
+					FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+					{
+					    menuOptions.forEach(function(spr:FlxText)
+					    {
+						    switch (daChoice)
+						    {
+                                case 'Play':
+                                    MusicBeatState.switchState(new MainMenuState());
+                                case 'Options':
+                                    goToOptions = true;
+                                    LoadingState.loadAndSwitchState(new options.OptionsState());
+                            }
+                         });
+                    });
+                }
+                else
+                {
+                    new FlxTimer().start(1, function(_) {
+                        menuOptions.forEach(function(spr:FlxText)
+					    {
+						    switch (daChoice)
+						    {
+                                case 'Play':
+                                    MusicBeatState.switchState(new MainMenuState());
+                                case 'Options':
+                                    goToOptions = true;
+                                    LoadingState.loadAndSwitchState(new options.OptionsState());
+                            }
+                        });
+                    });
+                }
+            }
+        });
+    }
+
+    // Mouse functions
+
+    function onMouseDown(e)
+    {
+        // mouseHolding = true;
+        // mouseHoldStartX = FlxG.mouse.x;
+    }
+
+    function onMouseUp(e)
+    {
+        if(menuOptions != null && menuOptions.members.length > 0)
+		for (txt in menuOptions){
+			if (FlxG.mouse.overlaps(txt) && !hasSelected)
+                goTo(txt.ID);
+				// trace(txt.ID);
+		}
     }
 
 }
