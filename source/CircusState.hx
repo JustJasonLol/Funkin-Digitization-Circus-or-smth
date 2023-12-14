@@ -39,6 +39,7 @@ class CircusState extends MusicBeatState
         'Options',
         'Quit'
     ];
+    public var selectedID:Int = 0;
 
     static var loaded = false;
     var hasSelected = false;
@@ -95,10 +96,13 @@ class CircusState extends MusicBeatState
         add(logoBl);
         add(menuOptions);
         FlxG.mouse.visible = true;
-        initialized = true;
+        if(!initialized)
+        {
+            initialized = true;
+            MusicBeatState.playMenuMusic(1, true);
+        }
         // MusicBeatState.playMenuMusic(0, true);
-        MusicBeatState.playMenuMusic(1, true);
-
+        
         FlxG.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 
         goToOptions = false;
@@ -113,26 +117,34 @@ class CircusState extends MusicBeatState
         menuOptions.forEach(function(txt:FlxText){
             txt.screenCenter(X);
 
-            if (FlxG.mouse.overlaps(txt))
+            if(!hasSelected)
             {
-                txt.scale.x = FlxMath.lerp(txt.scale.x, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
-                txt.scale.y = FlxMath.lerp(txt.scale.y, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
-            }
-            else
-            {
-                // txt.scale
-                // CoolUtil.boundTo(elapsed * 1.2, 0, 1)
-                txt.scale.x = FlxMath.lerp(txt.scale.x, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
-                txt.scale.y = FlxMath.lerp(txt.scale.y, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                if (FlxG.mouse.overlaps(txt))
+                {
+                    txt.scale.x = FlxMath.lerp(txt.scale.x, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                    txt.scale.y = FlxMath.lerp(txt.scale.y, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                }
+                else
+                {
+                    txt.scale.x = FlxMath.lerp(txt.scale.x, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                    txt.scale.y = FlxMath.lerp(txt.scale.y, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                }
             }
                 
         });
+
+        if(hasSelected)
+        {
+            menuOptions.members[selectedID].scale.x = FlxMath.lerp(menuOptions.members[selectedID].scale.x, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+            menuOptions.members[selectedID].scale.y = FlxMath.lerp(menuOptions.members[selectedID].scale.y, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+        }
     }
 
     function goTo(id:Int)
     {
         hasSelected = true;
         var daChoice = options[id];
+        selectedID = id;
 
         if (daChoice == "Quit")
             Sys.exit(0);
@@ -153,7 +165,7 @@ class CircusState extends MusicBeatState
             {
                 FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
                 if(ClientPrefs.flashing){
-                        
+                    FlxG.camera.flash(FlxColor.WHITE, 0.5);
 					FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 					{
 					    menuOptions.forEach(function(spr:FlxText)
