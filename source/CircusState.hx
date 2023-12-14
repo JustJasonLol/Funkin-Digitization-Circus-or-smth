@@ -68,9 +68,6 @@ class CircusState extends MusicBeatState
         }
     }
 
-    // FlxG.mouse.justPressed
-    // Paths.font("calibrib.ttf")
-
     override public function destroy()
     {
         loaded = false;
@@ -78,6 +75,10 @@ class CircusState extends MusicBeatState
         logoBl = null;
         menuOptions.clear();
         menuOptions = null;
+        #if mobile
+		FlxG.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+		#end
+		FlxG.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
         FlxG.stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 
         return super.destroy();
@@ -102,7 +103,11 @@ class CircusState extends MusicBeatState
             MusicBeatState.playMenuMusic(1, true);
         }
         // MusicBeatState.playMenuMusic(0, true);
-        
+
+        #if mobile
+		FlxG.stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+		#end
+		FlxG.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
         FlxG.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 
         goToOptions = false;
@@ -203,14 +208,53 @@ class CircusState extends MusicBeatState
 
     // Mouse functions
 
-    function onMouseDown(e)
-    {
-        // mouseHolding = true;
-        // mouseHoldStartX = FlxG.mouse.x;
-    }
+    #if mobile
+	var mouseHolding:Bool = false;
+	var mouseHoldStartX:Float;
+	var mouseSwipe:Float = 0;
+
+	function onMouseDown(e)
+	{
+		mouseHolding = true;
+		mouseHoldStartX = FlxG.mouse.x;
+	}
+
+	#else
+	function updateMouseIcon()
+	{
+		for (spr in menuOptions){
+			if (FlxG.mouse.overlaps(spr))
+			{
+				Mouse.cursor = MouseCursor.BUTTON;
+				return;
+			}
+		}
+
+		Mouse.cursor = MouseCursor.AUTO;
+	}
+	#end
+
+	function onMouseMove(e)
+	{
+		#if mobile
+		if (mouseHolding && !hasSelected)
+			mouseSwipe = (mouseHoldStartX - FlxG.mouse.x) / FlxG.width;
+		else
+			mouseSwipe = 0;
+		
+		#else
+
+		updateMouseIcon();
+		#end
+	}
 
     function onMouseUp(e)
     {
+        #if mobile
+		    mouseHolding = false;
+		    mouseSwipe = 0;
+		#end
+
         if(menuOptions != null && menuOptions.members.length > 0)
 		for (txt in menuOptions){
 			if (FlxG.mouse.overlaps(txt) && !hasSelected)
