@@ -2,77 +2,77 @@
 	"animations": [
 		{
 			"offsets": [
-				0,
-				0
+				20,
+				29
 			],
-			"indices": [],
-			"fps": 24,
-			"anim": "idle",
 			"loop": false,
-			"name": "idle"
-		},
-		{
-			"offsets": [
-				202,
-				-1
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singLEFT",
-			"loop": false,
-			"name": "left"
-		},
-		{
-			"offsets": [
-				-10,
-				-170
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN",
-			"loop": false,
-			"name": "down"
-		},
-		{
-			"offsets": [
-				30,
-				20
-			],
-			"indices": [],
 			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
+			"indices": [],
 			"name": "up"
 		},
 		{
 			"offsets": [
-				-150,
-				18
+				-21,
+				-196
 			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
 			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				-10,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				-112,
+				19
+			],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
+			"indices": [],
 			"name": "right"
+		},
+		{
+			"offsets": [
+				208,
+				-1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Pomni_TADC_ASSets",
+	"image": "characters/Pomni",
 	"position": [
-		30,
-		90
+		0,
+		0
 	],
-	"healthicon": "face",
+	"healthicon": "pomni",
 	"flip_x": true,
 	"healthbar_colors": [
-		255,
-		155,
+		161,
+		161,
 		161
 	],
 	"camera_position": [
-		50,
-		70
+		0,
+		0
 	],
-	"sing_duration": 6.1,
+	"sing_duration": 5,
 	"scale": 1
 }

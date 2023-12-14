@@ -441,7 +441,7 @@ class Character extends FlxSprite
 	/**
 	 * FOR GF DANCING SHIT
 	 */
-	public function dance()
+	public function dance(?anim:String = 'idle')
 	{
 		if (!debugMode && !skipDance && !specialAnim && animTimer <= 0 && !voicelining)
 		{
@@ -458,8 +458,8 @@ class Character extends FlxSprite
 
 				callOnScripts("onDancePost");
 			}
-			else if(animation.getByName('idle' + idleSuffix) != null) {
-				playAnim('idle' + idleSuffix);
+			else if(animation.getByName(anim + idleSuffix) != null) {
+				playAnim(anim + idleSuffix);
 				callOnScripts("onDancePost");
 			}
 		}

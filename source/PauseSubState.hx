@@ -84,7 +84,7 @@ class PauseSubState extends MusicBeatSubstate
 		pauseMusic = new FlxSound();
 
 		var songName = songName;
-		if (songName == null) songName = 'Pause';
+		if (songName == null) songName = 'Pause-circus';
 		
 		if(songName != 'None'){
 			songName = Paths.formatToSongPath(songName);
@@ -97,7 +97,7 @@ class PauseSubState extends MusicBeatSubstate
 			if (Paths.exists(pathStr)){
 				var loopTime:Float = Std.parseFloat(Paths.getContent(pathStr));
 				if (!Math.isNaN(loopTime)){
-					pauseMusic.loopTime = loopTime;
+					pauseMusic.loopTime = 1.20 / 1000;
 					//trace(loopTime);
 				}
 			}

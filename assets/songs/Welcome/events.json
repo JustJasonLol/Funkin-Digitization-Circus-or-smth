@@ -1,0 +1,181 @@
+{
+	"song": {
+		"events": [
+			[
+				1714.28571428571,
+				[
+					[
+						"Cam Zoom Interval",
+						"1",
+						"1.7"
+					]
+				]
+			],
+			[
+				8571.42857142857,
+				[
+					[
+						"Set Property",
+						"cameraSpeed",
+						"100"
+					],
+					[
+						"Set Property",
+						"camGame.zoom",
+						"0.8"
+					],
+					[
+						"Set Property",
+						"defaultCamZoom",
+						"0.8"
+					]
+				]
+			],
+			[
+				8678.57142857143,
+				[
+					[
+						"Set Property",
+						"cameraSpeed",
+						"1"
+					]
+				]
+			],
+			[
+				9000,
+				[
+					[
+						"Set Property",
+						"cameraSpeed",
+						"1"
+					],
+					[
+						"Set Property",
+						"defaultCamZoom",
+						"0.6"
+					],
+					[
+						"Game Flash",
+						"",
+						""
+					]
+				]
+			],
+			[
+				29142.8571428571,
+				[
+					[
+						"Cam Zoom Interval",
+						"1",
+						"1.3"
+					]
+				]
+			],
+			[
+				34285.7142857143,
+				[
+					[
+						"Lyrics",
+						"What the [boing!] is going on?!",
+						""
+					]
+				]
+			],
+			[
+				36000,
+				[
+					[
+						"Lyrics",
+						"",
+						""
+					]
+				]
+			],
+			[
+				39428.5714285714,
+				[
+					[
+						"Lyrics",
+						"No, no, my dear.",
+						""
+					]
+				]
+			],
+			[
+				40285.7142857143,
+				[
+					[
+						"Lyrics",
+						"We can't have any of that foul language.",
+						""
+					]
+				]
+			],
+			[
+				42857.1428571429,
+				[
+					[
+						"Lyrics",
+						"",
+						""
+					]
+				]
+			],
+			[
+				49714.2857142857,
+				[
+					[
+						"Set Property",
+						"cameraSpeed",
+						"1"
+					]
+				]
+			],
+			[
+				56571.4285714286,
+				[
+					[
+						"Cam Zoom Interval",
+						"1",
+						"1.5"
+					]
+				]
+			],
+			[
+				68785.7142857143,
+				[
+					[
+						"Lyrics",
+						"I'm on it, boss!",
+						""
+					]
+				]
+			],
+			[
+				70285.7142857143,
+				[
+					[
+						"Center Camera",
+						"true",
+						""
+					],
+					[
+						"Lyrics",
+						"",
+						""
+					]
+				]
+			],
+			[
+				84000,
+				[
+					[
+						"Center Camera",
+						"false",
+						""
+					]
+				]
+			]
+		]
+	}
+}

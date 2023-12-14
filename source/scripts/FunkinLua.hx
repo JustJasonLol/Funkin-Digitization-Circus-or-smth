@@ -54,7 +54,7 @@ class FunkinLua extends FunkinScript
 
 	public var accessedProps:Map<String, Dynamic> = null;
 
-	public function new(script:String, ?name:String, ?ignoreCreateCall:Bool=false, hardcoded:Bool=false) {
+	public function new(script:String, mode:Bool = false, ?name:String, ?ignoreCreateCall:Bool=false, hardcoded:Bool=false) {
 		#if LUA_ALLOWED
 		lua = LuaL.newstate();
 		LuaL.openlibs(lua);
@@ -139,7 +139,7 @@ class FunkinLua extends FunkinScript
 		#end
 
 		// stolen from pibby apocalypse mwahahaahhahaha
-        //if (hardcoded) {
+        if (mode) {
 		try{
 			var result:Dynamic = LuaL.dostring(lua, script);
 			var resultStr:String = Lua.tostring(lua, result);
@@ -157,7 +157,7 @@ class FunkinLua extends FunkinScript
 			trace(e);
 			return;
 		}
-        /*}else{
+        }else{
 		try{
 			var result:Dynamic = LuaL.dofile(lua, script);
 			var resultStr:String = Lua.tostring(lua, result);
@@ -175,7 +175,7 @@ class FunkinLua extends FunkinScript
 			trace(e);
 			return;
 		}
-        }*/
+        }
 
 		addCallback = Lua_helper.add_callback.bind(lua);
 		removeCallback = Lua_helper.remove_callback.bind(lua);

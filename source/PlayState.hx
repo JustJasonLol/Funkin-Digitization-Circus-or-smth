@@ -1,5 +1,6 @@
 package;
 
+import openfl.geom.Matrix;
 import Cache;
 import Song;
 import Section.SwagSection;
@@ -911,67 +912,295 @@ class PlayState extends MusicBeatState
 		// basically im lazy as shit so uhh yeah mwahhaha
 		switch (curStage)
 		{
-			case 'bg':
+			case 'circus':
 				var script = '
 				h = 0
 
 				function onCreate()
-					makeLuaSprite("bg","bg/Caine/bg",150,100)
-					scaleObject("b", 1.2, 1.2, true)
-					addLuaSprite("bg")
-
+					if songName == "Welcome" then
 					setProperty("camGame.visible", false, false)
 					setProperty("camHUD.alpha", 0, false)
-				end
+					end
 
-				onUpdatePost = function()
-					setCharacterY("dad", 1080 + math.cos(getSongPosition()/1000)*100)
+					makeLuaSprite("bg","bg/Caine/bg",0,0)
+					scaleObject("bg", 1.2, 1.2, true)
+					addLuaSprite("bg")
 					
-					if not mustHitSection then
-						if not gfSection then runHaxeCode("PlayState.instance.moveCamera(PlayState.instance.dad);") end
+					
+					makeLuaSprite("bg2","bg/Caine/shadow",0,0)
+					scaleObject("bg2", 1.2, 1.2, true)
+					addLuaSprite("bg2", false)
+					
+					
+					makeLuaSprite("bg3","bg/Caine/shade",0,0)
+					scaleObject("bg3", 1.2, 1.2, true)
+					addLuaSprite("bg3", true)
+					end
+					
+					function onCreatePost()
+					makeLuaSprite("bg4","bg/Caine/chrshadow",getProperty("boyfriend.x") - 2180,getProperty("boyfriend.y") - 620)
+					scaleObject("bg4", 1.2, 1.2, true)
+					addLuaSprite("bg4")
+					
+					makeLuaSprite("bg5","bg/Caine/chrshadow",getProperty("dad.x") - 1690,getProperty("dad.y") - 115)
+					addLuaSprite("bg5")
+					updateHitbox("bg5")
+
+					if songName == "Buffon" then
+						makeLuaSprite("n", nil, 0, 0)
+						makeGraphic("n", 1, 1, "000000")
+						scaleObject("n", screenWidth * 5, screenHeight * 5, false)
+						setScrollFactor("n", 0.0, 0.0)
+						setProperty("n.alpha", 0, false)
+						addLuaSprite("n", false)
+					end
+					
+					doTweenY("gfYup", "gf", defaultGirlfriendY + 100, 3, "sineInOut")
+					doTweenY("dadYup", "dad", defaultOpponentY - 100, 3, "sineInOut")
+
+					setProperty("dad.cameraPosition[0]", getProperty "dad.cameraPosition[0]" - 70, false)
+					end
+					
+					function onTweenCompleted(tag)
+					if tag == "dadYup" then
+					doTweenY("dadYdown", "dad", defaultOpponentY + 100, 3, "sineInOut")
+					doTweenY("gfYdown", "gf", defaultGirlfriendY - 100, 3, "sineInOut")
+					
+					doTweenX("oddf", "bg5.scale", 1.5, 3, "sineInOut")
+					doTweenY("oefreb", "bg5.scale", 1.5, 3, "sineInOut")
+					
+					doTweenX("oddfd", "bg5", defaultOpponentX - 1990, 3, "sineInOut")
+					doTweenY("oedfreb", "bg5", defaultOpponentY - 290, 3, "sineInOut")
+					
+					
+					elseif tag == "dadYdown" then
+					doTweenY("dadYup", "dad", defaultOpponentY - 100, 3, "sineInOut")
+					doTweenY("gfYup", "gf", defaultGirlfriendY + 100, 3, "sineInOut")
+					
+					
+					doTweenX("oddf", "bg5.scale", 1, 3, "sineInOut")
+					doTweenY("oefreb", "bg5.scale", 1, 3, "sineInOut")
+					
+					doTweenX("oddfd", "bg5", defaultOpponentX - 1690, 3, "sineInOut")
+					doTweenY("oedfreb", "bg5", defaultOpponentY - 115, 3, "sineInOut")
+					end
+					
+					
+					
+					end
+					
+					function onUpdatePost()
+					if not mustHitSection and not gfSection then
+					cameraSetTarget("dad")
+					elseif gfSection then
+					setProperty("camFollow.x", getMidpointX("gf") + (getProperty("gf.cameraPosition[0]") + getProperty("girlfriendCameraOffset[0]")))
+					setProperty("camFollow.y", getMidpointY("gf") + (getProperty("gf.cameraPosition[1]") + getProperty("girlfriendCameraOffset[1]")))
+					end
+					end
+
+				function onSongStart()
+					if songName == "Buffon" then
+						doTweenAlpha("aaaa", "camHUD", 0, 1, "sineInOut")
 					end
 				end
 
 				function onBeatHit()
 					h = curBeat
 
-					if curBeat == 1 then
-						doTweenAlpha("aaa", "camHUD", 1, 1, "sineInOut")
+					if songName == "Buffon" then
+						if curBeat == 242 then
+							doTweenAlpha("ss", "n", 1, 1, "sineInOut")
+					
+							for s, stuff in pairs {"dad", "gf", "hud.healthBar", "hud.healthBarBGG", "scoreTxt"} do
+								doTweenAlpha(stuff.."tween", stuff, 0.00001, 1, "sineInOut")
+							end
+					
+							for i, woo in {0, 1, 2, 3} do
+							   noteTweenX("byeNotes"..woo, woo, getPropertyFromGroup("opponentStrums", woo, "x") - 1000, 4)
+							end
+						end
+					
+						if curBeat == 306 then
+							setProperty("n.visible", false, false)
+							
+							for s, stuff in pairs {"dad", "gf", "hud.healthBar", "hud.healthBarBGG", "scoreTxt"} do
+								setProperty(stuff..".alpha", 1, false)
+							end
+						end
 					end
 
-					if curBeat == 4 then
-						setProperty("camGame.visible", true, false)
-						if getPropertyFromClass("ClientPrefs", "flashing", false) then cameraFlash("camGame", "FFFFFF", 1, nil) end
-					end
-
-					if curBeat == 164 then
-						setProperty("defaultCamZoom", 0.5, false)
-					end
-
-					if curBeat == 260 then
-						setProperty("defaultCamZoom", 0.9, false)
-						setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" - 200, false)
-					end
-
-					if curBeat == 276 then
-						cameraFade("game", "000000", .8)
-						doTweenZoom("rah", "camGame", .7, 1, "sineInOut")
-						doTweenAlpha("aaaaaa", "camHUD", 0, 2, "sineInOut")
+					if songName == "Welcome" then
+						if curBeat == 1 then
+							doTweenAlpha("aaa", "camHUD", 1, 1, "sineInOut")
+						end
+	
+						if curBeat == 4 then
+							setProperty("camGame.visible", true, false)
+							if getPropertyFromClass("ClientPrefs", "flashing", false) then cameraFlash("camGame", "FFFFFF", 1, nil) end
+						end
+	
+						if curBeat == 20 then
+							setProperty("dad.cameraPosition[0]", getProperty "dad.cameraPosition[0]" + 70, false)
+						end
+	
+						if curBeat == 164 then
+							setProperty("defaultCamZoom", 0.5, false)
+						end
+	
+						if curBeat == 260 then
+							setProperty("defaultCamZoom", 0.9, false)
+							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" - 200, false)
+						end
+	
+						if curBeat == 276 then
+							cameraFade("game", "000000", .8)
+							doTweenZoom("rah", "camGame", .7, 1, "sineInOut")
+							doTweenAlpha("aaaaaa", "camHUD", 0, 2, "sineInOut")
+						end
 					end
 				end
 
 				function onMoveCamera(character)
-					if (h >= 35 and h < 164) or (h >= 196 and h < 260) then
-						if gfSection then
-							setProperty("defaultCamZoom", 0.78, false)
-						else 
-							setProperty("defaultCamZoom", 0.6, false)
-						end
+					if songName == "Welcome" then
+						if (h >= 35 and h < 164) or (h >= 196 and h < 260) then
+							if gfSection then
+								setProperty("defaultCamZoom", 0.78, false)
+							else 
+								setProperty("defaultCamZoom", 0.6, false)
+							end
+					end
 					end
 				end
 				';
-				luaArray.push(new FunkinLua(script));
-				funkyScripts.push(new FunkinLua(script));
+
+				if (SONG.song == 'Buffon')
+				{
+					var buffonScript = '
+					n = true
+					beat = 0
+					final = false
+
+					function onCreate()
+						setProperty("cameraSpeed", 100, false)
+						runTimer("stop", 1, 1)
+					end
+
+					function onBeatHit()
+						if curBeat == 44 then
+							setProperty("camGame.zoom", 0.8)
+							setProperty("cameraSpeed", 100)
+						end
+
+						if curBeat == 46 then
+							setProperty("camGame.zoom", 0.75)
+							doTweenAlpha("ddd", "camHUD", 1, 1, "sineInOut")
+						end
+
+						if curBeat == 48 then
+							if flashingLights then cameraFlash("game", "616161", 1) end
+							setProperty("cameraSpeed", 1.1)
+						end
+
+						if curBeat == 110 then
+							setProperty("defaultCamZoom", 0.72, false)
+						end
+
+						if curBeat == 143 then
+							final = true 
+						end
+
+						if curBeat == 144 or curBeat == 308 then beat = 1 end 
+
+						if curBeat == 240 or curBeat == 372 then 
+							final = true 
+							beat = 0 
+							doTweenAngle("camA", "camHUD", 0, crochet/1000,"sineInOut")
+							doTweenAngle("camA2", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenY("camY", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenY("camY2", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenX("camX", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenX("camX2", "camGame", 0, crochet/1000,"sineInOut")
+						end
+
+						if curBeat == 243 then
+							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" - 150, false)
+						end
+
+						if curBeat == 304 then
+							setProperty("camGame.visible", false, false)
+							setProperty("camHUD.alpha", 0, false)
+						end
+
+						if curBeat == 307 then
+							setProperty("camGame.visible", true, false)
+							for hmm, h in pairs {"camGame.zoom", "defaultCamZoom"} do setProperty(h, 0.734) end
+						end
+
+						if curBeat == 308 then
+							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" + 150, false)
+							for hmm, h in pairs {"camGame.zoom", "defaultCamZoom"} do setProperty(h, 0.6) end
+							setProperty("camHUD.alpha", 1, false)
+							if flashingLights then cameraFlash("game", "616161", 1) end
+						end
+
+							if curBeat % 1 == 0 and beat == 1 then
+							
+							if n then
+							setProperty("camHUD.angle", 1)
+							setProperty("camGame.angle", -1)
+							
+							setProperty("camGame.x", 5)
+							setProperty("camGame.x", -5)
+							
+							n = false
+							else
+							setProperty("camHUD.angle", -1)
+							setProperty("camGame.angle", 1)
+							
+							setProperty("camGame.x", 5)
+							setProperty("camGame.x", 5)
+							n = true
+							end
+							setProperty("camHUD.y", -5)
+							setProperty("camGame.y", 5)
+							
+							if final then 
+								doTweenAngle("camA", "camHUD", 0, crochet/1000,"sineInOut")
+								doTweenAngle("camA2", "camGame", 0, crochet/1000,"sineInOut")
+								doTweenY("camY", "camGame", 0, crochet/1000,"sineInOut")
+								doTweenY("camY2", "camGame", 0, crochet/1000,"sineInOut")
+								doTweenX("camX", "camGame", 0, crochet/1000,"sineInOut")
+								doTweenX("camX2", "camGame", 0, crochet/1000,"sineInOut")
+							end
+
+							end
+					end
+
+					function onStepHit()
+						if curStep == 186 then setProperty("camGame.zoom", 0.7) end
+
+						if curStep == 188 then setProperty("camGame.zoom", 0.65) end
+
+						if curStep == 190 then setProperty("camGame.zoom", 0.6) end
+					end
+
+					---
+					--- @param tag string
+					--- @param loops integer
+					--- @param loopsLeft integer
+					---
+					function onTimerCompleted(tag, loops, loopsLeft)
+						if tag == "stop" then
+							setProperty("cameraSpeed", 1, false)
+						end
+					end';
+
+					luaArray.push(new FunkinLua(buffonScript, true));
+					funkyScripts.push(new FunkinLua(buffonScript, true));
+				}
+
+				luaArray.push(new FunkinLua(script, true));
+				funkyScripts.push(new FunkinLua(script, true));
 		}
 
 		// SONG SPECIFIC LUA SCRIPTS
@@ -1437,7 +1666,7 @@ class PlayState extends MusicBeatState
 			{
 				var gfDanceEveryNumBeats = Math.round(gfSpeed * gf.danceEveryNumBeats);
 				if ((gfDanceEveryNumBeats != 0 && tmr.loopsLeft % gfDanceEveryNumBeats == 0) && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
-					gf.dance();
+					gf.dance((FlxG.random.bool(25) && gf.animation.curAnim.finished && gf.curCharacter.toLowerCase() == 'bubble') ? 'idle-blink' : 'idle');
 			}
 
 			for(field in playfields){
@@ -1817,7 +2046,7 @@ class PlayState extends MusicBeatState
 						#if LUA_ALLOWED
 						if (ext == 'lua')
 						{
-							var script = new FunkinLua(file, notetype, #if PE_MOD_COMPATIBILITY true #else false #end);
+							var script = new FunkinLua(file, false, notetype, #if PE_MOD_COMPATIBILITY true #else false #end);
 							luaArray.push(script);
 							funkyScripts.push(script);
 							#if PE_MOD_COMPATIBILITY
@@ -1867,7 +2096,7 @@ class PlayState extends MusicBeatState
 						#if LUA_ALLOWED
 						if (ext == 'lua')
 						{
-							var script = new FunkinLua(file, event);
+							var script = new FunkinLua(file, false, event);
 							luaArray.push(script);
 							funkyScripts.push(script);
 							// psych lua scripts work the exact same no matter what type of script they are 
@@ -2136,6 +2365,7 @@ class PlayState extends MusicBeatState
 				trace(event.value2, charType);
 
 				addCharacterToList(event.value2, charType);
+			
 			default:
 				if (eventScripts.exists(event.event))
 					callScript(eventScripts.get(event.event), "onPush", [event]);
@@ -2667,6 +2897,16 @@ class PlayState extends MusicBeatState
 		modManager.updateTimeline(curDecStep);
 		modManager.update(elapsed);
 
+		var matrix:Matrix = new Matrix();
+		//matrix.concat(cam.canvas.transform.matrix);
+		matrix.translate(-camGame.width * .5, -camGame.height * .5);
+		matrix.scale(camGame.scaleX, camGame.scaleY);
+		matrix.rotate(camGame.angle * (Math.PI / 180));
+		matrix.translate(camGame.width, camGame.height);
+		matrix.translate(camGame.flashSprite.x, camGame.flashSprite.y); // for shake event
+		matrix.scale(FlxG.scaleMode.scale.x, FlxG.scaleMode.scale.y);
+		camGame.canvas.transform.matrix = matrix;
+
 		if (generatedMusic)
 		{
 			if (!inCutscene){
@@ -2884,6 +3124,9 @@ class PlayState extends MusicBeatState
 		}
 		reloadHealthBarColors();
 	}
+
+	var silly:FlxText;
+	var sillyBg:FlxSprite;
 
 	public function triggerEventNote(eventName:String = "", value1:String = "", value2:String = "", ?time:Float) {
         if(time==null)
@@ -3128,6 +3371,30 @@ class PlayState extends MusicBeatState
 						FunkinLua.setVarInArray(this, value1, value2);
 				}catch (e:haxe.Exception){
 
+				}
+
+			case 'Lyrics':
+				if(silly != null && sillyBg != null){
+					remove(silly);
+					remove(sillyBg);
+					sillyBg.destroy();
+					silly.destroy();
+				}
+
+				if(value1.trim()!=''){
+					silly = new FlxText(0, 570, 0, value1, 32);
+					silly.cameras = [camOther];
+					silly.setFormat(Paths.font("calibri.ttf"), 27, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+					silly.screenCenter(X);
+					silly.updateHitbox();
+
+					sillyBg = new FlxSprite(silly.x - 5, silly.y - 5).makeGraphic(Std.int(silly.width + 10), Std.int(silly.height + 10), FlxColor.BLACK);
+					sillyBg.alpha = .5;
+					sillyBg.cameras = [camOther];
+					sillyBg.updateHitbox();
+					
+					add(sillyBg);
+					add(silly);
 				}
 		}
 		callOnScripts('onEvent', [eventName, value1, value2, time]);
@@ -4315,7 +4582,7 @@ class PlayState extends MusicBeatState
 		{
 			var gfDanceEveryNumBeats = Math.round(gfSpeed * gf.danceEveryNumBeats);
 			if ((gfDanceEveryNumBeats != 0 && curBeat % gfDanceEveryNumBeats == 0) && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
-				gf.dance();
+				gf.dance((FlxG.random.bool(25) && gf.animation.curAnim.finished && gf.curCharacter.toLowerCase() == 'bubble') ? 'idle-blink' : 'idle');
 		}
 		
 		for(field in playfields)

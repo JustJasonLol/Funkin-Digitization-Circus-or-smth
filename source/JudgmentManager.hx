@@ -66,7 +66,7 @@ class JudgmentManager {
             score: 500,
             accuracy: 100,
             health: 1.15,
-			noteSplash: true,
+			noteSplash: false,
         },
         TIER4 => {
             internalName: "sick",
@@ -75,7 +75,7 @@ class JudgmentManager {
             score: 350,
             accuracy: 95,
             health: 1.15,
-			noteSplash: true,
+			noteSplash: false,
         },
         TIER3 => {
             internalName: "good",

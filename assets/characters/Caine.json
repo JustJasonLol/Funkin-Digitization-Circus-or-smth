@@ -2,12 +2,8 @@
 	"animations": [
 		{
 			"loop": false,
-			"cameraOffset": [
-				0,
-				0
-			],
 			"offsets": [
-				-11,
+				0,
 				0
 			],
 			"anim": "idle",
@@ -17,28 +13,9 @@
 		},
 		{
 			"loop": false,
-			"cameraOffset": [
-				30,
-				0
-			],
 			"offsets": [
-				-100,
-				70
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "right",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"cameraOffset": [
-				-30,
-				0
-			],
-			"offsets": [
-				130,
-				0
+				110,
+				-80
 			],
 			"anim": "singLEFT",
 			"fps": 24,
@@ -47,13 +24,9 @@
 		},
 		{
 			"loop": false,
-			"cameraOffset": [
-				0,
-				30
-			],
 			"offsets": [
-				30,
-				-200
+				0,
+				-240
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -62,37 +35,44 @@
 		},
 		{
 			"loop": false,
-			"cameraOffset": [
-				0,
-				-30
-			],
 			"offsets": [
-				100,
-				180
+				10,
+				190
 			],
 			"anim": "singUP",
 			"fps": 24,
 			"name": "up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-170,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Caine",
 	"position": [
-		-530,
-		-560
+		0,
+		0
 	],
-	"healthicon": "face",
+	"healthicon": "caine",
 	"flip_x": false,
 	"healthbar_colors": [
-		192,
-		192,
-		192
+		255,
+		41,
+		81
 	],
 	"camera_position": [
-		-100,
-		160
+		0,
+		0
 	],
-	"sing_duration": 4,
+	"sing_duration": 6.1,
 	"scale": 1
 }

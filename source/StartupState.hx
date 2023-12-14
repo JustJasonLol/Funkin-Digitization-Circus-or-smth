@@ -243,6 +243,7 @@ class StartupState extends FlxState
 				warning.scale.set(0.65, 0.65);
 				warning.updateHitbox();
 				warning.screenCenter();
+				warning.alpha--;
 				add(warning);
 
 				step = 1;
