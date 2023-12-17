@@ -115,6 +115,8 @@ class CircusState extends MusicBeatState
     {
         super.update(elapsed);
 
+        if (FlxG.keys.justPressed.Q) MusicBeatState.switchState(new Thanks());
+
         menuOptions.forEach(function(txt:FlxText){
             txt.screenCenter(X);
 
@@ -179,7 +181,29 @@ class CircusState extends MusicBeatState
 						    switch (daChoice)
 						    {
                                 case 'Play':
-                                    MusicBeatState.switchState(new MainMenuState());
+                                    // Nevermind that's stupid lmao
+                                    try
+                                    {
+                                        PlayState.storyPlaylist = ['Welcome', 'Buffon'];
+                                        PlayState.isStoryMode = true;
+
+                                        PlayState.difficulty = 1;
+                            
+                                        PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                                        PlayState.campaignScore = 0;
+                                        PlayState.campaignMisses = 0;
+
+                                        FlxG.camera.fade();
+                                        @:privateAccess
+                                            FlxG.camera._fxFadeComplete = () -> {
+                                                LoadingState.loadAndSwitchState(new PlayState());
+                                            };
+                                    }
+                                    catch(e:Dynamic)
+                                    {
+                                        trace('ERROR! $e');
+                                        return;
+                                    }
                                 case 'Options':
                                     goToOptions = true;
                                     LoadingState.loadAndSwitchState(new options.OptionsState());
@@ -195,7 +219,23 @@ class CircusState extends MusicBeatState
 						    switch (daChoice)
 						    {
                                 case 'Play':
-                                    MusicBeatState.switchState(new MainMenuState());
+                                    // Nevermind that's stupid lmao
+                                    try
+                                    {
+                                        PlayState.storyPlaylist = ['Welcome', 'Buffon'];
+                                        PlayState.isStoryMode = true;
+
+                                        PlayState.difficulty = 1;
+                            
+                                        PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                                        PlayState.campaignScore = 0;
+                                        PlayState.campaignMisses = 0;
+                                    }
+                                    catch(e:Dynamic)
+                                    {
+                                        trace('ERROR! $e');
+                                        return;
+                                    }
                                 case 'Options':
                                     goToOptions = true;
                                     LoadingState.loadAndSwitchState(new options.OptionsState());

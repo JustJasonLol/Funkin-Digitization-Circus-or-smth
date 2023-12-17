@@ -126,7 +126,7 @@ class StartupState extends FlxState
 		Paths.sound("scrollMenu");
 
 		Paths.music('freakyIntro');
-		Paths.music('freakyMenu');
+		Paths.music('Menu');
 
 		/*
 		if (nextState == PlayState || nextState == editors.ChartingState){

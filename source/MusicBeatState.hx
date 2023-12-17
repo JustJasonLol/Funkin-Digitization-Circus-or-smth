@@ -197,7 +197,7 @@ class MusicBeatState extends FlxUIState
 	public static var menuLoopFunc = function(){
 		trace("menu song ended, looping");
 
-		FlxG.sound.playMusic(menuMusic != null ? menuMusic : Paths.music('freakyMenu'), FlxG.sound.music.volume, true);
+		FlxG.sound.playMusic(menuMusic != null ? menuMusic : Paths.music('Menu'), FlxG.sound.music.volume, true);
 
 		Conductor.changeBPM(180);
 	}; 
@@ -235,22 +235,15 @@ class MusicBeatState extends FlxUIState
 			for (folder in fuck){
 				var daPath = Path.join([folder, "music"]);
 				
-				var menuFilePath = daPath+"/freakyMenu.ogg";
+				var menuFilePath = daPath+"/Menu.ogg";
 				if (Paths.exists(menuFilePath)){
-					if (Paths.exists(daPath+"/freakyIntro.ogg")){
-						menuMusic = returnSound(daPath, "freakyMenu.ogg");
-
-						FlxG.sound.playMusic(returnSound(daPath, "freakyIntro.ogg"), volume, false);
-						FlxG.sound.music.onComplete = menuLoopFunc;
-					}else{
-						FlxG.sound.playMusic(returnSound(daPath, "freakyMenu.ogg"), volume, true);
-					}	
+					FlxG.sound.playMusic(returnSound(daPath, "Menu.ogg"), volume, true);
 
 					break;
 				}
 			}
 			#else
-			menuMusic = Paths.music('freakyMenu');
+			menuMusic = Paths.music('Menu');
 			FlxG.sound.playMusic(Paths.music('freakyIntro'), volume, false);
 			FlxG.sound.music.onComplete = menuLoopFunc;
 			#end
