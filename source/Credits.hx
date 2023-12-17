@@ -8,7 +8,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.tile.FlxGraphicsShader;
