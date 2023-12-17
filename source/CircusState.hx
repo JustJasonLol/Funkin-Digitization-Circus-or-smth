@@ -40,6 +40,8 @@ class CircusState extends MusicBeatState
     static var textGroup:FlxTypedGroup<Alphabet>;
     static var impStudios:FlxSprite;
     static var glitchProd:FlxSprite;
+
+    var camZoom:FlxTween;
     
     public static var menuOptions:FlxTypedSpriteGroup<FlxText>;
     static var options:Array<String> = 
@@ -80,9 +82,16 @@ class CircusState extends MusicBeatState
             menuOptions.add(opt);
         }
 
-        blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+        blackScreen = new FlxSprite().makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.BLACK);
+        blackScreen.screenCenter();
 
         textGroup = new FlxTypedGroup<Alphabet>();
+
+        impStudios= new FlxSprite(0, FlxG.height * 0.425).loadGraphic(Paths.image('impStudios'));
+		impStudios.alpha = 0;
+		impStudios.setGraphicSize(0, 480);
+		impStudios.updateHitbox();
+		impStudios.screenCenter();
 
         glitchProd = new FlxSprite(0, FlxG.height * 0.425).loadGraphic(Paths.image('glitch_prod'));
 		glitchProd.alpha = 0;
@@ -102,6 +111,7 @@ class CircusState extends MusicBeatState
         blackScreen = null;
 		textGroup = null;
 		glitchProd = null;
+        impStudios = null;
 
         #if mobile
 		FlxG.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
@@ -126,6 +136,7 @@ class CircusState extends MusicBeatState
         add(menuOptions);
         add(blackScreen);
         add(textGroup);
+        add(impStudios);
         add(glitchProd);
 
         // createCoolText(['Based on the series from']);
@@ -298,7 +309,10 @@ class CircusState extends MusicBeatState
 					}
 					MusicBeatState.playMenuMusic(0, true);
                     MusicBeatState.playMenuMusic(1, true);
-					createCoolText(['','','','','','PRESENTS']);
+                    FlxG.camera.zoom = 0.75;
+                    camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
+					createCoolText(['','','','','','','','PRESENTS']);
+                    FlxTween.tween(impStudios, {alpha: 1}, 2);
                     for(text in textGroup.members)
                     {
                         text.alpha = 0;
@@ -310,8 +324,12 @@ class CircusState extends MusicBeatState
                     {
                         FlxTween.tween(text, {alpha: 0}, 1);
                     }
+                    FlxTween.tween(impStudios, {alpha: 0}, 1);
                 case 9:
                     deleteCoolText();
+                    if(camZoom != null) camZoom.cancel();
+                    FlxG.camera.zoom = 0.75;
+                    camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
                     createCoolText(['Based on the series from']);
                     for(text in textGroup.members)
                     {
@@ -365,7 +383,11 @@ class CircusState extends MusicBeatState
     {
         if (!skippedIntro)
         {
+            if(camZoom != null) camZoom.cancel();
+            FlxG.camera.zoom = 1;
+            
             remove(glitchProd);
+            remove(impStudios);
             remove(blackScreen);
             remove(textGroup);
     
