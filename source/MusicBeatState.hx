@@ -199,7 +199,7 @@ class MusicBeatState extends FlxUIState
 
 		FlxG.sound.playMusic(menuMusic != null ? menuMusic : Paths.music('Menu'), FlxG.sound.music.volume, true);
 
-		Conductor.changeBPM(180);
+		Conductor.changeBPM(140);
 	}; 
 
 	// TODO: check the jukebox selection n shit and play THAT instead? idk lol
@@ -248,7 +248,7 @@ class MusicBeatState extends FlxUIState
 			FlxG.sound.music.onComplete = menuLoopFunc;
 			#end
 
-			Conductor.changeBPM(180);
+			Conductor.changeBPM(140);
 			Conductor.songPosition = 0;
 		}
 	}
