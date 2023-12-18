@@ -1078,18 +1078,29 @@ class PlayState extends MusicBeatState
 				// redoing this shit lel
 				if (SONG.song == 'Buffon')
 				{
-					var buffonScript = /*'
+					var buffonScript = '
 					n = true
 					beat = 0
+					beat2 = false
 					final = false
 
 					function onCreate()
-						setProperty("cameraSpeed", 100, false)
-						runTimer("stop", 1, 1)
+						for y, i in pairs {"camGame", "camHUD"} do setProperty(i..".visible", false, false) end
+						setProperty("skipCountdown", true, false)
 					end
 
 					function onBeatHit()
+						if curBeat == 3 then
+							setProperty("camGame.visible", true, false)
+							if flashingLights then cameraFlash("game", "FFFFFF", 1) end
+						end
+
+						if curBeat == 32 then
+							doTweenZoom("eee", "camGame", .8, 5.6, "sineInOut")
+						end
+
 						if curBeat == 44 then
+							setProperty("camHUD.visible", true, false)
 							setProperty("camGame.zoom", 0.8)
 							setProperty("cameraSpeed", 100)
 						end
@@ -1106,17 +1117,54 @@ class PlayState extends MusicBeatState
 
 						if curBeat == 110 then
 							setProperty("defaultCamZoom", 0.72, false)
-						end
+						end 
 
 						if curBeat == 143 then
 							final = true 
 						end
 
+						if curBeat == 190 then
+							setProperty("camGame.zoom", 0.7)
+							setProperty("defaultCamZoom", 0.7)
+							setProperty("dad.cameraPosition[1]", getProperty "dad.cameraPosition[1]" - 60, false)
+						end
+
+						if curBeat == 191 then
+							setProperty("camGame.zoom", 0.8)
+							setProperty("defaultCamZoom", 0.8)
+							setProperty("dad.cameraPosition[1]", getProperty "dad.cameraPosition[1]" - 60, false)
+						end
+
+						if curBeat == 192 then
+							setProperty("defaultCamZoom", 0.6)
+							setProperty("dad.cameraPosition[1]", getProperty "dad.cameraPosition[1]" + 120, false)
+						end
+
+						if curBeat == 206 or curBeat == 322 or curBeat == 354 then
+							setProperty("camGame.zoom", 0.7)
+							setProperty("defaultCamZoom", 0.7)
+							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" - 20, false)
+						end
+
+						if curBeat == 207 or curBeat == 323 or curBeat == 355 then
+							setProperty("camGame.zoom", 0.8)
+							setProperty("defaultCamZoom", 0.8)
+							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" - 20, false)
+						end
+
+						if curBeat == 208 then
+							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" + 40, false)
+						end
+
 						if curBeat == 144 or curBeat == 308 then beat = 1 end 
+
+						if curBeat == 176 or curBeat == 308 then beat2 = true end
 
 						if curBeat == 240 or curBeat == 372 then 
 							final = true 
+							beat2 = false
 							beat = 0 
+							doTweenY("camHudY", "camHUD", 0, crochet/1000,"bounceOut")
 							doTweenAngle("camA", "camHUD", 0, crochet/1000,"sineInOut")
 							doTweenAngle("camA2", "camGame", 0, crochet/1000,"sineInOut")
 							doTweenY("camY", "camGame", 0, crochet/1000,"sineInOut")
@@ -1129,9 +1177,14 @@ class PlayState extends MusicBeatState
 							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" - 150, false)
 						end
 
+						if curBeat == 272 then
+							doTweenZoom("eeee", "camGame", 1.3, 22, "sineInOut")
+						end
+
 						if curBeat == 304 then
 							setProperty("camGame.visible", false, false)
 							setProperty("camHUD.alpha", 0, false)
+							cancelTween("eeee")
 						end
 
 						if curBeat == 307 then
@@ -1146,36 +1199,49 @@ class PlayState extends MusicBeatState
 							if flashingLights then cameraFlash("game", "616161", 1) end
 						end
 
+						if curBeat == 324 or curBeat == 356 then
+							setProperty("boyfriend.cameraPosition[0]", getProperty "boyfriend.cameraPosition[0]" + 40, false)
+							setProperty("defaultCamZoom", 0.6)
+						end
+
+						if curBeat == 332 then
+							beat = 1
+							setProperty("defaultCamZoom", 0.6)
+							setProperty("dad.cameraPosition[1]", getProperty "dad.cameraPosition[1]" + 120, false)
+						end
+
 							if curBeat % 1 == 0 and beat == 1 then
 							
-							if n then
-							setProperty("camHUD.angle", 1)
-							setProperty("camGame.angle", -1)
-							
-							setProperty("camGame.x", 5)
-							setProperty("camGame.x", -5)
-							
-							n = false
-							else
-							setProperty("camHUD.angle", -1)
-							setProperty("camGame.angle", 1)
-							
-							setProperty("camGame.x", 5)
-							setProperty("camGame.x", 5)
-							n = true
-							end
-							setProperty("camHUD.y", -5)
-							setProperty("camGame.y", 5)
-							
-							if final then 
-								doTweenAngle("camA", "camHUD", 0, crochet/1000,"sineInOut")
-								doTweenAngle("camA2", "camGame", 0, crochet/1000,"sineInOut")
-								doTweenY("camY", "camGame", 0, crochet/1000,"sineInOut")
-								doTweenY("camY2", "camGame", 0, crochet/1000,"sineInOut")
-								doTweenX("camX", "camGame", 0, crochet/1000,"sineInOut")
-								doTweenX("camX2", "camGame", 0, crochet/1000,"sineInOut")
+								if n then
+								setProperty("camHUD.angle", 1)
+								setProperty("camGame.angle", -1)
+								
+								setProperty("camGame.x", 5)
+								setProperty("camGame.x", -5)
+								
+								n = false
+								else
+								setProperty("camHUD.angle", -1)
+								setProperty("camGame.angle", 1)
+								
+								setProperty("camGame.x", 5)
+								setProperty("camGame.x", 5)
+								n = true
+								end
+								
+								if final then 
+									doTweenAngle("camA", "camHUD", 0, crochet/1000,"sineInOut")
+									doTweenAngle("camA2", "camGame", 0, crochet/1000,"sineInOut")
+									doTweenY("camY", "camGame", 0, crochet/1000,"sineInOut")
+									doTweenY("camY2", "camGame", 0, crochet/1000,"sineInOut")
+									doTweenX("camX", "camGame", 0, crochet/1000,"sineInOut")
+									doTweenX("camX2", "camGame", 0, crochet/1000,"sineInOut")
+								end
 							end
 
+							if beat2 then
+								setProperty("camHUD.y", -10)
+								doTweenY("camHudY", "camHUD", 0, crochet/1000,"bounceOut")
 							end
 					end
 
@@ -1185,6 +1251,54 @@ class PlayState extends MusicBeatState
 						if curStep == 188 then setProperty("camGame.zoom", 0.65) end
 
 						if curStep == 190 then setProperty("camGame.zoom", 0.6) end
+
+						if curStep == 1320 then
+							final = true 
+							beat2 = false
+							beat = 0 
+
+							setProperty("camHUD.angle", -1)
+							setProperty("camGame.angle", 1)
+							
+							setProperty("camGame.x", 5)
+							setProperty("camGame.x", 5)
+
+							doTweenY("camHudY", "camHUD", 0, crochet/1000,"bounceOut")
+							doTweenAngle("camA", "camHUD", 0, crochet/1000,"sineInOut")
+							doTweenAngle("camA2", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenY("camY", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenY("camY2", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenX("camX", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenX("camX2", "camGame", 0, crochet/1000,"sineInOut")
+
+							setProperty("camGame.zoom", 0.7)
+							setProperty("defaultCamZoom", 0.7)
+							setProperty("dad.cameraPosition[1]", getProperty "dad.cameraPosition[1]" - 60, false)
+						end
+
+						if curStep == 1323 then
+							final = true 
+							beat2 = false
+							beat = 0 
+
+							setProperty("camHUD.angle", 1)
+							setProperty("camGame.angle", -1)
+							
+							setProperty("camGame.x", -5)
+							setProperty("camGame.x", -5)
+
+							doTweenY("camHudY", "camHUD", 0, crochet/1000,"bounceOut")
+							doTweenAngle("camA", "camHUD", 0, crochet/1000,"sineInOut")
+							doTweenAngle("camA2", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenY("camY", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenY("camY2", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenX("camX", "camGame", 0, crochet/1000,"sineInOut")
+							doTweenX("camX2", "camGame", 0, crochet/1000,"sineInOut")
+
+							setProperty("camGame.zoom", 0.8)
+							setProperty("defaultCamZoom", 0.8)
+							setProperty("dad.cameraPosition[1]", getProperty "dad.cameraPosition[1]" - 60, false)
+						end
 					end
 
 					---
@@ -1196,7 +1310,7 @@ class PlayState extends MusicBeatState
 						if tag == "stop" then
 							setProperty("cameraSpeed", 1, false)
 						end
-					end'*/ "";
+					end';
 
 					luaArray.push(new FunkinLua(buffonScript, true));
 					funkyScripts.push(new FunkinLua(buffonScript, true));
@@ -2904,10 +3018,10 @@ class PlayState extends MusicBeatState
 
 		var matrix:Matrix = new Matrix();
 		//matrix.concat(cam.canvas.transform.matrix);
-		matrix.translate(-camGame.width * .5, -camGame.height * .5);
+		matrix.translate(-camGame.width, -camGame.height);
 		matrix.scale(camGame.scaleX, camGame.scaleY);
 		matrix.rotate(camGame.angle * (Math.PI / 180));
-		matrix.translate(camGame.width, camGame.height);
+		matrix.translate(camGame.width * 5, camGame.height * 5);
 		matrix.translate(camGame.flashSprite.x, camGame.flashSprite.y); // for shake event
 		matrix.scale(FlxG.scaleMode.scale.x, FlxG.scaleMode.scale.y);
 		camGame.canvas.transform.matrix = matrix;
