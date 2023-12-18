@@ -28,7 +28,7 @@ class DiscordClient
 	{
 		trace("Discord Client starting...");
 		DiscordRpc.start({
-			clientID: "863222024192262205",
+			clientID: "1186099599056851076",
 			onReady: onReady,
 			onError: onError,
 			onDisconnected: onDisconnected
@@ -85,11 +85,16 @@ class DiscordClient
 		"presentless-fox",
 		"no-grinches",
 		"die-carolers",
+
+		"game",
+		"logo",
+		'paused',
+		'dead'
 	];
 	inline static function getImageKey(key):String
-		return allowedImageKeys.contains(key) ? key : "app-logo";
+		return allowedImageKeys.contains(key) ? key : "logo";
 	
-	public static function changePresence(details:String, state:Null<String>, largeImageKey:String = "app-logo", ?hasStartTimestamp:Bool, ?endTimestamp:Float)
+	public static function changePresence(details:String, state:Null<String>, largeImageKey:String = "logo", ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 	{
 		/*
 		DiscordRpc.presence({
@@ -110,7 +115,7 @@ class DiscordClient
 			state: state,
 
 			largeImageKey: getImageKey(largeImageKey),
-			largeImageText: "Tails Gets Trolled v" + lime.app.Application.current.meta.get('version'), //"Troll Engine"
+			largeImageText: "Troll Engine v" + lime.app.Application.current.meta.get('version'), //"Troll Engine"
 			// largeImageText: "Engine Version: " + MainMenuState.engineVersion,
 
 			// Obtained times are in milliseconds so they are divided so Discord can use it

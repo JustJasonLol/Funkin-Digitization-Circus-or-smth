@@ -35,6 +35,9 @@ class CircusState extends MusicBeatState
 {
     public static var initialized:Bool = false;
     static var logoBl:FlxSprite;
+    static var background:FlxSprite;
+    static var bars:FlxSprite;
+    static var watermarks:FlxSprite;
 
     static var blackScreen:FlxSprite;
     static var textGroup:FlxTypedGroup<Alphabet>;
@@ -43,7 +46,7 @@ class CircusState extends MusicBeatState
 
     var camZoom:FlxTween;
     
-    public static var menuOptions:FlxTypedSpriteGroup<FlxText>;
+    public static var menuOptions:FlxTypedSpriteGroup<FlxSprite>;
     static var options:Array<String> = 
     [
         'Play',
@@ -57,30 +60,53 @@ class CircusState extends MusicBeatState
 
     public static var goToOptions:Bool = false;
 
+    var randomtexts:Array<Array<String>> = [
+        ["You should check HBF", 'NOW'],
+        ["Awesome text", "Awesome text"],
+        ['XDDCC', 'My Beloved'],
+        ["Imp", 'ortant studios'],
+        ['Kamufo haters', 'DNI *vine boom*']
+    ];
+
     static public function load()
     {
-        logoBl = new FlxSprite(0, 0).loadGraphic(Paths.image('circus'));
-        logoBl.setGraphicSize(0,360);
+        background = new FlxSprite(0, 0).loadGraphic(Paths.image('title/bg'));
+        background.scale.set(.5, .5);
+		background.updateHitbox();
+		background.screenCenter();
+
+        bars = new FlxSprite(0, 0).loadGraphic(Paths.image('title/bars'));
+        bars.scale.set(.5, .5);
+		bars.updateHitbox();
+		bars.screenCenter();
+
+        watermarks = new FlxSprite(0, 0).loadGraphic(Paths.image('title/watermark'));
+        watermarks.scale.set(.48, .48);
+		watermarks.updateHitbox();
+		watermarks.screenCenter();
+
+        logoBl = new FlxSprite(0, 0).loadGraphic(Paths.image('title/logo'));
+        logoBl.scale.set(.5, .5);
 		logoBl.scrollFactor.set();
         logoBl.updateHitbox();
-		logoBl.screenCenter(X);
-        logoBl.y = -logoBl.height;
+		logoBl.screenCenter();
 
         // if(FlxG.sound.music == null)
             MusicBeatState.playMenuMusic(0);
 
         loaded = true;
 
-        menuOptions = new FlxTypedSpriteGroup<FlxText>(0,FlxG.height);
+        menuOptions = new FlxTypedSpriteGroup<FlxSprite>(0,FlxG.height);
 
         for(i in 0...options.length)
         {
-            var opt:FlxText = new FlxText(0, 450 + 75*i, 0, options[i]);
-            opt.setFormat(Paths.font("calibrib.ttf"), 60, Main.outOfDate?FlxColor.RED:FlxColor.WHITE, LEFT, OUTLINE, FlxColor.BLACK);
+            var opt:FlxSprite = new FlxSprite(0, 450 + 75*i).loadGraphic(Paths.image('title/${options[i].toLowerCase()}'));
             opt.screenCenter(X);
             opt.ID = i;
             menuOptions.add(opt);
         }
+
+        menuOptions.forEach(h -> h.scale.set(.5, .5));
 
         blackScreen = new FlxSprite().makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.BLACK);
         blackScreen.screenCenter();
@@ -132,6 +158,9 @@ class CircusState extends MusicBeatState
 
 		super.create();
 
+        add(background);
+        add(bars);
+        add(watermarks);
         add(logoBl);
         add(menuOptions);
         add(blackScreen);
@@ -159,7 +188,7 @@ class CircusState extends MusicBeatState
 		}
     }
 
-    var scale = 1.2;
+    var scale = .55;
 
     override function update(elapsed:Float)
     {
@@ -197,7 +226,13 @@ class CircusState extends MusicBeatState
         // if(FlxG.sound.music == null && pressedEnter && !skippedIntro)
         //     MusicBeatState.playMenuMusic(1, true);
 
-        menuOptions.forEach(function(txt:FlxText){
+        if (logoBl != null)
+        {
+            logoBl.scale.x = FlxMath.lerp(logoBl.scale.x, .5, CoolUtil.boundTo(elapsed * 4.8, 0, 1));
+            logoBl.scale.y = FlxMath.lerp(logoBl.scale.y, .5, CoolUtil.boundTo(elapsed * 4.8, 0, 1));
+        }
+
+        menuOptions.forEach(function(txt:FlxSprite){
             txt.screenCenter(X);
 
             // dancetrap marry me
@@ -210,11 +245,12 @@ class CircusState extends MusicBeatState
                 }
                 else
                 {
-                    txt.scale.x = FlxMath.lerp(txt.scale.x, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
-                    txt.scale.y = FlxMath.lerp(txt.scale.y, 1, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                    txt.scale.x = FlxMath.lerp(txt.scale.x, .5, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+                    txt.scale.y = FlxMath.lerp(txt.scale.y, .5, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
                 }
             }
-                
+            
+            txt.updateHitbox();
         });
 
         if(hasSelected)
@@ -235,7 +271,7 @@ class CircusState extends MusicBeatState
         if (daChoice == "Quit")
             Sys.exit(0);
             
-        menuOptions.forEach(function(spr:FlxText)
+        menuOptions.forEach(function(spr:FlxSprite)
 		{
             if (id != spr.ID)
 			{
@@ -258,7 +294,7 @@ class CircusState extends MusicBeatState
 					
                     FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 					{
-					    menuOptions.forEach(function(spr:FlxText)
+					    menuOptions.forEach(function(spr:FlxSprite)
 					    {
 						    switch (daChoice)
 						    {
@@ -296,7 +332,7 @@ class CircusState extends MusicBeatState
                 else
                 {
                     new FlxTimer().start(1, function(_) {
-                        menuOptions.forEach(function(spr:FlxText)
+                        menuOptions.forEach(function(spr:FlxSprite)
 					    {
 						    switch (daChoice)
 						    {
@@ -331,9 +367,12 @@ class CircusState extends MusicBeatState
 
 	private var sickBeats:Int = 0; //Basically curBeat but won't be skipped if you hold the tab or resize the screen
 	public static var closedState:Bool = false;
+    var currentRandom:Int = 0;
     override function beatHit()
     {
         super.beatHit();
+
+        if (logoBl != null && curBeat % 2 == 0) logoBl.scale.set(.57, .57);
 
         if(!closedState) {
 			sickBeats++;
@@ -349,8 +388,8 @@ class CircusState extends MusicBeatState
 					}
 					MusicBeatState.playMenuMusic(0, true);
                     MusicBeatState.playMenuMusic(1, true);
-                    FlxG.camera.zoom = 0.75;
-                    camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
+                    if (!skippedIntro) FlxG.camera.zoom = 0.75;
+                    if (!skippedIntro) camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
 					createCoolText(['','','','','','','','PRESENTS']);
                     FlxTween.tween(impStudios, {alpha: 1}, 2);
                     for(text in textGroup.members)
@@ -368,8 +407,8 @@ class CircusState extends MusicBeatState
                 case 9:
                     deleteCoolText();
                     if(camZoom != null) camZoom.cancel();
-                    FlxG.camera.zoom = 0.75;
-                    camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
+                    if (!skippedIntro) FlxG.camera.zoom = 0.75;
+                    if (!skippedIntro) camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
                     createCoolText(['Based on the series from']);
                     for(text in textGroup.members)
                     {
@@ -384,7 +423,16 @@ class CircusState extends MusicBeatState
                     }
                     FlxTween.tween(glitchProd, {alpha: 0}, 1);
                 case 17:
-                    skipIntro();
+                    currentRandom = FlxG.random.int(0, randomtexts.length);
+                    createCoolText([randomtexts[currentRandom][0]]);
+                case 19:
+                    addMoreText(randomtexts[currentRandom][1]);
+                case 22: if (!skippedIntro)
+                {
+                    FlxG.camera.visible = true;
+                    if (ClientPrefs.flashing) FlxG.camera.flash();
+                }
+                skipIntro();
             }
         }
     }
@@ -433,8 +481,8 @@ class CircusState extends MusicBeatState
     
             FlxG.camera.flash(FlxColor.WHITE, 2);
 
-            FlxTween.tween(logoBl, {y: 25}, 2, {ease: FlxEase.cubeInOut});
-            FlxTween.tween(menuOptions, {y: 0}, 2, {ease: FlxEase.cubeInOut});
+            FlxTween.tween(logoBl, {y: -24}, 2, {ease: FlxEase.cubeInOut});
+            FlxTween.tween(menuOptions, {y: -13}, 2, {ease: FlxEase.cubeInOut});
                 
             skippedIntro = true;
         }
@@ -446,17 +494,6 @@ class CircusState extends MusicBeatState
     {
         if (hasSelected)
 			return;
-
-        #if mobile
-		mouseHolding = false;
-
-		if (mouseSwipe < -0.65)
-			return changeItem(-1);
-		else if (mouseSwipe > 0.65)
-			return changeItem(1);
-
-		mouseSwipe = 0;
-		#end
 
         if(menuOptions != null && menuOptions.members.length > 0)
 		for (txt in menuOptions){
@@ -470,13 +507,6 @@ class CircusState extends MusicBeatState
     {
         if(skippedIntro)
         {
-            #if mobile
-            if (mouseHolding && !hasSelected)
-                mouseSwipe = (mouseHoldStartX - FlxG.mouse.x) / FlxG.width;
-            else
-                mouseSwipe = 0;
-            
-            #else
             for (txt in menuOptions) {
                 if (FlxG.mouse.overlaps(txt) && !hasSelected)
                 {
@@ -486,19 +516,6 @@ class CircusState extends MusicBeatState
             }
     
             Mouse.cursor = MouseCursor.AUTO;
-            #end
         }
     }
-
-    #if mobile
-	var mouseHolding:Bool = false;
-	var mouseHoldStartX:Float;
-	var mouseSwipe:Float = 0;
-
-	function onMouseDown(e)
-	{
-		mouseHolding = true;
-		mouseHoldStartX = FlxG.mouse.x;
-	}
-    #end
 }

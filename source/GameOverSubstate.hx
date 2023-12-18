@@ -45,7 +45,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		endSoundName = 'gameOverEnd';
 
 		// maybe ill do something better for v5 idk i just wanna get over this
-		genericName = 'characters/gameover/generic${FlxG.random.int(1,5)}'; 
+		genericName = 'characters/gameover/generic${FlxG.random.int(1,4)}'; 
 		genericSound = "gameoverGeneric";
 		genericMusic = "";
 
@@ -216,7 +216,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
 
 			if (PlayState.isStoryMode)
-				MusicBeatState.switchState(new StoryMenuState());
+				MusicBeatState.switchState(new CircusState());
 			else
 				MusicBeatState.switchState(new FreeplayState());
 

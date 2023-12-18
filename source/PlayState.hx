@@ -1243,7 +1243,7 @@ class PlayState extends MusicBeatState
 		detailsPausedText = "Paused - " + detailsText;
 
 		// Updating Discord Rich Presence.
-		DiscordClient.changePresence(detailsText, SONG.song, songName);
+		DiscordClient.changePresence(detailsText, SONG.song, 'game');
 		#end
 
 		if(!ClientPrefs.controllerMode)
@@ -1835,7 +1835,7 @@ class PlayState extends MusicBeatState
 
 		#if discord_rpc
 		// Updating Discord Rich Presence (with Time Left)
-		DiscordClient.changePresence(detailsText, SONG.song, songName, true, songLength);
+		DiscordClient.changePresence(detailsText, SONG.song, 'game', true, songLength);
 		#end
 		setOnScripts('songLength', songLength);
 		callOnScripts('onSongStart');
@@ -2573,11 +2573,11 @@ class PlayState extends MusicBeatState
 			#if discord_rpc
 			if (startTimer != null && startTimer.finished)
 			{
-				DiscordClient.changePresence(detailsText, SONG.song, songName, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, SONG.song, 'game', true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
 			}
 			else
 			{
-				DiscordClient.changePresence(detailsText, SONG.song, songName);
+				DiscordClient.changePresence(detailsText, SONG.song, 'game');
 			}
 			#end
 		}
@@ -2592,11 +2592,11 @@ class PlayState extends MusicBeatState
 		{
 			if (Conductor.songPosition > 0.0)
 			{
-				DiscordClient.changePresence(detailsText, SONG.song, songName, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, SONG.song, 'game', true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
 			}
 			else
 			{
-				DiscordClient.changePresence(detailsText, SONG.song, songName);
+				DiscordClient.changePresence(detailsText, SONG.song, 'game');
 			}
 		}
 		#end
@@ -2608,7 +2608,7 @@ class PlayState extends MusicBeatState
 	{
 		#if discord_rpc
 		if (!isDead)
-			DiscordClient.changePresence(detailsPausedText, SONG.song, songName);
+			DiscordClient.changePresence(detailsPausedText, SONG.song, 'paused');
 		#end
 
 		super.onFocusLost();
@@ -3003,7 +3003,7 @@ class PlayState extends MusicBeatState
 
 			#if discord_rpc
 			// Game Over doesn't get his own variable because it's only used here
-			DiscordClient.changePresence("Game Over - " + detailsText, SONG.song, songName);
+			DiscordClient.changePresence("Game Over - " + detailsText, SONG.song, 'dead');
 			#end
 		}
 
@@ -4789,7 +4789,7 @@ class PlayState extends MusicBeatState
 					openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
 				#if discord_rpc
-				DiscordClient.changePresence(detailsPausedText, SONG.song, songName);
+				DiscordClient.changePresence(detailsPausedText, SONG.song, 'paused');
 				#end
 			}
 		}

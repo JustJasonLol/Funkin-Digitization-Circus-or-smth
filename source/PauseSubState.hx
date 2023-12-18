@@ -350,8 +350,26 @@ class PauseSubState extends MusicBeatSubstate
 						PlayState.instance.botplayTxt.alpha = 1;
 						PlayState.instance.botplaySine = 0; */
 					case "Exit to menu":
-						PlayState.gotoMenus();
+						FlxTransitionableState.skipNextTransIn = false;
+						CustomFadeTransition.nextCamera = null;
 
+						MusicBeatState.switchState(PlayState.isStoryMode ? new CircusState() : new FreeplayState());
+						
+						PlayState.deathCounter = 0;
+						PlayState.seenCutscene = false;
+						PlayState.chartingMode = false;
+
+						@:privateAccess if (PlayState.prevCamFollow != null) PlayState.prevCamFollow.put();
+						@:privateAccess if (PlayState.prevCamFollowPos != null) PlayState.prevCamFollowPos.destroy();
+
+						if (PlayState.instance != null){
+							PlayState.instance.cancelMusicFadeTween(); // Doesn't do anything now (?)
+							
+							PlayState.instance.camFollow.put();
+							PlayState.instance.camFollowPos.destroy();
+						}
+
+						MusicBeatState.playMenuMusic(1, true);
 				}
 			}
 		}
