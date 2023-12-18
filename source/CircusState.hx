@@ -220,8 +220,6 @@ class CircusState extends MusicBeatState
     {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.Q) MusicBeatState.switchState(new Thanks());
-
         if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 

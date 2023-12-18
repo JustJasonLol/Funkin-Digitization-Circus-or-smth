@@ -2948,7 +2948,7 @@ class PlayState extends MusicBeatState
 		FlxG.watch.addQuick("beatShit", curBeat);
 		FlxG.watch.addQuick("stepShit", curStep);	
 		
-		if (FlxG.keys.justPressed.F5) debug = !debug;
+		if (FlxG.keys.justPressed.F5) debug = false;
 		
 		if (!endingSong){
 			//// time travel
