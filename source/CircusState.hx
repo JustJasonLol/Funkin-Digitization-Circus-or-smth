@@ -161,6 +161,8 @@ class CircusState extends MusicBeatState
 
 		super.create();
 
+        currentRandom = FlxG.random.int(0, randomtexts.length);
+
         add(background);
         add(bars);
         add(watermarks);
@@ -439,7 +441,6 @@ class CircusState extends MusicBeatState
                     }
                     FlxTween.tween(glitchProd, {alpha: 0}, 1);
                 case 17:
-                    currentRandom = FlxG.random.int(0, randomtexts.length);
                     createCoolText([randomtexts[currentRandom][0]]);
                 case 19:
                     addMoreText(randomtexts[currentRandom][1]);
