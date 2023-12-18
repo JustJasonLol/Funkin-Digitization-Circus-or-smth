@@ -4219,7 +4219,7 @@ class PlayState extends MusicBeatState
 		} */
 
 		if (ClientPrefs.ghostTapping && !daNote.isSustainNote && ClientPrefs.missVolume > 0)
-			FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), ClientPrefs.missVolume * FlxG.random.float(0.9, 1));
+			FlxG.sound.play(Paths.soundRandom('missnote', 1, 12), ClientPrefs.missVolume * FlxG.random.float(0.9, 1));
 
 		if(instakillOnMiss)
 			doDeathCheck(true);
