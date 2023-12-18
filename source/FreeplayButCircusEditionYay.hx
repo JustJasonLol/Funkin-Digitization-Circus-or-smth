@@ -1,5 +1,9 @@
 package;
 
+#if discord_rpc
+import Discord.DiscordClient;
+#end
+import flixel.tweens.FlxTween;
 import flixel.effects.FlxFlicker;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
@@ -16,6 +20,9 @@ class FreeplayButCircusEditionYay extends MusicBeatState
     var songArray:Array<Array<String>> = [['Welcome', 'caine'], ['Buffon', 'caine']];
     var textGroup:FlxTypedGroup<FlxText>;
     var iconGroup:FlxTypedGroup<HealthIcon>;
+    var score:FlxText;
+    var composers:FlxText;
+    var scoreInt:Int = 0;
 
     var curSelected = 0;
 
@@ -25,6 +32,10 @@ class FreeplayButCircusEditionYay extends MusicBeatState
     var forcedScale = [1, 1.35];
 
     override function create() {
+        #if discord_rpc
+        DiscordClient.changePresence('In the Freeplay Menu', null);
+        #end
+
         background = new FlxSprite(0, 0).loadGraphic(Paths.image('title/bg'));
         background.scale.set(.5, .5);
 		background.updateHitbox();
@@ -52,6 +63,17 @@ class FreeplayButCircusEditionYay extends MusicBeatState
             textGroup.add(song);
             iconGroup.add(icon);
         }
+
+        score = new FlxText(FlxG.width * .3, 290, FlxG.width, 'High score:\n', 70).setFormat(Paths.font('calibrib.ttf'), 70, FlxColor.WHITE, CENTER, OUTLINE, FlxColor.BLACK);
+        score.borderSize += .35;
+        add(score);
+
+        composers = new FlxText(0, FlxG.height * .8, FlxG.width).setFormat(Paths.font('calibrib.ttf'), 30, FlxColor.WHITE, CENTER, OUTLINE, FlxColor.BLACK);
+        composers.borderSize += .35;
+        composers.screenCenter(X);
+        add(composers);
+
+        FlxTween.tween(composers, {alpha: 0}, 1, {type: 4});
 
         super.create();
 
@@ -108,5 +130,15 @@ class FreeplayButCircusEditionYay extends MusicBeatState
 
         if (curSelected >= songArray.length) curSelected = 0;
         else if (curSelected < 0) curSelected = songArray.length - 1;
+
+        scoreInt = Highscore.getScore(curSelected == 0 ? 'Welcome' : 'Buffon');
+
+        score.text = 'High score:\n$scoreInt';
+
+        composers.text = curSelected == 0 ? 'Composed by Majavi' : 'Composed by Kylevi & Sic';
+
+        #if discord_rpc
+        DiscordClient.changePresence('In the Freeplay Menu', 'Selecting ${curSelected == 0 ? 'Welcome by Majavi' : 'Buffon by Kylevi & Sic'}');
+        #end
     }
 }

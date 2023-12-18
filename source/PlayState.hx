@@ -3111,6 +3111,8 @@ class PlayState extends MusicBeatState
 			
 			inst.stop();
 			vocals.stop();
+
+			camGame.visible = true;
 			
 			openSubState(new GameOverSubstate(
 				char.getScreenPosition().x - char.positionArray[0],

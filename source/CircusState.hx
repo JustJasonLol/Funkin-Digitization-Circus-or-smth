@@ -177,6 +177,10 @@ class CircusState extends MusicBeatState
 
 		super.create();
 
+        #if discord_rpc
+        DiscordClient.changePresence('In the Main Menu', null);
+        #end
+
         currentRandom = FlxG.random.int(0, randomtexts.length);
 
         add(background);
@@ -492,7 +496,6 @@ class CircusState extends MusicBeatState
                     canBounce = true;
                     if(camZoom != null) camZoom.cancel();
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
-                    currentRandom = FlxG.random.int(0, randomtexts.length);
                     createCoolText([randomtexts[currentRandom][0]]);
                 case 14:
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
@@ -510,7 +513,6 @@ class CircusState extends MusicBeatState
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
                 case 16.5:
                     addMoreText('');
-                    currentRandom = FlxG.random.int(0, randomtexts.length);
                     addMoreText(lastlines[currentRandom]);
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
                 case 17:
