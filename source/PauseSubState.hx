@@ -353,7 +353,7 @@ class PauseSubState extends MusicBeatSubstate
 						FlxTransitionableState.skipNextTransIn = false;
 						CustomFadeTransition.nextCamera = null;
 
-						MusicBeatState.switchState(PlayState.isStoryMode ? new CircusState() : new FreeplayState());
+						MusicBeatState.switchState(PlayState.isStoryMode ? new CircusState() : new FreeplayButCircusEditionYay());
 						
 						PlayState.deathCounter = 0;
 						PlayState.seenCutscene = false;

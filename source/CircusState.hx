@@ -68,6 +68,9 @@ class CircusState extends MusicBeatState
         ['Kamufo haters', 'DNI *vine boom*']
     ];
 
+    // line 324
+    var onFreeplay = false;
+
     static public function load()
     {
         background = new FlxSprite(0, 0).loadGraphic(Paths.image('title/bg'));
@@ -302,20 +305,24 @@ class CircusState extends MusicBeatState
                                     // Nevermind that's stupid lmao
                                     try
                                     {
-                                        PlayState.storyPlaylist = ['Welcome', 'Buffon'];
-                                        PlayState.isStoryMode = true;
+                                        if (!Data.freeplay)
+                                        {
+                                            PlayState.storyPlaylist = ['Welcome', 'Buffon'];
+                                            PlayState.isStoryMode = true;
 
-                                        PlayState.difficulty = 1;
-                            
-                                        PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
-                                        PlayState.campaignScore = 0;
-                                        PlayState.campaignMisses = 0;
+                                            PlayState.difficulty = 1;
+                                
+                                            PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                                            PlayState.campaignScore = 0;
+                                            PlayState.campaignMisses = 0;
 
-                                        FlxG.camera.fade();
-                                        @:privateAccess
-                                            FlxG.camera._fxFadeComplete = () -> {
-                                                LoadingState.loadAndSwitchState(new PlayState());
-                                            };
+                                            FlxG.camera.fade();
+                                            @:privateAccess
+                                                FlxG.camera._fxFadeComplete = () -> {
+                                                    LoadingState.loadAndSwitchState(new PlayState());
+                                                };
+                                        } else // honestly i think we should make like freeplay and main menu together.
+                                            MusicBeatState.switchState(new FreeplayButCircusEditionYay());
                                     }
                                     catch(e:Dynamic)
                                     {
@@ -337,23 +344,32 @@ class CircusState extends MusicBeatState
 						    switch (daChoice)
 						    {
                                 case 'Play':
-                                    // Nevermind that's stupid lmao
                                     try
-                                    {
-                                        PlayState.storyPlaylist = ['Welcome', 'Buffon'];
-                                        PlayState.isStoryMode = true;
-
-                                        PlayState.difficulty = 1;
-                            
-                                        PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
-                                        PlayState.campaignScore = 0;
-                                        PlayState.campaignMisses = 0;
-                                    }
-                                    catch(e:Dynamic)
-                                    {
-                                        trace('ERROR! $e');
-                                        return;
-                                    }
+                                        {
+                                            if (!Data.freeplay)
+                                            {
+                                                PlayState.storyPlaylist = ['Welcome', 'Buffon'];
+                                                PlayState.isStoryMode = true;
+    
+                                                PlayState.difficulty = 1;
+                                    
+                                                PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                                                PlayState.campaignScore = 0;
+                                                PlayState.campaignMisses = 0;
+    
+                                                FlxG.camera.fade();
+                                                @:privateAccess
+                                                    FlxG.camera._fxFadeComplete = () -> {
+                                                        LoadingState.loadAndSwitchState(new PlayState());
+                                                    };
+                                            } else
+                                                MusicBeatState.switchState(new FreeplayButCircusEditionYay());
+                                        }
+                                        catch(e:Dynamic)
+                                        {
+                                            trace('ERROR! $e');
+                                            return;
+                                        }
                                 case 'Options':
                                     goToOptions = true;
                                     LoadingState.loadAndSwitchState(new options.OptionsState());

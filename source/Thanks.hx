@@ -27,10 +27,13 @@ class Thanks extends MusicBeatState
         });
 
         super.create();
+
+        Data.freeplay = true;
+        Data.save();
     }
 
     override function update(elapsed:Float) {
-        if (FlxG.keys.justPressed.ANY) Sys.exit(500);
+        if (FlxG.keys.justPressed.ANY) MusicBeatState.switchState(new CircusState());
         super.update(elapsed);
     }     
 }

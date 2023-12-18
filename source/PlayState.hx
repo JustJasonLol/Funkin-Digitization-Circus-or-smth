@@ -197,6 +197,8 @@ class PlayState extends MusicBeatState
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
 
+	var debug = false;
+
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
@@ -2829,11 +2831,13 @@ class PlayState extends MusicBeatState
 		}
 
 		FlxG.watch.addQuick("beatShit", curBeat);
-		FlxG.watch.addQuick("stepShit", curStep);		
+		FlxG.watch.addQuick("stepShit", curStep);	
+		
+		if (FlxG.keys.justPressed.F5) debug = !debug;
 		
 		if (!endingSong){
 			//// time travel
-			if (!startingSong #if !debug && chartingMode #end){
+			if (!startingSong && debug){
 				if (FlxG.keys.justPressed.ONE) {
 					KillNotes();
 					inst.onComplete();

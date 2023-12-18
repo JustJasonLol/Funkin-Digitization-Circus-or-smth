@@ -103,6 +103,7 @@ class StartupState extends FlxState
 		#end
 		
 		Highscore.load();
+		Data.load();
 
 		if (FlxG.save.data.weekCompleted != null)
 			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
