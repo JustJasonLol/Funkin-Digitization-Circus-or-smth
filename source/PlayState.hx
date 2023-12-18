@@ -1075,9 +1075,10 @@ class PlayState extends MusicBeatState
 				end
 				';
 
+				// redoing this shit lel
 				if (SONG.song == 'Buffon')
 				{
-					var buffonScript = '
+					var buffonScript = /*'
 					n = true
 					beat = 0
 					final = false
@@ -1195,7 +1196,7 @@ class PlayState extends MusicBeatState
 						if tag == "stop" then
 							setProperty("cameraSpeed", 1, false)
 						end
-					end';
+					end'*/ "";
 
 					luaArray.push(new FunkinLua(buffonScript, true));
 					funkyScripts.push(new FunkinLua(buffonScript, true));
@@ -1696,7 +1697,7 @@ class PlayState extends MusicBeatState
 				countdownSpr = new FlxSprite(0, 0, sprImage);
 				countdownSpr.scrollFactor.set();
 				countdownSpr.updateHitbox();
-				countdownSpr.cameras = [camHUD];
+				countdownSpr.cameras = [camOverlay];
 
 				countdownSpr.screenCenter();
 
