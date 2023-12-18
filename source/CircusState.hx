@@ -66,7 +66,7 @@ class CircusState extends MusicBeatState
         ["Awesome text", "Awesome text"],
         ['XDDCC', 'My Beloved'],
         ["Imp", 'ortant studios'],
-        ['Kamufo haters', 'DNI *vine boom*']
+        ['Kaufmo haters', 'DNI *vine boom*']
     ];
 
     var lastlines:Array<String> = [
