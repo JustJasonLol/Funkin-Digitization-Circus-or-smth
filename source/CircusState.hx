@@ -43,6 +43,7 @@ class CircusState extends MusicBeatState
     static var textGroup:FlxTypedGroup<Alphabet>;
     static var impStudios:FlxSprite;
     static var glitchProd:FlxSprite;
+    static var gooseworx:FlxSprite;
 
     var camZoom:FlxTween;
     
@@ -66,6 +67,15 @@ class CircusState extends MusicBeatState
         ['XDDCC', 'My Beloved'],
         ["Imp", 'ortant studios'],
         ['Kamufo haters', 'DNI *vine boom*']
+    ];
+
+    var lastlines:Array<String> = [
+        "boi!",
+        "lol",
+        "yay!",
+        "let's go!",
+        "brah",
+        "bruh"
     ];
 
     // line 324
@@ -103,7 +113,7 @@ class CircusState extends MusicBeatState
 
         for(i in 0...options.length)
         {
-            var opt:FlxSprite = new FlxSprite(0, 450 + 75*i).loadGraphic(Paths.image('title/${options[i].toLowerCase()}'));
+            var opt:FlxSprite = new FlxSprite(0, 425 + 80*i).loadGraphic(Paths.image('title/${options[i].toLowerCase()}'));
             opt.screenCenter(X);
             opt.ID = i;
             menuOptions.add(opt);
@@ -127,6 +137,11 @@ class CircusState extends MusicBeatState
 		glitchProd.setGraphicSize(0, 320);
 		glitchProd.updateHitbox();
 		glitchProd.screenCenter(X);
+
+        gooseworx = new FlxSprite(0, FlxG.height * 0.425).loadGraphic(Paths.image('gooseworx'));
+		gooseworx.alpha = 0;
+		gooseworx.updateHitbox();
+		gooseworx.screenCenter(X);
     }
 
     override public function destroy()
@@ -140,6 +155,7 @@ class CircusState extends MusicBeatState
         blackScreen = null;
 		textGroup = null;
 		glitchProd = null;
+        gooseworx = null;
         impStudios = null;
 
         #if mobile
@@ -172,6 +188,7 @@ class CircusState extends MusicBeatState
         add(textGroup);
         add(impStudios);
         add(glitchProd);
+        add(gooseworx);
 
         // createCoolText(['Based on the series from']);
 
@@ -262,6 +279,15 @@ class CircusState extends MusicBeatState
         {
             menuOptions.members[selectedID].scale.x = FlxMath.lerp(menuOptions.members[selectedID].scale.x, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
             menuOptions.members[selectedID].scale.y = FlxMath.lerp(menuOptions.members[selectedID].scale.y, scale, CoolUtil.boundTo(elapsed * 5.4, 0, 1));
+        }
+
+        if(!skippedIntro)
+        {
+            if(canBounce) FlxG.camera.zoom = FlxMath.lerp(FlxG.camera.zoom, 1, CoolUtil.boundTo(elapsed * 4.8, 0, 1));
+        }
+        else
+        {
+            canBounce = false;
         }
     }
 
@@ -383,6 +409,7 @@ class CircusState extends MusicBeatState
         });
     }
 
+    var canBounce:Bool = false;
 	private var sickBeats:Int = 0; //Basically curBeat but won't be skipped if you hold the tab or resize the screen
 	public static var closedState:Bool = false;
     var currentRandom:Int = 0;
@@ -407,7 +434,7 @@ class CircusState extends MusicBeatState
 					MusicBeatState.playMenuMusic(0, true);
                     MusicBeatState.playMenuMusic(1, true);
                     if (!skippedIntro) FlxG.camera.zoom = 0.75;
-                    if (!skippedIntro) camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
+                    if (!skippedIntro) camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 5);
 					createCoolText(['','','','','','','','PRESENTS']);
                     FlxTween.tween(impStudios, {alpha: 1}, 2);
                     for(text in textGroup.members)
@@ -416,17 +443,17 @@ class CircusState extends MusicBeatState
                         FlxTween.tween(text, {alpha: 1}, 2);
                     }
 					//FlxG.sound.music.fadeIn(4, 0, 0.7);
-                case 7:
+                case 3:
                     for(text in textGroup.members)
                     {
                         FlxTween.tween(text, {alpha: 0}, 1);
                     }
                     FlxTween.tween(impStudios, {alpha: 0}, 1);
-                case 9:
+                case 5:
                     deleteCoolText();
                     if(camZoom != null) camZoom.cancel();
                     if (!skippedIntro) FlxG.camera.zoom = 0.75;
-                    if (!skippedIntro) camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 10);
+                    if (!skippedIntro) camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 5);
                     createCoolText(['Based on the series from']);
                     for(text in textGroup.members)
                     {
@@ -434,22 +461,74 @@ class CircusState extends MusicBeatState
                         FlxTween.tween(text, {alpha: 1}, 2);
                     }
                     FlxTween.tween(glitchProd, {alpha: 1}, 2);
-                case 15:
+                case 7:
                     for(text in textGroup.members)
                     {
                         FlxTween.tween(text, {alpha: 0}, 1);
                     }
                     FlxTween.tween(glitchProd, {alpha: 0}, 1);
-                case 17:
+
+                case 9:
+                    deleteCoolText();
+                    if(camZoom != null) camZoom.cancel();
+                    if (!skippedIntro) FlxG.camera.zoom = 0.75;
+                    if (!skippedIntro) camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 5);
+                    createCoolText(['And the mind of']);
+                    for(text in textGroup.members)
+                    {
+                        text.alpha = 0;
+                        FlxTween.tween(text, {alpha: 1}, 2);
+                    }
+                    FlxTween.tween(gooseworx, {alpha: 1}, 2);
+
+                case 11:
+                    for(text in textGroup.members)
+                    {
+                        FlxTween.tween(text, {alpha: 0}, 1);
+                    }
+                    FlxTween.tween(gooseworx, {alpha: 0}, 1);
+
+                case 13:
+                    canBounce = true;
+                    if(camZoom != null) camZoom.cancel();
+                    if (!skippedIntro) FlxG.camera.zoom = 1.05;
+                    currentRandom = FlxG.random.int(0, randomtexts.length);
                     createCoolText([randomtexts[currentRandom][0]]);
-                case 19:
+                case 14:
+                    if (!skippedIntro) FlxG.camera.zoom = 1.05;
                     addMoreText(randomtexts[currentRandom][1]);
-                case 22: if (!skippedIntro)
+                case 14.5:
+                    deleteCoolText();
+                case 15:
+                    createCoolText(['Funkin']);
+                    if (!skippedIntro) FlxG.camera.zoom = 1.05;
+                case 15.5:
+                    addMoreText('Digitization');
+                    if (!skippedIntro) FlxG.camera.zoom = 1.05;
+                case 16:
+                    addMoreText('Circus');
+                    if (!skippedIntro) FlxG.camera.zoom = 1.05;
+                case 16.5:
+                    addMoreText('');
+                    currentRandom = FlxG.random.int(0, randomtexts.length);
+                    addMoreText(lastlines[currentRandom]);
+                    if (!skippedIntro) FlxG.camera.zoom = 1.05;
+                case 17:
+                if (!skippedIntro)
                 {
                     FlxG.camera.visible = true;
                     if (ClientPrefs.flashing) FlxG.camera.flash();
                 }
                 skipIntro();
+
+                // case 19:
+                    // addMoreText(randomtexts[currentRandom][1]);
+                // case 21: if (!skippedIntro)
+                // {
+                //     FlxG.camera.visible = true;
+                //     if (ClientPrefs.flashing) FlxG.camera.flash();
+                // }
+                // skipIntro();
             }
         }
     }
@@ -488,9 +567,11 @@ class CircusState extends MusicBeatState
     {
         if (!skippedIntro)
         {
+            canBounce = false;
             if(camZoom != null) camZoom.cancel();
             FlxG.camera.zoom = 1;
             
+            remove(gooseworx);
             remove(glitchProd);
             remove(impStudios);
             remove(blackScreen);
