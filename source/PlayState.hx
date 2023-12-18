@@ -948,7 +948,7 @@ class PlayState extends MusicBeatState
 					addLuaSprite("bg5")
 					updateHitbox("bg5")
 
-					if songName == "Buffon" then
+					if songName == "Buffoon" then
 						makeLuaSprite("n", nil, 0, 0)
 						makeGraphic("n", 1, 1, "000000")
 						scaleObject("n", screenWidth * 5, screenHeight * 5, false)
@@ -1001,7 +1001,7 @@ class PlayState extends MusicBeatState
 					end
 
 				function onSongStart()
-					if songName == "Buffon" then
+					if songName == "Buffoon" then
 						doTweenAlpha("aaaa", "camHUD", 0, 1, "sineInOut")
 					end
 				end
@@ -1009,7 +1009,7 @@ class PlayState extends MusicBeatState
 				function onBeatHit()
 					h = curBeat
 
-					if songName == "Buffon" then
+					if songName == "Buffoon" then
 						if curBeat == 242 then
 							doTweenAlpha("ss", "n", 1, 1, "sineInOut")
 					
@@ -1076,9 +1076,9 @@ class PlayState extends MusicBeatState
 				';
 
 				// redoing this shit lel
-				if (SONG.song == 'Buffon')
+				if (SONG.song == 'Buffoon')
 				{
-					var buffonScript = '
+					var buffoonScript = '
 					n = true
 					beat = 0
 					beat2 = false
@@ -1312,8 +1312,8 @@ class PlayState extends MusicBeatState
 						end
 					end';
 
-					luaArray.push(new FunkinLua(buffonScript, true));
-					funkyScripts.push(new FunkinLua(buffonScript, true));
+					luaArray.push(new FunkinLua(buffoonScript, true));
+					funkyScripts.push(new FunkinLua(buffoonScript, true));
 				}
 
 				luaArray.push(new FunkinLua(script, true));

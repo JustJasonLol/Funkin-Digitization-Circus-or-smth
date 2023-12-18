@@ -337,7 +337,7 @@ class CircusState extends MusicBeatState
                                     {
                                         if (!Data.freeplay)
                                         {
-                                            PlayState.storyPlaylist = ['Welcome', 'Buffon'];
+                                            PlayState.storyPlaylist = ['Welcome', 'Buffoon'];
                                             PlayState.isStoryMode = true;
 
                                             PlayState.difficulty = 1;
@@ -378,7 +378,7 @@ class CircusState extends MusicBeatState
                                         {
                                             if (!Data.freeplay)
                                             {
-                                                PlayState.storyPlaylist = ['Welcome', 'Buffon'];
+                                                PlayState.storyPlaylist = ['Welcome', 'Buffoon'];
                                                 PlayState.isStoryMode = true;
     
                                                 PlayState.difficulty = 1;

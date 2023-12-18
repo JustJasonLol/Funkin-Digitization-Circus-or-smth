@@ -17,7 +17,7 @@ class FreeplayButCircusEditionYay extends MusicBeatState
     var background:FlxSprite;
     var bars:FlxSprite;
 
-    var songArray:Array<Array<String>> = [['Welcome', 'caine'], ['Buffon', 'caine']];
+    var songArray:Array<Array<String>> = [['Welcome', 'caine'], ['Buffoon', 'caine']];
     var textGroup:FlxTypedGroup<FlxText>;
     var iconGroup:FlxTypedGroup<HealthIcon>;
     var score:FlxText;
@@ -131,14 +131,14 @@ class FreeplayButCircusEditionYay extends MusicBeatState
         if (curSelected >= songArray.length) curSelected = 0;
         else if (curSelected < 0) curSelected = songArray.length - 1;
 
-        scoreInt = Highscore.getScore(curSelected == 0 ? 'Welcome' : 'Buffon');
+        scoreInt = Highscore.getScore(curSelected == 0 ? 'Welcome' : 'Buffoon');
 
         score.text = 'High score:\n$scoreInt';
 
         composers.text = curSelected == 0 ? 'Composed by Majavi' : 'Composed by Kylevi & Sic';
 
         #if discord_rpc
-        DiscordClient.changePresence('In the Freeplay Menu', 'Selecting ${curSelected == 0 ? 'Welcome by Majavi' : 'Buffon by Kylevi & Sic'}');
+        DiscordClient.changePresence('In the Freeplay Menu', 'Selecting ${curSelected == 0 ? 'Welcome by Majavi' : 'Buffoon by Kylevi & Sic'}');
         #end
     }
 }
