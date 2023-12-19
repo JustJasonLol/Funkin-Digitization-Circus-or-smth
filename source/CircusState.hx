@@ -390,6 +390,7 @@ class CircusState extends MusicBeatState
                                                 PlayState.campaignMisses = 0;
     
                                                 FlxG.camera.fade();
+                                                FlxG.sound.music.fadeOut(.6);
                                                 @:privateAccess
                                                     FlxG.camera._fxFadeComplete = () -> {
                                                         LoadingState.loadAndSwitchState(new PlayState());

@@ -1,3 +1,6 @@
+import flixel.util.FlxTimer;
+import flixel.util.FlxColor;
+import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.tweens.*;
 import flixel.addons.transition.FlxTransitionableState;
@@ -231,6 +234,8 @@ class StartupState extends FlxState
 	}
 
 	private var warning:FlxSprite;
+	private var text:FlxText;
+	private var text2:FlxText;
 	private var step = 0;
 
 	var fadeTwn:FlxTween = null;
@@ -240,12 +245,23 @@ class StartupState extends FlxState
 		// could be worse lol
 		switch (step){
 			case 0:
-				warning = new FlxSprite(0, 0, Paths.image("warning"));
-				warning.scale.set(0.65, 0.65);
-				warning.updateHitbox();
-				warning.screenCenter();
-				warning.alpha--;
-				add(warning);
+				text = new FlxText(0, 220);
+				text.text = "Warning:\nFunkin' Digitization Circus has some flashing lights\nthat may cause some issues for you.";
+				text.setFormat(Paths.font("sans.ttf"), 38, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.NONE, FlxColor.WHITE);
+				text.screenCenter(X);
+				text.alpha = 0;
+				add(text);
+
+				text2 = new FlxText(0, 380);
+				text2.text = "Please go to the options menu to change it if you have sensitive problems.\n\nThank you for reading and enjoy!";
+				text2.setFormat(Paths.font("sans.ttf"), 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.NONE, FlxColor.WHITE);
+				text2.screenCenter(X);
+				add(text2);
+				
+				text2.alpha = 0;
+
+				for (stuff in [text, text2])
+					FlxTween.tween(stuff, {alpha: 1}, 4);
 
 				step = 1;
 			case 1:
@@ -258,18 +274,19 @@ class StartupState extends FlxState
 				#if debug
 				var waitTime:Float = 0;
 				#elseif sys
-				var waitTime:Float = (nextState == PlayState || nextState == editors.ChartingState) ? 0 : Math.max(0, 1.6 - (startTime - Sys.cpuTime()));
+				var waitTime:Float = (nextState == PlayState || nextState == editors.ChartingState) ? 0 : 8;
 				#else
 				var waitTime:Float = 0;
 				#end
 
-				fadeTwn = FlxTween.tween(warning, {alpha: 0}, 1, {
-					ease: FlxEase.expoIn,
-					startDelay: waitTime,
-					onComplete: (twn)->{
-						step = 5;
-					}
-				});
+				for (stuff in [text, text2])
+					fadeTwn = FlxTween.tween(stuff, {alpha: 0}, 1, {
+						ease: FlxEase.expoIn,
+						startDelay: waitTime,
+						onComplete: (twn)->{
+							new FlxTimer().start(1.8, p -> step = 5);
+						}
+					});
 
 				step = 3;
 			case 3:
