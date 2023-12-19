@@ -40,7 +40,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public static function resetVariables() {
 		characterName = null;
-		deathSoundName = 'themostunnecesarrysoundeffecttoexistonafnfmod';
+		deathSoundName = 'death';
 		loopSoundName = 'gameOver';
 		endSoundName = 'gameOverEnd';
 
@@ -147,7 +147,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 		
-		deathSound = FlxG.sound.play(Paths.sound('themostunnecesarrysoundeffecttoexistonafnfmod'));
+		FlxG.sound.play(Paths.sound('death'));
+		deathSound = FlxG.sound.play(Paths.sound('death'));
 		Conductor.changeBPM(100);
 		FlxG.camera.bgColor = FlxColor.BLACK;
 		FlxG.camera.scroll.set();
