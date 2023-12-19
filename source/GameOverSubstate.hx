@@ -60,17 +60,17 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		instance = this;
 
-		if (genericBitch != null){
-			genericBitch.alpha = 0;
-			genericBitch.scale.set(2.25, 2.25);
+		// if (genericBitch != null){
+		// 	genericBitch.alpha = 0;
+		// 	genericBitch.scale.set(2.25, 2.25);
 
-			var frameRate = 1/24;
-			FlxTween.tween(genericBitch, {"scale.x": 1.22, "scale.y": 1.22, alpha: 1}, 1, {ease: FlxEase.circIn}).then(
-				FlxTween.tween(genericBitch, {"scale.x": 1.196, "scale.y": 1.196}, frameRate, {onComplete: (_)->{ if (!isEnding) FlxG.sound.play(Paths.sound(genericSound), 1, false);}})).then(
-					FlxTween.tween(genericBitch, {"scale.x": 1.1, "scale.y": 1.1}, frameRate*35)).then(
-						FlxTween.tween(genericBitch, {"scale.x": 1, "scale.y": 1}, frameRate*60, {onStart: (fuck)->{ if (!isEnding) FlxG.sound.playMusic(Paths.music(genericMusic), 0.6, true); FlxG.sound.music.fadeIn(0.4, 0.6, 1);}})).then(
-							FlxTween.tween(genericBitch, {"scale.x": 1.01, "scale.y": 1.01}, frameRate * 14, {type: PINGPONG}));
-		}
+		// 	var frameRate = 1/24;
+		// 	FlxTween.tween(genericBitch, {"scale.x": 1.22, "scale.y": 1.22, alpha: 1}, 1, {ease: FlxEase.circIn}).then(
+		// 		FlxTween.tween(genericBitch, {"scale.x": 1.196, "scale.y": 1.196}, frameRate, {onComplete: (_)->{ if (!isEnding) FlxG.sound.play(Paths.sound(genericSound), 1, false);}})).then(
+		// 			FlxTween.tween(genericBitch, {"scale.x": 1.1, "scale.y": 1.1}, frameRate*35)).then(
+		// 				FlxTween.tween(genericBitch, {"scale.x": 1, "scale.y": 1}, frameRate*60, {onStart: (fuck)->{ if (!isEnding) FlxG.sound.playMusic(Paths.music(genericMusic), 0.6, true); FlxG.sound.music.fadeIn(0.4, 0.6, 1);}})).then(
+		// 					FlxTween.tween(genericBitch, {"scale.x": 1.01, "scale.y": 1.01}, frameRate * 14, {type: PINGPONG}));
+		// }
 
 		PlayState.instance.callOnScripts('onGameOverStart', []);
 		super.create();
@@ -215,10 +215,15 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
 
-			if (PlayState.isStoryMode)
+			// if (PlayState.isStoryMode)
+			// 	MusicBeatState.switchState(new CircusState());
+			// else
+			// 	MusicBeatState.switchState(new FreeplayState());
+
+			if(!Data.freeplay)
 				MusicBeatState.switchState(new CircusState());
 			else
-				MusicBeatState.switchState(new FreeplayState());
+				MusicBeatState.switchState(new FreeplayButCircusEditionYay());
 
 			MusicBeatState.playMenuMusic(true);
 		}
