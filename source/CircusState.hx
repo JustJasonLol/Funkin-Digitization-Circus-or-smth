@@ -318,7 +318,7 @@ class CircusState extends MusicBeatState
 			}
             else
             {
-                FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+                FlxG.sound.play(Paths.music('gameOverEnd'), 0.7);
                 if(ClientPrefs.flashing){
                      FlxG.camera.flash(FlxColor.WHITE, 0.5);
                     
