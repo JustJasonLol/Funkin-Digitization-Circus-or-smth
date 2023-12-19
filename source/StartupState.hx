@@ -48,7 +48,7 @@ class StartupState extends FlxState
 		if (loaded)
 			return;
 		loaded = true;
-
+		FlxG.mouse.visible = true;
 		PlayerSettings.init();
 
 		ClientPrefs.initialize();

@@ -9,6 +9,9 @@ import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import openfl.events.MouseEvent;
+import openfl.ui.Mouse;
+import openfl.ui.MouseCursor;
 
 using StringTools;
 
@@ -60,6 +63,9 @@ class FreeplayButCircusEditionYay extends MusicBeatState
             var icon = new HealthIcon(songArray[i][1]);
             icon.setPosition(forcedIconPos[0], 270 + 90 * i);
 
+            song.ID = i;
+            icon.ID = i;
+
             textGroup.add(song);
             iconGroup.add(icon);
         }
@@ -77,7 +83,17 @@ class FreeplayButCircusEditionYay extends MusicBeatState
 
         super.create();
 
+        FlxG.mouse.visible = true;
+
         change(0);
+
+        FlxG.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+    }
+
+    
+    override public function destroy()
+    {
+        FlxG.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
     }
 
     override function update(elapsed:Float) {
@@ -101,7 +117,9 @@ class FreeplayButCircusEditionYay extends MusicBeatState
         if (controls.UI_DOWN_P) change(1);
         else if (controls.UI_UP_P) change(-1);
 
-        if (controls.ACCEPT)
+        var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || (controls != null && controls.ACCEPT) || FlxG.mouse.justPressed;
+
+        if (pressedEnter)
         {
             for (objects in [textGroup.members[curSelected], iconGroup.members[curSelected]])
                 FlxFlicker.flicker(objects, 0, .1);
@@ -140,5 +158,35 @@ class FreeplayButCircusEditionYay extends MusicBeatState
         #if discord_rpc
         DiscordClient.changePresence('In the Freeplay Menu', 'Selecting ${curSelected == 0 ? 'Welcome by Majavi' : 'Buffoon by Kylevi & Sic'}');
         #end
+    }
+
+    function onMouseMove(e)
+    {
+        for(icon in iconGroup)
+        {
+            if((FlxG.mouse.overlaps(icon)))
+            {
+                curSelected = icon.ID;
+                change();
+
+                Mouse.cursor = BUTTON;
+                return;
+            }
+        }
+
+        for(text in textGroup)
+        {
+            if((FlxG.mouse.overlaps(text)))
+            {
+                curSelected = text.ID;
+                change();
+
+                Mouse.cursor = BUTTON;
+                return;
+            }
+        }
+
+        Mouse.cursor = MouseCursor.AUTO;
+    
     }
 }

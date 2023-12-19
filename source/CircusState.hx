@@ -19,8 +19,6 @@ import flixel.group.FlxGroup;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.text.FlxText;
 import flixel.input.keyboard.FlxKey;
-import openfl.ui.Mouse;
-import openfl.ui.MouseCursor;
 
 using StringTools;
 #if discord_rpc
