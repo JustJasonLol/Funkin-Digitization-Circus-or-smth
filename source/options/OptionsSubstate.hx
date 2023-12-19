@@ -50,6 +50,7 @@ class OptionsSubstate extends MusicBeatSubstate
 		"hitWindow",
 		"judgeDiff", 
 		"noteSkin",
+		"downScroll"
 	];
 	
 	var changed:Array<String> = [];
