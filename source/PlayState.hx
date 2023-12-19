@@ -667,13 +667,8 @@ class PlayState extends MusicBeatState
 		*/
 
 		////
-		if (ClientPrefs.noteSkin == 'Quants'){
-			shitToLoad.push({path: 'QUANT$arrowSkin'});
-			shitToLoad.push({path: 'QUANT$splashSkin'});
-		}else{
-			shitToLoad.push({path: arrowSkin});
-			shitToLoad.push({path: splashSkin});
-		}
+		shitToLoad.push({path: arrowSkin});
+		shitToLoad.push({path: splashSkin});
 
 		////
 		if (stageData.preloadStrings != null)
@@ -789,10 +784,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		if (hud == null){
-			switch(ClientPrefs.etternaHUD){
-				case 'Advanced': hud = new AdvancedHUD(boyfriend.healthIcon, dad.healthIcon, SONG.song, stats);
-				default: hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, SONG.song, stats);
-			}
+			hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, SONG.song, stats);
 		}
 		hud.alpha = ClientPrefs.hudOpacity;
 		add(hud);
@@ -1013,7 +1005,7 @@ class PlayState extends MusicBeatState
 						if curBeat == 242 then
 							doTweenAlpha("ss", "n", 1, 1, "sineInOut")
 					
-							for s, stuff in pairs {"dad", "gf", "hud.healthBar", "hud.healthBarBGG", "scoreTxt"} do
+							for s, stuff in pairs {"dad", "gf", "hud.healthBar", "hud.healthBarBGG", "hud.scoreTxt"} do
 								doTweenAlpha(stuff.."tween", stuff, 0.00001, 1, "sineInOut")
 							end
 					
@@ -1025,7 +1017,7 @@ class PlayState extends MusicBeatState
 						if curBeat == 306 then
 							setProperty("n.visible", false, false)
 							
-							for s, stuff in pairs {"dad", "gf", "hud.healthBar", "hud.healthBarBGG", "scoreTxt"} do
+							for s, stuff in pairs {"dad", "gf", "hud.healthBar", "hud.healthBarBGG", "hud.scoreTxt"} do
 								setProperty(stuff..".alpha", 1, false)
 							end
 						end

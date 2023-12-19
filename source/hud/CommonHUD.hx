@@ -85,7 +85,7 @@ class CommonHUD extends BaseHUD
 		add(timeBar);
 		add(timeTxt);
 
-		botplayTxt = new FlxText(0, (ClientPrefs.downScroll ? (FlxG.height-107) : 89), FlxG.width, "[BUTTPLUG]", 32);
+		botplayTxt = new FlxText(0, (ClientPrefs.downScroll ? (FlxG.height-107) : 89), FlxG.width, "[AUTO]", 32);
 		botplayTxt.setFormat(Paths.font("sans.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -125,10 +125,6 @@ class CommonHUD extends BaseHUD
 			timeTxt.size = 32;
 			timeTxt.offset.y = 0;
 		}
-
-		timeTxt.y = ClientPrefs.downScroll ? (FlxG.height - 44) : 19;
-		timeBarBG.y = timeTxt.y + (timeTxt.height * 0.25);
-		timeBar.y = timeBarBG.y + 5;
 
 		updateTimeBarAlpha();
 	}
@@ -210,12 +206,8 @@ class CommonHUD extends BaseHUD
 
 	override function changedOptions(changed:Array<String>)
 	{
-		healthBar.healthBarBG.y = FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.89);
-		healthBar.y = healthBarBG.y + 5;
-		healthBar.iconP1.y = healthBar.y - 75;
-		healthBar.iconP2.y = healthBar.y - 75;
-
 		botplayTxt.y = (ClientPrefs.downScroll ? (FlxG.height-107) : 89);
+
 
 		updateTimeBarType();
 	}

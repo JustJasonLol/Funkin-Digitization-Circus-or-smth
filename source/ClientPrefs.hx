@@ -317,13 +317,6 @@ class ClientPrefs
 				value: true,
 				data: []
 			},
-			"noteSkin" => {
-				display: "Note Colours",
-				desc: "Changes how notes get their colours. Column bases it on direction, Quants bases it on beat.",
-				type: Dropdown,
-				value: "Column",
-				data: ["options" => ["Column", "Quants"]]
-			},
 			"coloredCombos" => {
 				display: "Colored Combos",
 				desc: "When toggled, combo numbers are colored based on the FC.", // Sorry I'm bad at descriptions. < its fine lol

@@ -182,7 +182,7 @@ class OptionsSubstate extends MusicBeatSubstate
 					openSubState(new options.ComboOffsetSubstate());
 			case 'customizeColours':
 				// TODO: check the note colours once you exit to see if any changed
-				openSubState(ClientPrefs.noteSkin == "Quants" ? new options.QuantNotesSubState() : new options.NotesSubState());
+				openSubState(new options.NotesSubState());
 			case 'customizeKeybinds':
 				var substate = new NewBindsSubstate();
 				var currentBinds:Map<String, Array<FlxKey>> = [];

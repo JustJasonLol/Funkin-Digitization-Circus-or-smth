@@ -98,7 +98,7 @@ class Note extends NoteObject
 	
 	// note type/customizable shit
 	
-	public var canQuant:Bool = true; // whether a quant texture should be searched for or not
+	public var canQuant:Bool = false; // whether a quant texture should be searched for or not
 	public var noteType(default, set):String = null;  // the note type
 	public var usesDefaultColours:Bool = true; // whether this note uses the default note colours (lets you change colours in options menu)
 	// This automatically gets set if a notetype changes the ColorSwap values
@@ -349,7 +349,7 @@ class Note extends NoteObject
 		this.isSustainNote = sustainNote;
 		this.inEditor = inEditor;
 
-		if (canQuant && ClientPrefs.noteSkin == 'Quants'){
+		if (canQuant){
 			if(prevNote != null && isSustainNote)
 				quant = prevNote.quant;
 			else
@@ -463,7 +463,7 @@ class Note extends NoteObject
 
 		for (dir in daDirs)
 		{
-			if (canQuant && ClientPrefs.noteSkin == 'Quants')
+			if (canQuant)
 			{
 				var texture = quantShitCache.get(dir + blahblah);
 

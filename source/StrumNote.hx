@@ -82,18 +82,7 @@ class StrumNote extends NoteObject
 		var lastAnim:String = null;
 		if(animation.curAnim != null) lastAnim = animation.curAnim.name;
 		var br:String = texture;
-
-		if (ClientPrefs.noteSkin == 'Quants')
-		{
-			if (Paths.exists(Paths.getPath("images/QUANT" + texture + ".png", IMAGE))
-			#if MODS_ALLOWED
-			|| Paths.exists(Paths.modsImages("QUANT" + texture))
-			#end) {
-				br = "QUANT" + texture;
-				isQuant = true;
-			}
-		}
-
+		
 		frames = Paths.getSparrowAtlas(br);
 		animation.addByPrefix('green', 'arrowUP');
 		animation.addByPrefix('blue', 'arrowDOWN');
