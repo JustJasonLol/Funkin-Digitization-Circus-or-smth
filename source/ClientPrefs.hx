@@ -368,16 +368,6 @@ class ClientPrefs
 					})()
 				]
 			},
-			"etternaHUD" => {
-				display: "HUD Style",
-				desc: "Changes how the HUD looks.",
-				type: Dropdown,
-				value: "Default",
-				data: [
-					"options" => ["Default", "Advanced"]
-				]
-			},
-
 			"judgeCounter" => {
 				display: "Judgement Counter",
 				desc: "How to display the judgement counters.",

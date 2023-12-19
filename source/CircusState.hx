@@ -177,11 +177,13 @@ class CircusState extends MusicBeatState
 
 		super.create();
 
+        FlxSprite.defaultAntialiasing = ClientPrefs.globalAntialiasing;
+
         #if discord_rpc
         DiscordClient.changePresence('In the Main Menu', null);
         #end
 
-        currentRandom = FlxG.random.int(0, randomtexts.length);
+        currentRandom = FlxG.random.int(0, randomtexts.length-1);
 
         add(background);
         add(bars);

@@ -24,7 +24,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	public var updateCamera:Bool = false;
 
 	public static var characterName:String = null;
-	public static var deathSoundName:String = 'fnf_loss_sfx';
+	public static var deathSoundName:String = 'themostunnecesarrysoundeffecttoexistonafnfmod';
 	public static var loopSoundName:String = 'gameOver';
 	public static var endSoundName:String = 'gameOverEnd';
 	
@@ -40,7 +40,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public static function resetVariables() {
 		characterName = null;
-		deathSoundName = 'fnf_loss_sfx';
+		deathSoundName = 'themostunnecesarrysoundeffecttoexistonafnfmod';
 		loopSoundName = 'gameOver';
 		endSoundName = 'gameOverEnd';
 
@@ -135,7 +135,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		
 		Cache.loadWithList([
 			{path: charInfo.image, type: 'IMAGE'},
-			{path: deathSoundName, type: 'SOUND'},
+			{path: 'themostunnecesarrysoundeffecttoexistonafnfmod', type: 'SOUND'},
 			{path: loopSoundName, type: 'MUSIC'},
 			{path: endSoundName, type: 'MUSIC'}
 		]);
@@ -147,7 +147,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 		
-		deathSound = FlxG.sound.play(Paths.sound(deathSoundName));
+		deathSound = FlxG.sound.play(Paths.sound('themostunnecesarrysoundeffecttoexistonafnfmod'));
 		Conductor.changeBPM(100);
 		FlxG.camera.bgColor = FlxColor.BLACK;
 		FlxG.camera.scroll.set();

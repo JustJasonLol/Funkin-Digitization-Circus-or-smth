@@ -88,7 +88,7 @@ class JudgmentManager {
         },
         TIER2 => {
             internalName: "bad",
-            displayName: "Gay",
+            displayName: "Bad",
 			window: ClientPrefs.badWindow,
             score: 0,
             accuracy: -115,
@@ -98,7 +98,7 @@ class JudgmentManager {
         },
         TIER1 => {
             internalName: "shit",
-            displayName: "Retard",
+            displayName: "Dumb",
 			window: ClientPrefs.hitWindow,
             score: -150,
             accuracy: -220,
