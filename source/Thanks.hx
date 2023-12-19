@@ -10,7 +10,7 @@ class Thanks extends MusicBeatState
 		trace("the original create function yeah");
 
 		var text = new FlxText(0, 290);
-		text.text = "Thank you for playing this demostration.";
+		text.text = "Thank you for playing this demonstration.";
 		text.setFormat(Paths.font("vcr-org.ttf"), 38, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.NONE, FlxColor.WHITE);
 		text.screenCenter(X);
 		add(text);
