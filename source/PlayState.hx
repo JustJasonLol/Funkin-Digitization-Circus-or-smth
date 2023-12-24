@@ -918,16 +918,19 @@ class PlayState extends MusicBeatState
 
 					makeLuaSprite("bg","bg/Caine/bg",0,0)
 					scaleObject("bg", 1.2, 1.2, true)
+                                        setProperty("bg.alpha", 1, false)
 					addLuaSprite("bg")
 					
 					
 					makeLuaSprite("bg2","bg/Caine/shadow",0,0)
 					scaleObject("bg2", 1.2, 1.2, true)
+                                        setProperty("b2.alpha", 1, false)
 					addLuaSprite("bg2", false)
 					
 					
 					makeLuaSprite("bg3","bg/Caine/shade",0,0)
 					scaleObject("bg3", 1.2, 1.2, true)
+                                        setProperty("b3.alpha", 1, false)
 					addLuaSprite("bg3", true)
 					end
 					
