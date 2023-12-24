@@ -5346,6 +5346,56 @@
 				"bpm": 133
 			},
 			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 133,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 133
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 133
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 133
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 133,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
 				"gfSection": false,
 				"altAnim": false,
 				"typeOfSection": 0,
@@ -5367,7 +5417,6 @@
 		"characterTrails": false,
 		"speed": 3,
 		"extraTracks": [],
-		"gfVersion": "bubble",
 		"swapStrumLines": false,
 		"events": [
 			[
@@ -5554,43 +5603,18 @@
 				8684.21052631579,
 				[
 					[
-						"Play Animation",
-						"singUP",
-						"bf"
-					],
-					[
 						"Lyrics",
 						"W-What's going on?",
 						""
-					]
-				]
-			],
-			[
-				9530.07518796993,
-				[
+					],
+					[
+						"Change Character",
+						"bf",
+						"pomni buffon animation"
+					],
 					[
 						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				9642.85714285714,
-				[
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				9812.03007518797,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
+						"what?",
 						"bf"
 					]
 				]
@@ -5599,11 +5623,6 @@
 				10375.9398496241,
 				[
 					[
-						"Play Animation",
-						"singUP",
-						"bf"
-					],
-					[
 						"Lyrics",
 						"I-I-I put some werid headset,",
 						""
@@ -5611,103 +5630,8 @@
 				]
 			],
 			[
-				10601.5037593985,
-				[
-					[
-						"Play Animation",
-						"singUP",
-						"bf"
-					]
-				]
-			],
-			[
-				10714.2857142857,
-				[
-					[
-						"Play Animation",
-						"singUP",
-						"bf"
-					]
-				]
-			],
-			[
-				11221.8045112782,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				11334.5864661654,
-				[
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				11616.5413533835,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				12349.6240601504,
-				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					]
-				]
-			],
-			[
-				12462.4060150376,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				12631.5789473684,
-				[
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				12857.1428571429,
-				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					]
-				]
-			],
-			[
 				13139.0977443609,
 				[
-					[
-						"Play Animation",
-						"singUP",
-						"bf"
-					],
 					[
 						"Lyrics",
 						"and now i'm...",
@@ -5716,33 +5640,8 @@
 				]
 			],
 			[
-				13646.6165413534,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				13872.1804511278,
-				[
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
 				15000,
 				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					],
 					[
 						"Lyrics",
 						"here.",
@@ -5757,51 +5656,6 @@
 						"Lyrics",
 						"Who are you people?",
 						""
-					],
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				16409.7744360902,
-				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					]
-				]
-			],
-			[
-				16635.3383458647,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				16804.5112781955,
-				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					]
-				]
-			],
-			[
-				16973.6842105263,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
 					]
 				]
 			],
@@ -5809,64 +5663,9 @@
 				17819.5488721805,
 				[
 					[
-						"Play Animation",
-						"singUP",
-						"bf"
-					],
-					[
 						"Lyrics",
 						"Why can't i take it off?",
 						""
-					]
-				]
-			],
-			[
-				18045.1127819549,
-				[
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				18214.2857142857,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				18383.4586466165,
-				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					]
-				]
-			],
-			[
-				18552.6315789474,
-				[
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				18609.022556391,
-				[
-					[
-						"Play Animation",
-						"singUP",
-						"bf"
 					]
 				]
 			],
@@ -5877,31 +5676,6 @@
 						"Lyrics",
 						"Where am i?",
 						""
-					],
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				19454.8872180451,
-				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					]
-				]
-			],
-			[
-				19567.6691729323,
-				[
-					[
-						"Play Animation",
-						"singUP",
-						"bf"
 					]
 				]
 			],
@@ -5912,6 +5686,16 @@
 						"Lyrics",
 						"",
 						""
+					]
+				]
+			],
+			[
+				20075.1879699248,
+				[
+					[
+						"Change Character",
+						"bf",
+						"pomni"
 					]
 				]
 			],
@@ -6326,6 +6110,7 @@
 				]
 			]
 		],
+		"gfVersion": "bubble",
 		"healthdrainKill": false,
 		"cameraMoveOnNotes": false,
 		"healthdrain": 0,
