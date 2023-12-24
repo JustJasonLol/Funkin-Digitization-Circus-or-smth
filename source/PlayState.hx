@@ -1002,6 +1002,18 @@ class PlayState extends MusicBeatState
 					h = curBeat
 
 					if songName == "Buffoon" then
+                                                if curBeat == 36 then
+							doTweenAlpha("oa", "bg", 0.25, 2.3, "linear")
+					        doTweenAlpha("sexoo", "bg2", 0.25, 2.3, "linear")
+							doTweenAlpha("semen de moco", "bg3", 0.25, 2.3, "linear")
+					        end
+
+						if curBeat == 44 then
+							doTweenAlpha("oa", "bg", 1, 0.000000000000000001, "linear")
+							doTweenAlpha("sexoo", "bg2", 1, 0.000000000000000001, "linear")
+							doTweenAlpha("semen de moco", "bg3", 1, 0.000000000000000001, "linear")
+						end
+
 						if curBeat == 242 then
 							doTweenAlpha("ss", "n", 1, 1, "sineInOut")
 					
