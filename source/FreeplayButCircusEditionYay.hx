@@ -114,8 +114,8 @@ class FreeplayButCircusEditionYay extends MusicBeatState
             iconGroup.members[curSelected].scale.y = FlxMath.lerp(forcedScale[1], iconGroup.members[curSelected].scale.y, CoolUtil.boundTo(1 - (elapsed * 12), 0, 1));
         }
 
-        if (controls.UI_DOWN_P) change(1);
-        else if (controls.UI_UP_P) change(-1);
+        if (controls.UI_DOWN_P) change(1, true);
+        else if (controls.UI_UP_P) change(-1, true);
 
         var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || (controls != null && controls.ACCEPT) || FlxG.mouse.justPressed;
 
@@ -141,10 +141,12 @@ class FreeplayButCircusEditionYay extends MusicBeatState
             MusicBeatState.switchState(new CircusState());
     }
 
-    function change(hmm = 0)
+    var lockSound:Bool = false;
+
+    function change(hmm = 0, playSound:Bool = false)
     {
         curSelected += hmm;
-        FlxG.sound.play(Paths.sound('scrollMenu'), .4);
+        if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), .4);
 
         if (curSelected >= songArray.length) curSelected = 0;
         else if (curSelected < 0) curSelected = songArray.length - 1;
@@ -180,6 +182,7 @@ class FreeplayButCircusEditionYay extends MusicBeatState
             {
                 curSelected = text.ID;
                 change();
+                // if(!mouseIsOnText()) FlxG.sound.play(Paths.sound('scrollMenu'), .4);
 
                 Mouse.cursor = BUTTON;
                 return;
@@ -188,5 +191,19 @@ class FreeplayButCircusEditionYay extends MusicBeatState
 
         Mouse.cursor = MouseCursor.AUTO;
     
+    }
+
+    function mouseIsOnText():Bool
+    {
+        var on = false;
+        for(text in textGroup)
+        {
+            if((FlxG.mouse.overlaps(text)))
+            {
+                on = true;
+                break;
+            }
+        }
+        return on;
     }
 }

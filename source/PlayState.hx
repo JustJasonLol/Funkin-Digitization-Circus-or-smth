@@ -5055,14 +5055,14 @@ class FNFHealthBar extends FlxBar{
 	{
 		//
 		healthBarBG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.69));
-		healthBarBG.loadGraphic(Paths.image('redBar'));
+		healthBarBG.loadGraphic(Paths.image('greyBar'));
 		// healthBarBG.makeGraphic(600, 18);
 		// healthBarBG.color = 0xFF000000;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		healthBarBG.antialiasing = false;
 
-		healthBarBGG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('redBar'));
+		healthBarBGG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('greyBar'));
 		healthBarBGG.scrollFactor.set();
 		healthBarBGG.screenCenter(X);
 		healthBarBGG.scale.set(1.43, 1.43);
@@ -5088,6 +5088,8 @@ class FNFHealthBar extends FlxBar{
 
 		createImageEmptyBar(Paths.image('redBar'));
 		createImageFilledBar(Paths.image('greenBar'));
+
+		// color = FlxColor.BLUE;
 
 		scale.set(1.43, 1.43);
 		
