@@ -25,7 +25,7 @@ import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.text.FlxText;
 import flixel.ui.FlxBar;
-
+import flixel.graphics.FlxGraphic;
 import haxe.Json;
 
 import lime.media.openal.AL;
@@ -35,6 +35,8 @@ import lime.media.openal.ALEffect;
 import openfl.events.KeyboardEvent;
 import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
+
+import shaders.HSVColor;
 
 #if sys
 import sys.FileSystem;
@@ -5086,10 +5088,22 @@ class FNFHealthBar extends FlxBar{
 			0, 2
 		);
 
-		createImageEmptyBar(Paths.image('redBar'));
-		createImageFilledBar(Paths.image('greenBar'));
+		// var greenBar:FlxGraphic = Paths.image('greenBar');
+		// var redBar:FlxGraphic = Paths.image('redBar');
 
-		// color = FlxColor.BLUE;
+		var greenBar:FlxGraphic = Paths.image('greyBar');
+		var redBar:FlxGraphic = Paths.image('greyBar');
+
+		var greenShader = new HSVColor();
+		var redShader = new HSVColor();
+
+		// @:privateAccess greenBar.shader = greenShader.shader;
+		// @:privateAccess redBar.shader = redShader.shader;
+		
+
+		createImageEmptyBar(redBar);
+		createImageFilledBar(greenBar);
+
 
 		scale.set(1.43, 1.43);
 		
