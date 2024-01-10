@@ -786,7 +786,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		if (hud == null){
-			hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, /*boyfriend.healthColorArray, dad.healthColorArray,*/ SONG.song, stats);
+			hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, boyfriend.healthColorArray, dad.healthColorArray, SONG.song, stats);
 		}
 		hud.alpha = ClientPrefs.hudOpacity;
 		add(hud);

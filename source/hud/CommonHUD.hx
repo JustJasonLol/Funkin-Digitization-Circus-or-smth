@@ -44,17 +44,18 @@ class CommonHUD extends BaseHUD
 
 	private var timeBarBG:FlxSprite;
 
-	public function new(iP1:String, iP2:String, /*cP1:Array<Int>, cP2:Array<Int>,*/ songName:String, stats:Stats)
+	public function new(iP1:String, iP2:String, cP1:Array<Int>, cP2:Array<Int>, songName:String, stats:Stats)
 	{
 		super(iP1, iP2,/* cP1, cP2, */songName, stats);
 
 		if (!ClientPrefs.useEpics)
 			displayedJudges.remove("epic");
 
-		// bfColor = [cP1[0]/255, cP1[1]/255, cP1[2]/255];
-		// dadColor = [cP2[0]/255, cP1[1]/255, cP1[2]/255];
+		bfColors = [cP1[0]/255, cP1[1]/255, cP1[2]/255];
+		dadColors = [cP2[0]/255, cP1[1]/255, cP1[2]/255];
 
-		healthBar = new FNFHealthBar(iP1, iP2, [0,1,0], [1,0,0]);
+		// healthBar = new FNFHealthBar(iP1, iP2, [0,1,0], [1,0,0]);
+		healthBar = new FNFHealthBar(iP1, iP2, bfColors, dadColors);
 		iconP1 = healthBar.iconP1;
 		iconP2 = healthBar.iconP2;
 
