@@ -36,7 +36,7 @@ import openfl.events.KeyboardEvent;
 import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
 
-import shaders.HSVColor;
+import shaders.RGBColor;
 
 #if sys
 import sys.FileSystem;
@@ -786,7 +786,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		if (hud == null){
-			hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, SONG.song, stats);
+			hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, /*boyfriend.healthColorArray, dad.healthColorArray,*/ SONG.song, stats);
 		}
 		hud.alpha = ClientPrefs.hudOpacity;
 		add(hud);
@@ -5011,6 +5011,9 @@ class FNFHealthBar extends FlxBar{
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
 
+	public var bfColor:Array<Float>;
+	public var dadColor:Array<Float>;
+
 	var leftIcon:HealthIcon;
 	var rightIcon:HealthIcon;
 
@@ -5053,8 +5056,11 @@ class FNFHealthBar extends FlxBar{
 		return super.set_alpha(value);
 	}
 
-	public function new(bfHealthIcon = "face", dadHealthIcon = "face")
+	public function new(bfHealthIcon = "face", dadHealthIcon = "face", bfColor:Array<Float> = null, dadColor:Array<Float> = null)
 	{
+		this.bfColor = bfColor == null ? [1.0,1.0,1.0] : bfColor;
+		this.dadColor = dadColor == null ? [1.0,1.0,1.0] : dadColor;
+
 		//
 		healthBarBG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.69));
 		healthBarBG.loadGraphic(Paths.image('greyBar'));
@@ -5092,13 +5098,16 @@ class FNFHealthBar extends FlxBar{
 		// var redBar:FlxGraphic = Paths.image('redBar');
 
 		var greenBar:FlxGraphic = Paths.image('greyBar');
-		var redBar:FlxGraphic = Paths.image('greyBar');
+		var redBar:FlxGraphic = Paths.image('whiteBar');
 
-		var greenShader = new HSVColor();
-		var redShader = new HSVColor();
+		// var greenShader = new RGBColor(0,1,0);
+		// var redShader = new RGBColor(1,0,0);
 
-		// @:privateAccess greenBar.shader = greenShader.shader;
-		// @:privateAccess redBar.shader = redShader.shader;
+		var greenShader = new RGBColor(this.bfColor[0],this.bfColor[1],this.bfColor[2]);
+		var redShader = new RGBColor(this.dadColor[0],this.dadColor[1],this.dadColor[2]);
+
+		@:privateAccess greenBar.shader = greenShader.shader;
+		@:privateAccess redBar.shader = redShader.shader;
 		
 
 		createImageEmptyBar(redBar);

@@ -26,7 +26,7 @@ class PsychHUD extends CommonHUD
 	var cbString = Paths.getString("cbplural");
 	var npsString = Paths.getString("nps");
 
-	override public function new(iP1:String, iP2:String, songName:String, stats:Stats)
+	override public function new(iP1:String, iP2:String, /*cP1:Array<Int>, cP2:Array<Int>,*/ songName:String, stats:Stats)
 	{
 		super(iP1, iP2, songName, stats);
 

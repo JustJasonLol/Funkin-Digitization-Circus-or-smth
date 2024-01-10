@@ -22,6 +22,8 @@ class CommonHUD extends BaseHUD
 	public var healthBarBGG(get, null):FlxSprite;
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
+	public var bfColors:Array<Float>;
+	public var dadColors:Array<Float>;
 
 	public var botplayTxt:FlxText;
 	public var botplaySine:Float = 0;
@@ -42,14 +44,17 @@ class CommonHUD extends BaseHUD
 
 	private var timeBarBG:FlxSprite;
 
-	public function new(iP1:String, iP2:String, songName:String, stats:Stats)
+	public function new(iP1:String, iP2:String, /*cP1:Array<Int>, cP2:Array<Int>,*/ songName:String, stats:Stats)
 	{
-		super(iP1, iP2, songName, stats);
+		super(iP1, iP2,/* cP1, cP2, */songName, stats);
 
 		if (!ClientPrefs.useEpics)
 			displayedJudges.remove("epic");
 
-		healthBar = new FNFHealthBar(iP1, iP2);
+		// bfColor = [cP1[0]/255, cP1[1]/255, cP1[2]/255];
+		// dadColor = [cP2[0]/255, cP1[1]/255, cP1[2]/255];
+
+		healthBar = new FNFHealthBar(iP1, iP2, [0,1,0], [1,0,0]);
 		iconP1 = healthBar.iconP1;
 		iconP2 = healthBar.iconP2;
 
