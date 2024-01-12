@@ -1549,6 +1549,7 @@ class PlayState extends MusicBeatState
 			return;
 
 		hud.reloadHealthBarColors(dadColor, bfColor);
+		// hud.reloadShaderHealthBarColors(dad.healthColorArray, boyfriend.healthColorArray);
 	}
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
@@ -5011,8 +5012,13 @@ class FNFHealthBar extends FlxBar{
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
 
+	public var barBorder:FlxSprite;
+
 	public var bfColor:Array<Float>;
 	public var dadColor:Array<Float>;
+
+	public var greenShader:RGBColor;
+	public var redShader:RGBColor;
 
 	var leftIcon:HealthIcon;
 	var rightIcon:HealthIcon;
@@ -5086,6 +5092,8 @@ class FNFHealthBar extends FlxBar{
 		//
 		isOpponentMode = PlayState.instance == null ? false : PlayState.instance.playOpponent;
 
+		barBorder = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('healthBorder'));
+
 		super(
 			healthBarBGG.x, healthBarBGG.y,
 			RIGHT_TO_LEFT,
@@ -5103,8 +5111,8 @@ class FNFHealthBar extends FlxBar{
 		// var greenShader = new RGBColor(0,1,0);
 		// var redShader = new RGBColor(1,0,0);
 
-		var greenShader = new RGBColor(this.bfColor[0],this.bfColor[1],this.bfColor[2]);
-		var redShader = new RGBColor(this.dadColor[0],this.dadColor[1],this.dadColor[2]);
+		greenShader = new RGBColor(this.bfColor[0],this.bfColor[1],this.bfColor[2]);
+		redShader = new RGBColor(this.dadColor[0],this.dadColor[1],this.dadColor[2]);
 
 		@:privateAccess greenBar.shader = greenShader.shader;
 		@:privateAccess redBar.shader = redShader.shader;
@@ -5127,6 +5135,8 @@ class FNFHealthBar extends FlxBar{
 			1300,
 			y - 21
 		);
+
+		barBorder.setPosition(x,y);
 
 		//
 		antialiasing = ClientPrefs.globalAntialiasing;

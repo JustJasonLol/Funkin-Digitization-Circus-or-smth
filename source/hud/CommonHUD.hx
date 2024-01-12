@@ -103,10 +103,19 @@ class CommonHUD extends BaseHUD
 	{
 		if (healthBar != null)
 		{
-			// healthBar.createFilledBar(dadColor, bfColor);
-			// healthBar.updateBar();
+			healthBar.greenShader.changeColor(bfColor.red/255,bfColor.green/255,bfColor.blue/255);
+			healthBar.redShader.changeColor(dadColor.red/255,dadColor.green/255,dadColor.blue/255);
 		}
 	}
+
+	// override function reloadShaderHealthBarColors(dadColor:Array<Int>, bfColor:Array<Int>)
+	// {
+	// 	if (healthBar != null)
+	// 	{
+	// 		healthBar.greenShader.changeColor(bfColor[0]/255,bfColor[1]/255,bfColor[2]/255);
+	// 		healthBar.redShader.changeColor(dadColor[0]/255,dadColor[1]/255,dadColor[2]/255);
+	// 	}
+	// }
 
 
 	function updateTimeBarType()
