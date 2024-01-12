@@ -5194,6 +5194,7 @@ class FNFHealthBar extends FlxBar{
 		healthBarBG.alpha = 0;
 
 		healthBarBG.setPosition(x - 5, y - 5);
+		barBorder.setPosition(x, y);
 
 		if (iconScale != 1){
 			iconScale = FlxMath.lerp(1, iconScale, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));

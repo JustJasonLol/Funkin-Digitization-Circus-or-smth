@@ -22,6 +22,7 @@ class CommonHUD extends BaseHUD
 	public var healthBarBGG(get, null):FlxSprite;
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
+	public var barBorder:FlxSprite;
 	public var bfColors:Array<Float>;
 	public var dadColors:Array<Float>;
 
@@ -58,6 +59,8 @@ class CommonHUD extends BaseHUD
 		healthBar = new FNFHealthBar(iP1, iP2, bfColors, dadColors);
 		iconP1 = healthBar.iconP1;
 		iconP2 = healthBar.iconP2;
+
+		barBorder = healthBar.barBorder;
 
 		// prob gonna do my own time bar too lol but for now idc
 		timeTxt = new FlxText(FlxG.width * 0.5 - 200, 0, 400, "", 32);
