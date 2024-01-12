@@ -5093,6 +5093,10 @@ class FNFHealthBar extends FlxBar{
 		isOpponentMode = PlayState.instance == null ? false : PlayState.instance.playOpponent;
 
 		barBorder = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('healthBorder'));
+		barBorder.scrollFactor.set();
+		barBorder.screenCenter(X);
+		barBorder.scale.set(1.43, 1.43);
+		barBorder.antialiasing = ClientPrefs.globalAntialiasing;
 
 		super(
 			healthBarBGG.x, healthBarBGG.y,

@@ -39,6 +39,7 @@ class PsychHUD extends CommonHUD
 		add(healthBarBG);
 		add(healthBarBGG);
 		add(healthBar);
+		add(barBorder);
 		add(iconP1);
 		add(iconP2);
 		
