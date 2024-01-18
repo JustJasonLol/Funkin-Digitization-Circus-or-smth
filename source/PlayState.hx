@@ -5097,6 +5097,7 @@ class FNFHealthBar extends FlxBar{
 		barBorder.screenCenter(X);
 		barBorder.scale.set(1.43, 1.43);
 		barBorder.antialiasing = ClientPrefs.globalAntialiasing;
+		if(ClientPrefs.downScroll) barBorder.y = 0.08 * FlxG.height;
 
 		super(
 			healthBarBGG.x, healthBarBGG.y,
