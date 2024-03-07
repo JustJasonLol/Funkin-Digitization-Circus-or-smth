@@ -4508,6 +4508,86 @@
 				"bpm": 140
 			},
 			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 140,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 140,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 140,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 140,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 140,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 140
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 140
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 140,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
 				"gfSection": false,
 				"altAnim": false,
 				"typeOfSection": 0,
@@ -4569,75 +4649,29 @@
 		"characterTrails": false,
 		"speed": 2.9,
 		"extraTracks": [],
-		"swapStrumLines": false,
 		"events": [
 			[
 				34285.7142857143,
 				[
 					[
+						"Change Character",
+						"bf",
+						"pomni welcome animation"
+					],
+					[
 						"Play Animation",
-						"singUP",
+						"boing",
 						"bf"
 					]
 				]
 			],
 			[
-				34500,
+				36000,
 				[
 					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				34714.2857142857,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				34928.5714285714,
-				[
-					[
-						"Play Animation",
-						"singRIGHT",
-						"bf"
-					]
-				]
-			],
-			[
-				35142.8571428571,
-				[
-					[
-						"Play Animation",
-						"singLEFT",
-						"bf"
-					]
-				]
-			],
-			[
-				35250,
-				[
-					[
-						"Play Animation",
-						"singDOWN",
-						"bf"
-					]
-				]
-			],
-			[
-				35464.2857142857,
-				[
-					[
-						"Play Animation",
-						"singUP",
-						"bf"
+						"Change Character",
+						"bf",
+						"pomni"
 					]
 				]
 			],
@@ -4843,6 +4877,7 @@
 			]
 		],
 		"gfVersion": "bubble",
+		"swapStrumLines": false,
 		"healthdrainKill": false,
 		"cameraMoveOnNotes": false,
 		"healthdrain": 0,

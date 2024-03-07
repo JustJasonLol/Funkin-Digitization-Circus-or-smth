@@ -79,6 +79,9 @@ class CircusState extends MusicBeatState
     // line 324
     var onFreeplay = false;
 
+    var currentRandom1:Int;
+    var currentRandom2:Int;
+
     static public function load()
     {
         background = new FlxSprite(0, 0).loadGraphic(Paths.image('title/bg'));
@@ -181,7 +184,8 @@ class CircusState extends MusicBeatState
         DiscordClient.changePresence('In the Main Menu', null);
         #end
 
-        currentRandom = FlxG.random.int(0, randomtexts.length-1);
+        currentRandom1 = FlxG.random.int(0, randomtexts.length-1);
+        currentRandom2 = FlxG.random.int(0, lastlines.length-1);
 
         add(background);
         add(bars);
@@ -495,10 +499,10 @@ class CircusState extends MusicBeatState
                     canBounce = true;
                     if(camZoom != null) camZoom.cancel();
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
-                    createCoolText([randomtexts[currentRandom][0]]);
+                    createCoolText([randomtexts[currentRandom1][0]]);
                 case 14:
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
-                    addMoreText(randomtexts[currentRandom][1]);
+                    addMoreText(randomtexts[currentRandom1][1]);
                 case 14.5:
                     deleteCoolText();
                 case 15:
@@ -512,7 +516,7 @@ class CircusState extends MusicBeatState
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
                 case 16.5:
                     addMoreText('');
-                    addMoreText(lastlines[currentRandom]);
+                    addMoreText(lastlines[currentRandom2]);
                     if (!skippedIntro) FlxG.camera.zoom = 1.05;
                 case 17:
                 if (!skippedIntro)

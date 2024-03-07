@@ -1,0 +1,53 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				33,
+				44
+			],
+			"indices": [],
+			"fps": 22,
+			"cameraOffset": [
+				0,
+				0
+			],
+			"anim": "boing",
+			"loop": false,
+			"name": "Pomni Dialogue Welcome Animation"
+		},
+		{
+			"offsets": [
+				33,
+				44
+			],
+			"indices": [],
+			"fps": 20,
+			"cameraOffset": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"loop": false,
+			"name": "Pomni Dialogue Welcome Animation"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Pomni_Dialogue_Welcome",
+	"position": [
+		30,
+		30
+	],
+	"healthicon": "pomni",
+	"flip_x": true,
+	"healthbar_colors": [
+		161,
+		161,
+		161
+	],
+	"camera_position": [
+		60,
+		-140
+	],
+	"sing_duration": 5,
+	"scale": 1.1
+}

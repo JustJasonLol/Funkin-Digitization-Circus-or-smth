@@ -95,6 +95,8 @@ class BaseHUD extends FlxSpriteGroup {
 
 	public function reloadHealthBarColors(dadColor:FlxColor, bfColor:FlxColor){}
 
+	// public function reloadShaderHealthBarColors(dadColor:Array<Int>, bfColor:Array<Int>){}
+
 	public function new(iP1:String, iP2:String, songName:String, stats:Stats)
 	{
 		super();

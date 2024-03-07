@@ -22,6 +22,9 @@ class CommonHUD extends BaseHUD
 	public var healthBarBGG(get, null):FlxSprite;
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
+	public var barBorder:FlxSprite;
+	public var bfColors:Array<Float>;
+	public var dadColors:Array<Float>;
 
 	public var botplayTxt:FlxText;
 	public var botplaySine:Float = 0;
@@ -42,16 +45,22 @@ class CommonHUD extends BaseHUD
 
 	private var timeBarBG:FlxSprite;
 
-	public function new(iP1:String, iP2:String, songName:String, stats:Stats)
+	public function new(iP1:String, iP2:String, cP1:Array<Int>, cP2:Array<Int>, songName:String, stats:Stats)
 	{
-		super(iP1, iP2, songName, stats);
+		super(iP1, iP2,/* cP1, cP2, */songName, stats);
 
 		if (!ClientPrefs.useEpics)
 			displayedJudges.remove("epic");
 
-		healthBar = new FNFHealthBar(iP1, iP2);
+		bfColors = [cP1[0]/255, cP1[1]/255, cP1[2]/255];
+		dadColors = [cP2[0]/255, cP1[1]/255, cP1[2]/255];
+
+		// healthBar = new FNFHealthBar(iP1, iP2, [0,1,0], [1,0,0]);
+		healthBar = new FNFHealthBar(iP1, iP2, bfColors, dadColors);
 		iconP1 = healthBar.iconP1;
 		iconP2 = healthBar.iconP2;
+
+		barBorder = healthBar.barBorder;
 
 		// prob gonna do my own time bar too lol but for now idc
 		timeTxt = new FlxText(FlxG.width * 0.5 - 200, 0, 400, "", 32);
@@ -97,10 +106,19 @@ class CommonHUD extends BaseHUD
 	{
 		if (healthBar != null)
 		{
-			// healthBar.createFilledBar(dadColor, bfColor);
-			// healthBar.updateBar();
+			healthBar.greenShader.changeColor(bfColor.red/255,bfColor.green/255,bfColor.blue/255);
+			healthBar.redShader.changeColor(dadColor.red/255,dadColor.green/255,dadColor.blue/255);
 		}
 	}
+
+	// override function reloadShaderHealthBarColors(dadColor:Array<Int>, bfColor:Array<Int>)
+	// {
+	// 	if (healthBar != null)
+	// 	{
+	// 		healthBar.greenShader.changeColor(bfColor[0]/255,bfColor[1]/255,bfColor[2]/255);
+	// 		healthBar.redShader.changeColor(dadColor[0]/255,dadColor[1]/255,dadColor[2]/255);
+	// 	}
+	// }
 
 
 	function updateTimeBarType()

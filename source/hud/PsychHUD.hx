@@ -26,9 +26,9 @@ class PsychHUD extends CommonHUD
 	var cbString = Paths.getString("cbplural");
 	var npsString = Paths.getString("nps");
 
-	override public function new(iP1:String, iP2:String, songName:String, stats:Stats)
+	override public function new(iP1:String, iP2:String, cP1:Array<Int>, cP2:Array<Int>, songName:String, stats:Stats)
 	{
-		super(iP1, iP2, songName, stats);
+		super(iP1, iP2, cP1, cP2, songName, stats);
 
         // cached because dont wanna be doing that shit every update cycle lmao
         // even though it probably doesnt matter since it caches it the first time
@@ -39,6 +39,7 @@ class PsychHUD extends CommonHUD
 		add(healthBarBG);
 		add(healthBarBGG);
 		add(healthBar);
+		add(barBorder);
 		add(iconP1);
 		add(iconP2);
 		

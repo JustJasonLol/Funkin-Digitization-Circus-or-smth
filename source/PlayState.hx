@@ -25,7 +25,7 @@ import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.text.FlxText;
 import flixel.ui.FlxBar;
-
+import flixel.graphics.FlxGraphic;
 import haxe.Json;
 
 import lime.media.openal.AL;
@@ -35,6 +35,8 @@ import lime.media.openal.ALEffect;
 import openfl.events.KeyboardEvent;
 import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
+
+import shaders.RGBColor;
 
 #if sys
 import sys.FileSystem;
@@ -784,7 +786,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		if (hud == null){
-			hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, SONG.song, stats);
+			hud = new PsychHUD(boyfriend.healthIcon, dad.healthIcon, boyfriend.healthColorArray, dad.healthColorArray, SONG.song, stats);
 		}
 		hud.alpha = ClientPrefs.hudOpacity;
 		add(hud);
@@ -918,16 +920,19 @@ class PlayState extends MusicBeatState
 
 					makeLuaSprite("bg","bg/Caine/bg",0,0)
 					scaleObject("bg", 1.2, 1.2, true)
+                                        setProperty("bg.alpha", 1, false)
 					addLuaSprite("bg")
 					
 					
 					makeLuaSprite("bg2","bg/Caine/shadow",0,0)
 					scaleObject("bg2", 1.2, 1.2, true)
+                                        setProperty("b2.alpha", 1, false)
 					addLuaSprite("bg2", false)
 					
 					
 					makeLuaSprite("bg3","bg/Caine/shade",0,0)
 					scaleObject("bg3", 1.2, 1.2, true)
+                                        setProperty("b3.alpha", 1, false)
 					addLuaSprite("bg3", true)
 					end
 					
@@ -1002,6 +1007,18 @@ class PlayState extends MusicBeatState
 					h = curBeat
 
 					if songName == "Buffoon" then
+                                                if curBeat == 36 then
+							doTweenAlpha("oa", "bg", 0.25, 2.3, "linear")
+					        doTweenAlpha("sexoo", "bg2", 0.25, 2.3, "linear")
+							doTweenAlpha("semen de moco", "bg3", 0.25, 2.3, "linear")
+					        end
+
+						if curBeat == 44 then
+							doTweenAlpha("oa", "bg", 1, 0.000000000000000001, "linear")
+							doTweenAlpha("sexoo", "bg2", 1, 0.000000000000000001, "linear")
+							doTweenAlpha("semen de moco", "bg3", 1, 0.000000000000000001, "linear")
+						end
+
 						if curBeat == 242 then
 							doTweenAlpha("ss", "n", 1, 1, "sineInOut")
 					
@@ -1532,6 +1549,7 @@ class PlayState extends MusicBeatState
 			return;
 
 		hud.reloadHealthBarColors(dadColor, bfColor);
+		// hud.reloadShaderHealthBarColors(dad.healthColorArray, boyfriend.healthColorArray);
 	}
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
@@ -4994,6 +5012,14 @@ class FNFHealthBar extends FlxBar{
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
 
+	public var barBorder:FlxSprite;
+
+	public var bfColor:Array<Float>;
+	public var dadColor:Array<Float>;
+
+	public var greenShader:RGBColor;
+	public var redShader:RGBColor;
+
 	var leftIcon:HealthIcon;
 	var rightIcon:HealthIcon;
 
@@ -5036,18 +5062,21 @@ class FNFHealthBar extends FlxBar{
 		return super.set_alpha(value);
 	}
 
-	public function new(bfHealthIcon = "face", dadHealthIcon = "face")
+	public function new(bfHealthIcon = "face", dadHealthIcon = "face", bfColor:Array<Float> = null, dadColor:Array<Float> = null)
 	{
+		this.bfColor = bfColor == null ? [1.0,1.0,1.0] : bfColor;
+		this.dadColor = dadColor == null ? [1.0,1.0,1.0] : dadColor;
+
 		//
 		healthBarBG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.69));
-		healthBarBG.loadGraphic(Paths.image('redBar'));
+		healthBarBG.loadGraphic(Paths.image('greyBar'));
 		// healthBarBG.makeGraphic(600, 18);
 		// healthBarBG.color = 0xFF000000;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		healthBarBG.antialiasing = false;
 
-		healthBarBGG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('redBar'));
+		healthBarBGG = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('greyBar'));
 		healthBarBGG.scrollFactor.set();
 		healthBarBGG.screenCenter(X);
 		healthBarBGG.scale.set(1.43, 1.43);
@@ -5063,6 +5092,13 @@ class FNFHealthBar extends FlxBar{
 		//
 		isOpponentMode = PlayState.instance == null ? false : PlayState.instance.playOpponent;
 
+		barBorder = new FlxSprite(0, FlxG.height * (ClientPrefs.downScroll ? 0.11 : 0.78)).loadGraphic(Paths.image('healthBorder'));
+		barBorder.scrollFactor.set();
+		barBorder.screenCenter(X);
+		barBorder.scale.set(1.43, 1.43);
+		barBorder.antialiasing = ClientPrefs.globalAntialiasing;
+		if(ClientPrefs.downScroll) barBorder.y = 0.08 * FlxG.height;
+
 		super(
 			healthBarBGG.x, healthBarBGG.y,
 			RIGHT_TO_LEFT,
@@ -5071,8 +5107,25 @@ class FNFHealthBar extends FlxBar{
 			0, 2
 		);
 
-		createImageEmptyBar(Paths.image('redBar'));
-		createImageFilledBar(Paths.image('greenBar'));
+		// var greenBar:FlxGraphic = Paths.image('greenBar');
+		// var redBar:FlxGraphic = Paths.image('redBar');
+
+		var greenBar:FlxGraphic = Paths.image('greyBar');
+		var redBar:FlxGraphic = Paths.image('whiteBar');
+
+		// var greenShader = new RGBColor(0,1,0);
+		// var redShader = new RGBColor(1,0,0);
+
+		greenShader = new RGBColor(this.bfColor[0],this.bfColor[1],this.bfColor[2]);
+		redShader = new RGBColor(this.dadColor[0],this.dadColor[1],this.dadColor[2]);
+
+		@:privateAccess greenBar.shader = greenShader.shader;
+		@:privateAccess redBar.shader = redShader.shader;
+		
+
+		createImageEmptyBar(redBar);
+		createImageFilledBar(greenBar);
+
 
 		scale.set(1.43, 1.43);
 		
@@ -5087,6 +5140,8 @@ class FNFHealthBar extends FlxBar{
 			1300,
 			y - 21
 		);
+
+		barBorder.setPosition(x,y);
 
 		//
 		antialiasing = ClientPrefs.globalAntialiasing;
@@ -5144,6 +5199,7 @@ class FNFHealthBar extends FlxBar{
 		healthBarBG.alpha = 0;
 
 		healthBarBG.setPosition(x - 5, y - 5);
+		barBorder.setPosition(x, y);
 
 		if (iconScale != 1){
 			iconScale = FlxMath.lerp(1, iconScale, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
