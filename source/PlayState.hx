@@ -950,7 +950,7 @@ class PlayState extends MusicBeatState
 					end
 					
 					doTweenY("gfYup", "gf", defaultGirlfriendY + 100, 3, "sineInOut")
-					doTweenY("dadYup", "dad", defaultOpponentY - 100, 3, "sineInOut")
+					if (getProperty("dad.curCharacter") == "caine") then doTweenY("dadYup", "dad", defaultOpponentY - 100, 3, "sineInOut") end
 
 					setProperty("dad.cameraPosition[0]", getProperty "dad.cameraPosition[0]" - 70, false)
 					end
