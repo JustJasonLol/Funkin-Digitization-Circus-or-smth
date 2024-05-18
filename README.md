@@ -13,3 +13,4 @@ after it finishes, simply type `haxelib run hmm install` in order to install all
 
 # description:
 ummm, we need a description for this or this is completly private?
+nope its public
